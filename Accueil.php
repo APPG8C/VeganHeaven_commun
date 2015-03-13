@@ -4,11 +4,11 @@
 
 		<?php 
 		include("Entete.php");
+		setPunchLine($Accueil,true,$texte1="Vegan Heaven",$texte2="Besoin d'un bon avocat ?");
 		setTitle($Accueil,true,$texte="Bienvenue sur Vegan Heaven !");
 		include("Menu.php");
 		?>
 		
-        
     </head>
 
      <body>

@@ -6,9 +6,7 @@
             <link rel="stylesheet" href="StyleGraphique.css" />
 
             <header class="header">
-                
-            	<h1 class="adresse">VeganHeaven.com</h1>
-                <h2 class="slogan">Besoin d'un bon avocat ?</h2>
+			
 			<?php
 				$Accueil=false;
 				$Offres=false;
