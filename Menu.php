@@ -2,7 +2,7 @@
         <nav>
             <!--<img src="bloggif_54ddf2c4e18c5.jpeg"  alt="Logo VeganHeaven" />-->
             <link rel="stylesheet" href="StyleGraphique.css" />
-
+            <img class="logo" src="images/VeganHeavenCherry_thumb.png" alt="image flottante"/>
             <p>
             <ul>
                 <!--<li> <img src="images/VeganHeavenCherry_thumb.png" alt="image flottante"/>-->
