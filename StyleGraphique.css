@@ -165,3 +165,13 @@ body
     width: 100px;
     margin: auto;
 }
+/************************Pied-de-page************************/
+.footers
+{
+background-color: #333b33;
+}
+.Copyright
+{
+color:white;
+text-align: center;
+}
