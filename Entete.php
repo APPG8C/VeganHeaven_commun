@@ -2,8 +2,6 @@
 
         
             <link rel="stylesheet" href="StyleGraphique.css" />
-			
-            <link rel="stylesheet" href="StyleGraphique.css" />
 
             <header class="header">
 			
@@ -13,6 +11,7 @@
 				$Forum=false;
 				$aPropos=false;
 				$Connexion_Inscription=false;
+				$InformationMembres=false;
 				include("fonction.php");
 			?>
 

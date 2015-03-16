@@ -6,17 +6,17 @@
 		include("Entete.php");
 		setPunchLine($Accueil,true,$texte1="Vegan Heaven",$texte2="Besoin d'un bon avocat ?");
 		setTitle($Accueil,true,$texte="Bienvenue sur Vegan Heaven !");
-		include("Menu.php");
+		
 		?>
 		
     </head>
 
      <body>
-            <section>
-
-            </section>  
-
-            <img class="couverture" src="images/photoCouverture2.jpg" alt="Couverture"/>
+		<?php 
+			include("Menu.php");
+			setImage($Accueil,true,$Image="images/photoCouverture2.jpg");
+			
+		?>
             <section>
             
             <h1>Bienvenue au paradis des légumes et des fruit!</h1>
@@ -28,9 +28,10 @@
                 soient rasasiées. Vous pourrez en temps que membre publiez les photographies et atout de vos propres légume afin de  
                 les échanger avec notre communauté multiculturelle.
             </p>
-            
-
             </section>
+			<?php 
+			include("Carousel.php");
+			?>
         </div>
 		<?php include("PiedDePage.php");?>
     </body>

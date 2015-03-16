@@ -20,3 +20,11 @@ function setPunchLine($page,$valeur,$texte1,$texte2){
 	}
 }
 ?>
+<?php
+function setImage($page,$valeur,$Image){
+	$page=$valeur;
+	if ($valeur=true){
+		echo "<img class='couverture' src='$Image' alt='Couverture'/>";
+	}
+}
+?>
