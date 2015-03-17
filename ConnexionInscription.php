@@ -11,12 +11,10 @@
         <div>
        <?php include("Menu.php");?>
         </div>
-			<form class="connexion" action="InformationMembres.php" method="POST">
-			<legend><h2>Connexion</h2></legend>
-				<label>Email : <input type="string" name="email"/></label>
-				<label>Mot de passe : <input type="string" name="MotdePasse"/></label>
-			</form>
 		<section>
+		<table>
+		<tr>
+			<td>
 			<form action="InformationMembres.php" method="POST">
 			<legend><h2>Inscription</h2></legend>
 				<label>Nom : <input type="text" name="NOM"/></label>				
@@ -29,10 +27,19 @@
 				<label>Adresse email: <input type="string" name="AdresseEmail"/></label>
 				<label>Mot de passe : <input type="string" name="MotDePasse"/></label>
 				<label>Confirmation du mot de passe : <input type="string" name="ConfirmationMDP"/></label>
-			<p><input type="submit"/></p>
-		
+			<p><input type="submit"class="controls"/></p>
 			</form>
-	
+			</td>
+			<td>
+			<form class="connexion" action="InformationMembres.php" method="POST">
+			<legend><h2>Connexion</h2></legend>
+				<label>Email : <input type="string" name="email"/></label>
+				<label>Mot de passe : <input type="string" name="MotdePasse"/></label>
+				<p><input type="submit"class="controls"/></p>
+			</form>
+			</td>
+		</tr>
+		</table>
 		</section>
 		<?php include("PiedDePage.php");?>
      </body>

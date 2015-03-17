@@ -3,8 +3,15 @@
     <head>
 		<?php 
 		include("Entete.php");
+		if(isset($_POST['Prenom'])){
 		setPunchLine($InformationMembres,true,$texte1="Vos données Personnelles",htmlspecialchars($texte2=$_POST['Prenom']));
 		setTitle($Connexion_Inscription,true,$texte="Bienvenu(e)!!");
+		}
+		else{
+		setPunchLine($InformationMembres,true,$texte1="Vos données Personnelles",$texte2="");
+		setTitle($Connexion_Inscription,true,$texte="Bienvenu(e)!!");
+		}
+		
 		?>
     </head>
      <body>

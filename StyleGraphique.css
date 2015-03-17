@@ -1,5 +1,4 @@
 
-
 /***********************EN-TETE********************/
 .header
 {
@@ -31,6 +30,7 @@
     text-align: center;
     margin-bottom: 2em;    
 }
+/************************FIN EN-TETE************************/
 /************************MENU************************/
 nav
 {
@@ -68,6 +68,7 @@ nav a
 .logo
 {
    float: left;
+   padding
 }
 
 a:hover
@@ -166,12 +167,17 @@ body
     width: 100px;
     margin: auto;
 }
+
+
+/************************FIN CORP************************/
+/************************Inscription/Connexion************************/
+
 form 
 {
  background-color:#FAFAFA;
  padding:100px;
  width:350px;
- margin-left: 150px;
+ margin-left:50px;
  }
  legend 
  {
@@ -180,31 +186,32 @@ form
  font-weight:bold
  
  }
-label
-{
-margin-top:10px;
-display:block;
-margin-left: 50px;
-
-}
-input
-{
-margin-left: 100px;
-text-align: justify;
-}
 .connexion
 {
 background-color:#FAFAFA;
 padding:100px;
 width:300px;
 display:block;
-margin-left:700px;
+margin-left:100px;
+margin-bottom:385px;
 }
+ 
+label
+{
+margin-top:10px;
+display:block;
+
+}
+input
+{
+margin-right:200px;
+text-align: justify;
+}
+/************************FIN Inscription/Connexion************************/
+/************************Carroussel************************/
 .carrousel ul 
 {
-	
     margin-left: 100px;
-    
 }
 .carrousel
 {
@@ -222,9 +229,8 @@ width:500px;
   background: #333b33;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-  margin-left:350px;
+  
 }
-
 .controls:hover {
   background: #16a085;
   text-decoration: none;
@@ -244,6 +250,7 @@ margin-left:400px;
  position:right;
  max-width:100%;
 }
+/************************Fin du Carrousel************************/
 /************************Pied-de-page************************/
 .footers
 {
