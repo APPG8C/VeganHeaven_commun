@@ -4,19 +4,13 @@
 
 		<?php 
 		include("Entete.php");
-		setPunchLine($Accueil,true,$texte1="Vegan Heaven",$texte2="Besoin d'un bon avocat ?");
-		setTitle($Accueil,true,$texte="Bienvenue sur Vegan Heaven !");
-		
+		setTitle($Accueil,true,$texte="Vegan Heaven !",$texte2="Besoin d'un bon avocat ?");
 		?>
 		
     </head>
 
      <body>
-		<?php 
-			include("Menu.php");
-			setImage($Accueil,true,$Image="images/photoCouverture2.jpg");
-			
-		?>
+	
             <section>
             
             <h1>Bienvenue au paradis des légumes et des fruit!</h1>

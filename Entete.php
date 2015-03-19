@@ -1,9 +1,7 @@
 <meta charset="utf-8" />
 
-        
-            <link rel="stylesheet" href="StyleGraphique.css" />
-
             <header class="header">
+			<link rel="stylesheet" href="StyleGraphique.css" />
 			
 			<?php
 				$Accueil=false;
@@ -14,9 +12,7 @@
 				$InformationMembres=false;
 				include("fonction.php");
 			?>
-
-            	
-
+	
             <!--<style>
             #cadreHaut
             {

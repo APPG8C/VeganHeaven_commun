@@ -3,14 +3,10 @@
     <head>
        <?php 
 		include("Entete.php");
-		setPunchLine($aPropos,true,$texte1="Aide en ligne",$texte2="Souriez vous êtes accompagné");
-		setTitle($aPropos,true,$texte="Aide en ligne");
+		setTitle($aPropos,true,$texte="Mention Légales",$texte2="Les règles de bienséance");
 		?>
     </head>
      <body>
-        <div>
-       <?php include("Menu.php");?>
-        </div>
 		<div>
 
 				<div>

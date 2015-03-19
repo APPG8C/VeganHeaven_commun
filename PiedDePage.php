@@ -1,9 +1,9 @@
 <footer class="footers">
 <nav>
-	<ul class="menu">
-		<li><a href="AideEnligne.php">Aide en ligne</a></li>
-		<li><a href="MentionsLegales.php">Mentions Légales</a></li>
-		<li><a href="Contacts.php">Contacts</a></li>
+	<ul class="PiedDePage">
+		<li class='men'><a href="AideEnligne.php">Aide en ligne</a></li>
+		<li class='men'><a href="MentionsLegales.php">Mentions Légales</a></li>
+		<li class='men'><a href="Contacts.php">Contacts</a></li>
 </nav>
 	<p class="Copyright">
 	ALL RIGHT RESERVED | PHOTO BY PHOTOGRAPH

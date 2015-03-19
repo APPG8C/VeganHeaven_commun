@@ -5,10 +5,12 @@
      /*background-color: #cdbbbb;*/
      /*background-color: #16a085; vert turquoise*/
      /*background-color: #3e4440; gris foncé*/
-     background-color: #333b33;
+     /*background-color: #333b33;*/
+	 background-repeat:no-repeat;
+	 background-image:url("images/photoCouverture2.jpg");
      /*border: 3px black solid;*/
-     padding-bottom: 0.9em;
-     padding-top: 0.5em;
+     
+     padding-top: 0.3em;
 }
 	
 
@@ -18,7 +20,8 @@
     top:30px;
     color: white;
     font-family: arial;
-    text-align:center;
+    text-align:Left;
+	margin-left:3em;
     margin-top: 2em;
     text-transform: uppercase;
 }
@@ -27,41 +30,49 @@
 {
     font-size: 40px;
     color: white;
-    text-align: center;
-    margin-bottom: 2em;    
+    text-align:left;
+	margin-left:5em;
+    margin-bottom: 4em;    
 }
 /************************FIN EN-TETE************************/
 /************************MENU************************/
-nav
-{
-    background-color: #16a085;
-    font-size: 15px;
-    /*border:3px black solid;*/
-    width:100%;
-}
+
 .menu
 {
- background-color: #16a085;
+ 
  display: inline-block;
  text-align: center;
- padding:20px;
- font-family: helvetica;
+ font-family: arial;
  
+ 
+}
+.MenuDeroulant
+{
+ margin:auto;
+ margin-bottom:10px;
+ background-color:white;
 }
 
 nav li
 {
     display: inline-block;
-    margin-right: 100px;
-    
+    margin-left: 30px;
+   
 }
 
-nav a
+.men
 {
-    font-size: 1.3em;
-    color: #181818;
-    padding-bottom: 3px;
-    text-decoration: none;
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  text-shadow: 1px 1px 2px #ffffff;
+  font-family: Arial;
+  color: #faf7fa;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #dddfe0 1px;
+  text-decoration: none;
+  
 	
 }
 
@@ -71,9 +82,10 @@ nav a
    padding
 }
 
-a:hover
+.men :hover
 {
-    color: #6f7470;
+  color: #333b33;
+ background: #ffffff;
 }
 
 .couverture
@@ -89,6 +101,8 @@ h1
 ul li a
 {
     color: white;
+	font-size: 17px;
+	text-decoration: none;
 }
 div
 {
@@ -261,4 +275,40 @@ text-align: center;
 {
 color:white;
 text-align: center;
+}
+/************************Essai************************/
+#menu-deroulant, #menu-deroulant ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#menu-deroulant li {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+}
+#menu-deroulant ul li {
+/* on enlève ce comportement pour les liens du sous menu */
+    display: inherit;
+}
+#menu-deroulant a {
+    text-decoration: none;
+    display: block;
+	color:#000;
+}
+#menu-deroulant ul {
+    position: absolute;
+/* on cache les sous menus complètement sur la gauche */
+    left: -999em;
+    text-align: left;
+	
+}
+#menu-deroulant li:hover ul {
+/* Au survol des li du menu on replace les sous menus */
+    left: auto;
+}
+#menu-deroulant ul
+{
+position:absolute;
+
 }
