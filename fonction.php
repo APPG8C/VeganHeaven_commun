@@ -16,13 +16,14 @@ function setTitle($page,$valeur,$texte,$texte2){
                 <li class='men'><a href='FAQ.php'>A propos</a></li>
                 <li class='men'><a href='Forum.php'>Forum</a></li>
                 <li class='men'><a href='ConnexionInscription.php'>Connexion/Inscription</a></li>
+					
 					<ul id='menu-deroulant' class='menu'>
 						<li class='men'><a href='MonEspace.php'>Mon espace</a>
-							<ul class='MenuDeroulant'>
-								<li class='men'><a href='PageDeProfil.php'>Page de profil</a></li>
-								<li class='men'><a href='MonCompte.php'>Mon compte</a></li>
-								<li class='men'><a href='MesTransactions.php'>Mes transactions</a></li>
-								<li class='men'><a href='Deconnexion'>Se déconnecter</a></li>
+							<ul>
+								<p><li class='MenuDeroulant'><a href='PageDeProfil.php'>Page de profil</a></li>
+								<li class='MenuDeroulant'><a href='MonCompte.php'>Mon compte</a></li>
+								<li class='MenuDeroulant'><a href='MesTransactions.php'>Mes transactions</a></li>
+								<li class='MenuDeroulant'><a href='Deconnexion'>Se déconnecter</a></li></p>
 							</ul>
 						</li>
 					</ul>

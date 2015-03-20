@@ -27,7 +27,7 @@
 			</form>
 			</td>
 			<td>
-			<form class="connexion" action="InformationMembres.php" method="POST">
+			<form action="InformationMembres.php" method="POST"class="connexion">
 			<legend><h2>Connexion</h2></legend>
 				<label>Email : <input type="string" name="email"/></label>
 				<label>Mot de passe : <input type="string" name="MotdePasse"/></label>

@@ -48,10 +48,20 @@
 }
 .MenuDeroulant
 {
- margin:auto;
- margin-bottom:10px;
- background-color:white;
+  margin:auto;
+ -webkit-border-radius: 7;
+ -moz-border-radius: 7;
+  border-radius: 7px;
+  text-shadow: 1px 1px 2px #007500;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #dddfe0 ;
+  text-decoration: none;
+  background: #ffffff;
+  position:relative;
 }
+
 
 nav li
 {
@@ -72,8 +82,11 @@ nav li
   padding: 10px 20px 10px 20px;
   border: solid #dddfe0 1px;
   text-decoration: none;
-  
-	
+
+}
+.men :hover
+{
+  color: #007500;
 }
 
 .logo
@@ -82,11 +95,7 @@ nav li
    padding
 }
 
-.men :hover
-{
-  color: #333b33;
- background: #ffffff;
-}
+
 
 .couverture
 {
@@ -101,7 +110,7 @@ h1
 ul li a
 {
     color: white;
-	font-size: 17px;
+	font-size: 18px;
 	text-decoration: none;
 }
 div
@@ -156,14 +165,6 @@ aside
     float: left;
 }
 
-
-.1
-{
-	text-align: right;
-}
-
-
-
 body
 {
     color: black;
@@ -171,11 +172,7 @@ body
 	width: 100%;
 }
 
-.Menu:hover
-{
-    color: green;
-    border-bottom: 3px solid green;
-}
+
 .bloc_page
 {
     width: 100px;
@@ -291,10 +288,10 @@ text-align: center;
 /* on enlève ce comportement pour les liens du sous menu */
     display: inherit;
 }
-#menu-deroulant a {
+#menu-deroulant .MenuDeroulant {
     text-decoration: none;
     display: block;
-	color:#000;
+	color:#007500;
 }
 #menu-deroulant ul {
     position: absolute;
@@ -306,6 +303,7 @@ text-align: center;
 #menu-deroulant li:hover ul {
 /* Au survol des li du menu on replace les sous menus */
     left: auto;
+	
 }
 #menu-deroulant ul
 {
