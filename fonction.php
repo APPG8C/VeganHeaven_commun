@@ -43,3 +43,16 @@ function setImage($page,$valeur,$Image){
 	}
 }
 ?>
+
+<?php
+/*
+function redimensioner($Image,$width,$height,$CoordonneeXduPointdeDestination, $CoordonneeYduPointdeDestination, $CoordonneeXduPointSource,$CoordonneeYduPointSource,$LargeurImageDepart, $HauteurImageDepart,$fichier){
+$NouvelleImage = imagecreatefromjpeg ($Image);
+$TailleImage = getimagesize ($Image);
+$ImageEnCouleursVraies = imagecreatetruecolor($width,$height);
+imagecopyresampled($NouvelleImage, $Image, $CoordonneeXduPointdeDestination, $CoordonneeYduPointdeDestination, $CoordonneeXduPointSource, $CoordonneeYduPointSource, $width, $height, $LargeurImageDepart, $HauteurImageDepart);
+imagedestroy($ImageChoisie);
+imagejpeg($NouvelleImage, $fichier, 100);
+}
+redimensioner('PommeCouverture.jpg','2538','826','0','0','0','0','759','353','C:\Program Files (x86)\EasyPHP-DevServer-14.1VC11\data\localweb\projects\VeganHeaven\images');*/
+?>

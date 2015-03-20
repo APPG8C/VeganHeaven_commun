@@ -7,10 +7,9 @@
      /*background-color: #3e4440; gris foncé*/
      /*background-color: #333b33;*/
 	 background-repeat:no-repeat;
-	 background-image:url("images/photoCouverture2.jpg");
+	 background-image:url("images/Cerise.jpg");
      /*border: 3px black solid;*/
-     
-     padding-top: 0.3em;
+     padding-top: 0.05em;
 }
 	
 
@@ -58,7 +57,7 @@
   padding: 10px 20px 10px 20px;
   border: solid #dddfe0 ;
   text-decoration: none;
-  background: #ffffff;
+  background:#B6D85A;
   position:relative;
 }
 
@@ -77,7 +76,6 @@ nav li
   border-radius: 7px;
   text-shadow: 1px 1px 2px #ffffff;
   font-family: Arial;
-  color: #faf7fa;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   border: solid #dddfe0 1px;
@@ -291,7 +289,7 @@ text-align: center;
 #menu-deroulant .MenuDeroulant {
     text-decoration: none;
     display: block;
-	color:#007500;
+	
 }
 #menu-deroulant ul {
     position: absolute;
