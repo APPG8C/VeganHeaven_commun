@@ -1,43 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-		<?php 
-		include("Entete.php");
-		setTitle($Connexion_Inscription,true,$texte="Inscription et Connexion",$texte2="Rejoignez-nous");
-		?>
-    </head>
-     <body>
-		<section>
-		<table>
-		<tr>
-			<td>
-			<form action="InformationMembres.php" method="POST">
-			<legend><h2>Inscription</h2></legend>
-				<label>Nom : <input type="text" name="NOM"/></label>				
-				<label>Prénom : <input type="text" name="Prenom"/></label>			
-				<label>Ville actuelle : <input type="text" name="VilleActuelle"/></label>
-				<label>Adresse : <input type="string" name="Adresse"/></label>
-				<label>Date de naissance : <input type="string" name="DateDeNaissance"/></label>
-				<label>Téléphone mobile: <input type="int" name="TelephoneMobile"/></label>
-				<label>Téléphone fixe: <input type="int" name="TelephoneFixe"/></label>
-				<label>Adresse email: <input type="string" name="AdresseEmail"/></label>
-				<label>Mot de passe : <input type="string" name="MotDePasse"/></label>
-				<label>Confirmation du mot de passe : <input type="string" name="ConfirmationMDP"/></label>
-			<p><input type="submit"class="controls"/></p>
-			</form>
-			</td>
-			<td>
-			<form action="InformationMembres.php" method="POST"class="connexion">
-			<legend><h2>Connexion</h2></legend>
-				<label>Email : <input type="string" name="email"/></label>
-				<label>Mot de passe : <input type="string" name="MotdePasse"/></label>
-				<p><input type="submit"class="controls"/></p>
-			</form>
-			</td>
-		</tr>
-		</table>
-		</section>
-		<?php include("PiedDePage.php");?>
-     </body>
+<?php
+session_start();
+$bdd= new PDO('mysql:host=localhost;dbname=site','root','');
 
-    </html>
+if(!empty($_GET['page']) AND is_file('controleur/'.$_GET['page'].'php'))
+{
+	include('controleurs/ConnexionInscriptionControleurs.php');
+	include('vues/PiedDePage.php');	
+}
+else
+{
+	include('controleurs/ConnexionInscriptionControleurs.php');
+	include('vues/PiedDePage.php');	
+}
+?>

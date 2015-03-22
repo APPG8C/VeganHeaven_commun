@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-       <?php 
-		include("Entete.php");
-		setTitle($aPropos,true,$texte="Aide en ligne",$texte2="Souriez vous êtes accompagné");
-		?>
-    </head>
-     <body>
-		<?php include("PiedDePage.php");?>
-     
-     </body>
-    </html>
+<?php
+session_start();
+$bdd= new PDO('mysql:host=localhost;dbname=site','root','');
+
+if(!empty($_GET['page']) AND is_file('controleur/'.$_GET['page'].'php'))
+{
+	include('controleurs/FAQControleurs.php');
+	include('vues/PiedDePage.php');	
+}
+else
+{
+	include('controleurs/FAQControleurs.php');
+	include('vues/PiedDePage.php');	
+}
+?>

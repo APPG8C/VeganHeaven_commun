@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-    <head>
-       <?php 
-		include("Entete.php");
-		setTitle($Forum,true,$texte="Voici les offres",$texte2="Fruit-yez, Pauvre fous !");
-		?>
-    </head>
-     <body>
-		<?php 
-			setImage($Accueil,true,$Image="images/Offres.jpeg");
-		?>
-		
-		<?php include("PiedDePage.php");?>
-     
-     </body>
-    </html>
+<?php
+session_start();
+$bdd= new PDO('mysql:host=localhost;dbname=site','root','');
+
+if(!empty($_GET['page']) AND is_file('controleur/'.$_GET['page'].'php'))
+{
+	include('controleurs/RechercheControleurs.php');
+	include('vues/PiedDePage.php');	
+}
+else
+{
+	include('controleurs/RechercheControleurs.php');
+	include('vues/PiedDePage.php');	
+}
+?>

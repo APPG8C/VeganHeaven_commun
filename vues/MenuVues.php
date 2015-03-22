@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
-
-		<?php 
-		include("Entete.php");
-		setTitle($Accueil,true,$texte="Vegan Heaven !",$texte2="Besoin d'un bon avocat ?");
-		?>
-		
-    </head>
-
-     <body>
-	
+		<body>
             <section>
-            
             <h1>Bienvenue au paradis des légumes et des fruit!</h1>
             <p class="dessous" class="1">
                 <article>
@@ -23,10 +12,6 @@
                 les échanger avec notre communauté multiculturelle.
             </p>
             </section>
-			<?php 
-			include("Carousel.php");
-			?>
         </div>
-		<?php include("PiedDePage.php");?>
     </body>
-    </html>
+</html>
