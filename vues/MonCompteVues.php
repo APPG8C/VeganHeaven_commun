@@ -26,10 +26,11 @@
                             element 1
                         </td>
                         <td>
-                            element 1
+                            <img  src='images/VeganHeavenCherry_thumb.png' />
                         </td>
                         <td>
-                            element 1
+						<img  src='images/Cerise.jpg' width="120px"/>
+         
                         </td>
 						<td >
                             element 1
@@ -102,5 +103,8 @@
                         </td>
                     </tr>
                 </table>
+				<p class="annonce"><a href="CreationOffre.php"type="submit"class="controls"/>Creér une annonce</a><p>
             </div>
+			
+			
      </body>

@@ -5,9 +5,10 @@
 		
 	}
 	else{
-		setPunchLine($texte="Vos données Personnelles",$texte2="");
+		setTitle($texte="Vos données Personnelles",$texte2="");
 		
 	}
 	include('/../vues/InformationMembresVues.php');
+	include('/../modeles/InformationMembresModeles.php');
 	
 ?>
