@@ -241,6 +241,42 @@ margin-right:200px;
 text-align: justify;
 }
 /************************FIN Inscription/Connexion************************/
+/************************ Barre de recherche/ les offres ******************/
+#divGlobal
+{
+  width: 100%;
+  margin-bottom: 550px;
+}
+#divGlobal #MenuCentre
+{
+display: inline-block;
+float: left;  
+width: 40%;
+margin-bottom: 5%;
+margin-bottom: 4em;
+border: 2px;
+}
+
+#divGlobal #rechercheOffre
+{
+display: inline-block;
+width: 60% ; 
+float: left;
+margin-bottom: 4em;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/************************fin barre de recherche/ les offres ****************/
 /************************Carroussel************************/
 .carrousel ul 
 {
