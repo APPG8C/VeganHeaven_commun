@@ -421,3 +421,80 @@ position:absolute;
 	border-width:0px 0px 1px 1px;
 }
 
+/*CSS pour la page profil*/
+
+.div {
+    display: inline-block;
+    word-wrap: break-word;
+}
+
+#profil {
+    word-wrap: break-word;
+}
+ 
+#image {
+    height:70px;
+    width: 70px;
+    float: right;
+    margin-top: -73px;
+    margin-right: 35px;
+    border-radius: 100%;
+    border: 3px solid black;
+}
+
+#header{
+    height: 60px;
+    width: 100%;
+    z-index: 1;
+    margin-top: -5;
+    border-bottom: 1px dashed black;
+  }
+
+#photoleft {
+ margin-left: 55px;
+ height: 160px;
+
+}
+
+
+.left{
+    height: 800px;
+    width: 20%;
+    background-color: #7FC6BC;
+    float: left;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 10px;
+}
+
+.right {
+    height: 800px;
+    width: 20%;
+    background-color: #7FC6BC;
+    float: right;
+    margin-bottom: 10px;
+    position: absolute;
+    right: 10px;
+}
+
+.center {
+    height:800px;
+    width: 55%;
+    background-color: #EFECCA;
+    margin-bottom: 10px;
+    position: relative;
+    
+}
+
+.titles {
+    text-align: center;
+    text-decoration: underline;
+    color: black;
+    }
+    
+#vous {
+      margin: 0px 5px 5px 40px;
+}
+
+/*Fin CSS page de profil*/
+
