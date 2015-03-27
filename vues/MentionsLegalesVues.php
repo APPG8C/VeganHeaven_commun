@@ -5,7 +5,7 @@
 
 				<div>
 	
-					<h1><strong>FAQ</strong></h1>
+					<h1><strong>Charte</strong></h1>
 
 				</div>
 

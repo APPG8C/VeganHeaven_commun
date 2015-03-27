@@ -10,5 +10,6 @@
 	}
 	include('./vues/InformationMembresVues.php');
 	include('./modeles/InformationMembresModeles.php');
+	include('vues/PiedDePage.php');
 	
 ?>
