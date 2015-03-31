@@ -15,7 +15,7 @@
 			<div class='form-title'>fruits/légumes: </div>
 			<input class='form-field' type='text' name='categorie-fruits' /><br />
 			<div class='submit-container'>
-			<input class='submit-button' type='submit' value='rechercher' />				
+			<input class='submit-button' id='submit-button-search' type='submit' value='rechercher' />				
 		</div>
 
 

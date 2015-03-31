@@ -456,7 +456,7 @@ font-family: Arial;
   margin-top: -4em;
   background-color: #F4EAE2; 
 }
-.submit-button
+#submit-button-search
 {
   float:left;
 }
@@ -472,9 +472,6 @@ font-family: Arial;
   margin-bottom: 10em;
   z-index: 2;
 }
-
-
-/************************ fin barre de recherche/ les offres ***********/
 /************************Essai3************************/
 .form-container {
    border: 1px solid #000000;

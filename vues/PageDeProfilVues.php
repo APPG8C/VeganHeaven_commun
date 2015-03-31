@@ -7,12 +7,12 @@
     <body> 
         <div id="header">
             <h1 class="titles" id="votre">Ma page de profil</h1>
-            <img id="image" src="images\contact.gif"/>
+            <img id="image" src="images/contact.gif"/>
         </div>
         
         <div class="left" class="dive">
             <h2 class="titles">Moi</h2>
-            <img id="photoleft" src="images\contact.gif"/>
+            <img id="photoleft" src="images/contact.gif"/>
 
             <h4 style="text-align:center">Date d'inscription: 23/03/2015</h4>
 
@@ -53,19 +53,19 @@
 
                 <tbody>
                     <tr>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
                     </tr>
                     <tr>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
                     </tr>
                     <tr>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
-                        <td><a href=""><img class="imagecontact" src="images\contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
+                        <td><a href=""><img class="imagecontact" src="images/contact.gif"></a></td>
                     
                     </tr>
                     <tr>
@@ -104,7 +104,7 @@
                 <tbody>
                     <tr>
                         <td>
-                             <img id="mapphoto" src="images\map.PNG"/>
+                             <img id="mapphoto" src="images/map.png">
                         </td>
                     </tr>
                 </tbody>
