@@ -578,7 +578,11 @@ font-family: Arial;
    }
 
 
-   /*CSS pour la page de profil*/
+    /*CSS pour la page de profil*/
+
+   #bodyprofil {
+    font-family: arial;
+   }
 
 .dive {
     display: inline-block;
@@ -618,7 +622,7 @@ font-family: Arial;
 .left{
     height: 650px;
     width: 25%;
-    background-color: #7FC6BC;
+    background-color: #B6D85A;
     float: left;
     position: absolute;
     left: 10px;
@@ -629,7 +633,7 @@ font-family: Arial;
 .right {
     height: 650px;
     width: 25%;
-    background-color: #7FC6BC;
+    background-color: #B6D85A; /*#7FC6BC*/
     float: right;
     border-bottom-right-radius: 28px;
     border-top-right-radius: 28px;
@@ -651,7 +655,7 @@ color: #000000;
 .center {
     height: 650px;
     width: 50%;
-    background-color: #EFECCA;
+   /* background-color: #EFECCA;*/
     float:left;
     float:right;
 }
@@ -685,8 +689,9 @@ color: #000000;
 }
 
 #tablecontact {
+  color: white;
   border: #000000 1px solid;
-  background-color: #046380;
+  background-color: #CF0A1D;/*#046380*/
   margin-right: 10px;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -696,7 +701,7 @@ color: #000000;
 }
 
 #tablemodification:hover {
-  font-size: 13px;
+  font-size: 11px;
 }
 
 #tablemodification {

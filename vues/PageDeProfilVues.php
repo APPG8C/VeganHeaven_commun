@@ -4,7 +4,7 @@
         <title>Mon profil</title>
     </head>
 
-    <body> 
+    <body id="bodyprofil"> 
         <div id="header">
             <h1 class="titles" id="votre">Ma page de profil</h1>
             <img id="image" src="images/contact.gif"/>
@@ -69,7 +69,7 @@
                     
                     </tr>
                     <tr>
-                        <td colspan="3" style="text-align:center; text-decoration:underline none; font-size:12px"><strong><a id="tablemodification" href="">Ajouter/supprimer des contacts préférés</a></strong></td>
+                        <td colspan="3" style="text-align:center; text-decoration:underline none; font-size:12px;"><strong><a style="color:white" id="tablemodification" href="">Ajouter/supprimer des contacts préférés</a></strong></td>
                     </tr>
                 </tbody>
             </table>
@@ -104,7 +104,7 @@
                 <tbody>
                     <tr>
                         <td>
-                             <img id="mapphoto" src="images/map.png">
+                             <img id="mapphoto" src="images\map.PNG"/>
                         </td>
                     </tr>
                 </tbody>
