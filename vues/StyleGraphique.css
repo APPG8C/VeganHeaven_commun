@@ -170,9 +170,9 @@ aside
 
 body
 {
-    color: black;
+  color: black;
 	max-width:100%;
-	background-color:#F4EAE2
+	background-color: #F4EAE2;
 }
 .annonce
 {
@@ -284,10 +284,11 @@ margin-left:400px;
  max-width:100%;
 }
 /************************Fin du Carrousel************************/
+
 /************************Pied-de-page************************/
 .footers
 {
-
+z-index: 100;
 text-align:center;
 border-radius:28px;
 background: #b21a00; /* Old browsers */
@@ -420,6 +421,60 @@ position:absolute;
 .TabTransactions tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
 }
+
+/************************ Barre de recherche/ les offres ******************/
+#divGlobal
+{
+  width: 100%;
+  
+}
+#divGlobal #MenuCentre
+{
+display: inline-block;
+float: left;  
+width: 40%;
+margin-bottom: 5%;
+border: 2px;
+font-family: Arial;
+}
+
+#divGlobal #rechercheOffre
+{
+display: inline-block;
+width: 60% ; 
+float: left;
+margin-bottom: 4em;
+font-family: Arial;
+}
+
+.liste-categorie
+{
+  color:red;
+}
+.formulaire-recherche
+{
+  margin-top: -4em;
+  background-color: #F4EAE2; 
+}
+.submit-button
+{
+  float:left;
+}
+#recherche-titre
+{
+  color: #DF3F3F;
+}
+
+#divGlobal
+{ 
+  margin: 5px;
+  border: 1px black solid;
+  margin-bottom: 10em;
+  z-index: 2;
+}
+
+
+/************************ fin barre de recherche/ les offres ***********/
 /************************Essai3************************/
 .form-container {
    border: 1px solid #000000;
