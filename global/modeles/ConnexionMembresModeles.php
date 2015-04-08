@@ -1,18 +1,19 @@
 <?php
-	include('MenuModeles.php');
 	$user=$_POST['user'];
 	$pass=$_POST['pass'];
 if($user!=NULL AND $pass!=NULL)
 {
+	$passh=crypt($pass);
 	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','');
 	$requete=$bdd->prepare('SELECT`password`FROM users WHERE`username`=?');
 	$requete->execute(array($user));
 	$reponse=$requete->fetch();
-	if($pass==$reponse['password'])
+	$passh1=$reponse['password'];
+	
+	if($passh=$passh1)
 	{
 	session_start();
-	$_SESSION['utilisateur'] = $MembreConnecté;
-	header("Location:../PageDeProfil/PageDeProfil.php");
+	header("Location:PageDeProfil.php");
 	}
 	else 
 	{

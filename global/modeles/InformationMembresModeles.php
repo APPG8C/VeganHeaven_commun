@@ -1,9 +1,6 @@
 
 <?php
-    $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','');
-	/*$reponse = $bdd->query('SELECT * FROM users');
-	while ($donnees = $reponse->fetch())
-	echo $donnees['username'];	*/
+   $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','');
    $username=$_POST['username'];
    $password1=$_POST['password'];
    $password2=$_POST['repeatpassword'];
@@ -14,12 +11,14 @@
   
        if(filter_var($AdresseEmail, FILTER_VALIDATE_EMAIL))
        {
+		  
         if(($password1 === $password2))
           {
+			$passwordh=crypt($password1); 
 			$request = $bdd->query("INSERT INTO `membre`.`users` (`id`, `username`, `password`,`DateDeNaissance`,`TelephoneMobile`,`TelephoneFixe`,`AdresseEmail`) VALUES (
 			NULL,
 			'$username',
-			'$password1',
+			'$passwordh',
 			'$DateDeNaissance',
 			'$TelephoneMobile',
 			'$TelephoneFixe',
@@ -31,7 +30,7 @@
 			
 		  else
 		{
-          echo'Echec de validation du mot de passe';
+          echo"Echec de validation du mot de passe";
 		} 
       }
 	
