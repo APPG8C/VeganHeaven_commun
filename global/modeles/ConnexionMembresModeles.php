@@ -1,23 +1,22 @@
 <?php
 	$user=$_POST['user'];
 	$pass=$_POST['pass'];
+	$membreConnecte=false;
 if($user!=NULL AND $pass!=NULL)
 {
-	$passh=crypt($pass);
 	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','');
 	$requete=$bdd->prepare('SELECT`password`FROM users WHERE`username`=?');
 	$requete->execute(array($user));
 	$reponse=$requete->fetch();
-	$passh1=$reponse['password'];
-	
-	if($passh=$passh1)
+	$passh=$reponse['password'];
+
+	if(password_verify($pass,$passh))
 	{
 	session_start();
-	header("Location:PageDeProfil.php");
+	$membreConnecte=true;
 	}
 	else 
 	{
-		
 	echo'Mot de passe ou identifiant invalide';
 	}
 }

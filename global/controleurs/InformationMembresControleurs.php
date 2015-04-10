@@ -1,13 +1,6 @@
 <?php 
-	if(isset($_POST['Prenom'])){
-		
-		
-	}
-	else{
-		
-		
-	}
-	include('./vues/InformationMembresVues.php');
+
 	include('./modeles/InformationMembresModeles.php');
+	include('./vues/PageDeProfilVues.php');
 	
 ?>

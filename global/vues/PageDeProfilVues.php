@@ -1,12 +1,16 @@
 
     <section id="bodyprofil"> 
         <div id="header">
-            <h1 class="titles" id="votre">Ma page de profil</h1>
+			<?php 
+            echo"<h1 class='titles' id='votre'>Bonjour $username</h1>";
+			?>
             <img id="image" src="vues/images/Contact.gif"/>
         </div>
         
         <div class="left" class="dive">
-            <h2 class="titles">Moi</h2>
+            <?php 
+				echo"<h2 class='titles'>$username</h2>";
+			?>
             <img id="photoleft" src="vues/images/Contact.gif"/>
 
             <h4 style="text-align:center">Date d'inscription: 23/03/2015</h4>
@@ -78,18 +82,21 @@
                     <li>Âge</li>
                 </ul>
 
-
-                <ul>Informations de contacts
-                    <li>Adresse</li>
-                    <li>Adresse mail</li>
-                    <li>Téléphone</li>
-                </ul>
-
+				<?php 
+				echo"
+					<ul>Informations de contacts
+						<li>Adresse</li>
+						<li>$AdresseEmail</li>
+						<li>$TelephoneMobile</li>
+						<li>$TelephoneFixe</li>
+					</ul>
+				
+				
                 <ul>Notes et commentaires des utilisateurs
                     <li>Moyenne des notes: 5/5</li>
-                    <li>Avis : klm:"Plutôt sympa et une grande disponibilité pour les échanges"</li>
-                </ul>
-
+                    <li>Avis $username : klm:'Plutôt sympa et une grande disponibilité pour les échanges'</li>
+                </ul>";
+				?>
             <table id="maptable">
                 <thead>
                     <tr>
