@@ -1,6 +1,7 @@
 <?php
-	include('commun/Menu.php');
+	session_start();
+	include('Commun/Menu.php');
 	include('controleurs/PageDeProfilControleurs.php');	
-	include('commun/PiedDePage.php');
+	include('Commun/PiedDePage.php');
 	
 ?>

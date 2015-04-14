@@ -8,20 +8,30 @@
 				<div class="section">
 				<ul id="Connex">
 					<p><li class="fondLogo"><a href="Accueil.php"><img class="logo" src="vues/images/VeganHeavenCherry_thumb.png" /></a>
-						<br /><a id="connexion">Connexion</a></p>
+						<?php
+						if(isset($_SESSION['member']))
+						{
+						echo"<br /><a id='connexion' href='deconnexion.php'>Deconnexion</a></p>";
+						}
+						else
+						{
+							echo"<br /><a id='connexion'>Connexion</a></p>
+						
 							<ul>
 									<li>		
-											<form action="ConnexionMembres.php" class="form-container"method="POST">
-												<div class="form-title">Pseudo</div>
-												<input class="form-field" type="text" name="user" /><br />
-												<div class="form-title">Mot de passe</div>
-												<input class="form-field" type="password" name="pass" /><br />
-												<div class="submit-container">
-												<input class="submit-button" type="submit" value="Valider" />
+											<form action='commun/modeles.php' class='form-container'method='POST'>
+												<div class='form-title'>Pseudo</div>
+												<input class='form-field' type='text' name='user' /><br />
+												<div class='form-title'>Mot de passe</div>
+												<input class='form-field' type='password' name='pass' /><br />
+												<div class='submit-container'>
+												<input class='submit-button' type='submit' value='Valider' />
 												</div>
 											</form>
 									</li>
-							</ul>
+							</ul>";
+						}
+						?>
 					</li>
 				</ul>
 				</div>

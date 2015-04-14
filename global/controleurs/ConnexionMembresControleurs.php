@@ -2,6 +2,6 @@
 include('./modeles/ConnexionMembresModeles.php');
 if($membreConnecte==true)
 {
-include('PageDeProfilControleurs.php');	
+include('PageDeProfil.php');	
 }
 ?>

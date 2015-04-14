@@ -1,15 +1,19 @@
 
     <section id="bodyprofil"> 
         <div id="header">
-			<?php 
+			<?php
+			if(isset($_SESSION['member'])){
             echo"<h1 class='titles' id='votre'>Bonjour $username</h1>";
+			}
 			?>
             <img id="image" src="vues/images/Contact.gif"/>
         </div>
         
         <div class="left" class="dive">
             <?php 
+			if(isset($_SESSION['member'])){
 				echo"<h2 class='titles'>$username</h2>";
+			}
 			?>
             <img id="photoleft" src="vues/images/Contact.gif"/>
 
@@ -82,7 +86,8 @@
                     <li>Âge</li>
                 </ul>
 
-				<?php 
+				<?php
+				if(isset($_SESSION['member'])){
 				echo"
 					<ul>Informations de contacts
 						<li>Adresse</li>
@@ -96,6 +101,7 @@
                     <li>Moyenne des notes: 5/5</li>
                     <li>Avis $username : klm:'Plutôt sympa et une grande disponibilité pour les échanges'</li>
                 </ul>";
+				}
 				?>
             <table id="maptable">
                 <thead>
@@ -113,5 +119,4 @@
             </table>
         </div>
     </section>
-	</body>
-    </html>
+	

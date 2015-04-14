@@ -1,4 +1,5 @@
 <?php
+if(isset($_POST['user'])AND($_POST['pass'])){	
 	$user=$_POST['user'];
 	$pass=$_POST['pass'];
 	$membreConnecte=false;
@@ -12,9 +13,19 @@ if($user!=NULL AND $pass!=NULL)
 
 	if(password_verify($pass,$passh))
 	{
-	session_start();	
-	$_SESSION['membre']=$user;
+	session_start();
 	$membreConnecte=true;
+	$_SESSION['member']=$user;
+	header("Location:../PageDeProfil.php");
 	}
+	else 
+	{
+	echo'Mot de passe ou identifiant invalide';
+	}
+}
+else
+{	
+    echo'Veuillez remplir les deux champs';
+}
 }
 ?>

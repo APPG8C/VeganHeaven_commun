@@ -1,5 +1,6 @@
 <?php
-   $member=$user;
+   if(isset($_SESSION['member'])){
+   $member=$_SESSION['member'];
    $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','');
    $requete=$bdd->prepare('SELECT * FROM users WHERE`username`=?');
    $requete->execute(array($member));
@@ -10,4 +11,5 @@
    $TelephoneMobile=$reponse['TelephoneMobile'];
    $TelephoneFixe=$reponse['TelephoneFixe'];
    $AdresseEmail=$reponse['AdresseEmail'];
+   }
 ?>

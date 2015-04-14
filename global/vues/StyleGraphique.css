@@ -7,15 +7,15 @@
 	background-repeat: no-repeat;
 	background-size:100%;
 	padding-top:0.4em;
-	border-radius:28px;
+	border-radius:1.5em;
 	
 }
 	
 
 .adresse
 {
-    font-size: 50px;
-    top:30px;
+    font-size:2.5em;
+    top:1.5em;
     color: white;
     font-family: arial;
     text-align:center;
@@ -32,6 +32,10 @@
 	padding-bottom:1em;
         
 }
+.slogan:hover
+{
+
+}
 #connexion
 {
 color: white;
@@ -43,6 +47,7 @@ font-style: italic;
 #connexion:hover
 {
  color: #1f3b08;
+ 
 }
 
 /************************FIN EN-TETE************************/
@@ -66,48 +71,52 @@ font-style: italic;
  -webkit-border-radius: 7;
  -moz-border-radius: 7;
   border-radius: 7px;
-  text-shadow: 1px 1px 2px #007500;
+  text-shadow: 1px 1px 2px black;
   font-family: Arial;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
-  border: solid #dddfe0 ;
+  border: solid #B6D85A;
   text-decoration: none;
-  background:#B6D85A;
+  background:white;
   position:relative;
+  
 }
+
 
 
 nav li
 {
     display: inline-block;
-    margin-left:40px;
-	
-	
+    margin-left:1.5em;
+	margin-right:1.5em;
 	
 }
 
 .men
 {
-  -webkit-border-radius: 7;
-  -moz-border-radius: 7;
-  border-radius: 7px;
   text-shadow: 1px 1px 2px #ffffff;
   font-family: Arial;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  border: solid #dddfe0 1px;
+  font-size: 1.2em;
   text-decoration: none;
-
 }
 .men :hover
 {
-  color: #1f3b08;
+padding: 0.5em 0.75em 0.5em 0.75em;
+font-size: 1em;
+-webkit-border-radius: 7;
+-moz-border-radius: 7;
+border-radius: 0.5em;
+border: solid white 1px;
+color: #1f3b08;
+-webkit-transition: all 0.4s ;
+-moz-transition: all 0.4s ;
+-ms-transition: all 0.4s ;
+-o-transition: all 0.4s ;
+transition: all 0.4s ;
+
 }
 
-.logo
-{
-   
-}
+
 .fondLogo
 {
 background-color:#B6D85A;
@@ -128,7 +137,7 @@ h1
 ul li a
 {
     color: white;
-	font-size: 18px;
+	font-size: 20px;
 	text-decoration: none;
 }
 div
@@ -172,7 +181,7 @@ body
 {
   color: black;
 	max-width:100%;
-	background-color: #F4EAE2;
+	background-color: white;
 }
 .annonce
 {
@@ -187,18 +196,36 @@ text-align:center;
     width: 100px;
     margin: auto;
 }
+aside
+{
+float:right;
+position:relative;
+}
+.tabAccueil
+{
+margin-top:4em;
+}
+.texte
+{
+margin-right:1em;
+
+}
+
 
 
 /************************FIN CORP************************/
 /************************Inscription/Connexion************************/
 
-form 
+.formLog 
 {
  background-color:#FAFAFA;
  padding:100px;
  width:350px;
+ height:600px;
  margin-left:50px;
+ margin-top:;
  }
+
  .formulaire
 {
 	border: 3px solid #ffffff;
@@ -209,7 +236,7 @@ form
 }
  legend 
  {
- margin-left: 100px;
+ margin-left: 10px;
  color:#DF3F3F;
  font-weight:bold
  
@@ -240,50 +267,13 @@ input
 margin-right:200px;
 text-align: justify;
 }
+.texteI
+{
+margin-right:1em;
+margin-left:10em;
+}
 /************************FIN Inscription/Connexion************************/
-/************************Carroussel************************/
-.carrousel ul 
-{
-    margin-left: 100px;
-}
-.carrousel
-{
-position:relative;
-height:250px;
-width:500px;
 
-}
-.controls {
-  -webkit-border-radius: 28;
-  border-radius: 28px;
-  font-family: Georgia;
-  color: #edf7ed;
-  font-size: 20px;
-  background: #B6D85A;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  
-}
-.controls:hover {
-  background: #1f3b08;
-  text-decoration: none;
-}
-.image1
-{
- max-width:100%;
-}
-.image2
-{
-margin-left:400px;
- max-width:100%;
-}
-.image3
-{
- margin-left:800px;
- position:right;
- max-width:100%;
-}
-/************************Fin du Carrousel************************/
 
 /************************Pied-de-page************************/
 .footers
@@ -350,6 +340,7 @@ text-align: center;
 #menu-deroulant li:hover ul {
 /* Au survol des li du menu on replace les sous menus */
     left: auto;
+
 	
 }
 #menu-deroulant ul
@@ -472,7 +463,6 @@ font-family: Arial;
 /************************formulaire-de-connexion************************/
 .form-container {
    border: 1px solid #000000;
-   background-image: -ms-linear-gradient(top, #fcfcfc 0%, #ffffff 100%);
    -webkit-border-radius: 9px;
    -moz-border-radius: 9px;
    border-radius: 9px;
@@ -480,12 +470,11 @@ font-family: Arial;
    -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
    box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
    font-family: 'arial',Helvetica,sans-serif;
-   text-decoration: none;
-   min-width:100px;
-   padding:10px;
+   padding:0.5em;
    width:120px;
    text-align:left;
-   margin-left:-100px;
+   margin-left:-4em;
+   background-color:#FAFAFA;
    }
 #Connex ul
 {
