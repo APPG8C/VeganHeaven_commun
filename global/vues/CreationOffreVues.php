@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<link rel="stylesheet" href="StyleGraphique.css" />
+		<h1 id="titreCreationOffre">Création d'une offre</h1>
+	</head>
+	
 	<body>
-		<section>
-		<table>
-			<tr>
-				<td>
-				<form action="" method="POST">
-				<legend><h2>Offres</h2></legend>
-					<label>Fruit(s)/Légume(s): <input type="text" name="Produit"/></label>				
-					<label>Prénom : <input type="text" name="Prenom"/></label>			
-					<label>Ville actuelle : <input type="text" name="VilleActuelle"/></label>
-					<label>Adresse : <input type="string" name="Adresse"/></label>
-					<label>Date de naissance : <input type="string" name="DateDeNaissance"/></label>
-					<label>Téléphone mobile: <input type="int" name="TelephoneMobile"/></label>
-					<label>Téléphone fixe: <input type="int" name="TelephoneFixe"/></label>
-					<label>Adresse email: <input type="string" name="AdresseEmail"/></label>
-					<label>Mot de passe : <input type="string" name="MotDePasse"/></label>
-					<label>Confirmation du mot de passe : <input type="string" name="ConfirmationMDP"/></label>
-					<p><input type="submit"class="controls"/></p>
-				</form>
-				</td>
-				<td>
-				<form action="InformationMembres.php" method="POST"class="connexion">
-					<legend><h2>Connexion</h2></legend>
-					<label>Email : <input type="string" name="email"/></label>
-					<label>Mot de passe : <input type="string" name="MotdePasse"/></label>
-					<p><input type="submit"class="controls"/></p>
-				</form>
-			</td>
-		</tr>
-		</table>
-		</section>
-	 </body>
- </html>
+		<div class="creationOffre">
+			<form method="post" action="donneesOffres.php">
+				<legend><h2 class="titre_offre">type d'offre</h2></legend>
+				<label> Type d'offre : <select name="categorie">
+					<option value="vente">Vente</option>
+					<option value="echange">Achat</option>
+					
+				</select>
+				</label>
+
+				<legend><h2 class="titre_offre">type de produit</h2></legend>
+				<label> Catégorie: <select name="categorie">
+					<option value="fruits">Fruits</option>
+					<option value="légumes">Légumes</option>
+					<option value="graines">Graines</option>
+					<option value="autres">Autres</option>
+				</select>
+				</label>
+
+				<legend><h2 class="titre_offre">Localisation</h2></legend>
+				<label>Département : <input type="text" name="departement"/></label>
+				<label>ville : <input type="text" name="ville"/></label>	
+				<label>Code postal : <input type="text" name="code_postal"/></label>
+				<label>Lieu de la transactions : <input type="text" name="lieu_transaction"/></label>
+
+				<legend><h2 class="titre_offre">Informations personnelles</h2></legend>
+				<label>Votre nom : <input type="text" name="username"/></label>
+				<label>Email : <input type="text" name="AdresseEmail"/></label>
+				<label>Téléphone : <input type="text" name="TelephoneMobile"/></label>
+
+				<legend><h2 class="titre_offre">Votre Offre</h2></legend>
+				<label>Titre : <input type="text" name="titre_offre"/></label>
+				<label>texte (detail de l'offre) : <br/><textarea type="text" name="texte_offre"></textarea></label>
+				<label>prix (euros) : <input type="text" name="prix_offre"/></label>
+
+
+
+
+
+
+
+		</div>
+
+	</body>	
+</html>

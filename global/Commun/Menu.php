@@ -36,8 +36,18 @@
 				</ul>
 				</div>
                 <li class="men"><a href="Accueil.php">Accueil</a></li>
-                <li class="men"><a href="Recherche.php">Voir les offres</a></li>
+
+                
 					<ul id="menu-deroulant"class="menu">
+						<li class="men"><a href="Recherche.php">Voir les offres</a>
+							<ul>
+                			<p>
+							<li class="MenuDeroulant"><a href="CategorieProduit.php">voir par catégorie de produit</a></li>
+							<li class="MenuDeroulant"><a href="CategorieAgriculteur.php">voir par agriculteurs</a></li>
+							<li class="MenuDeroulant"><a href="CreationOffre.php">Créer son offre</a></li>
+							</p>	
+						</ul>
+              			</li>
 							<li class="men"><a href="Apropos.php">A propos</a>
 								<ul>
 									<p><li class="MenuDeroulant"><a href="AideEnligne.php">Aide en ligne</a></li>
