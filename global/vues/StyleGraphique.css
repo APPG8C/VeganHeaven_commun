@@ -181,12 +181,7 @@ body
 {
   color: black;
 	max-width:100%;
-<<<<<<< Updated upstream
 	background-color: white;
-=======
-	background-color: white ;
-  /* #F4EAE2 */
->>>>>>> Stashed changes
 }
 .annonce
 {
@@ -220,51 +215,186 @@ margin-right:1em;
 
 /************************FIN CORP************************/
 /************************ Formulaire creation d'offre*****************/
+.formOffre 
+{
+ background-color:#FAFAFA;
+ padding-bottom:6em;
+ width:350px;
+ height:400px;
+ margin-left:15em;
+ }
 #titreCreationOffre
 {
   text-align: center;
   color:red;
 }
-.titre_offre
-{
-  margin-left: -100px;
-}
+
 .creationOffre
 {
   font-family: arial;
 }
 
-
 /************************ Fin Formulaire creation d'offre*****************/
-/************************Inscription/Connexion************************/
-form
+/************************ offre*****************/
+.corp
 {
- background-color:#FAFAFA;
- padding:100px;
- width:350px;
- margin-left:30%;
- margin-right: 25%;
-
-<<<<<<< Updated upstream
-.formLog 
-=======
+margin-top:2em ;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:0.5em;
+border: 5px groove #1f3b08; 
 }
-/*form 
->>>>>>> Stashed changes
+.annonce
+{
+
+margin-top:2em ;
+margin-bottom:3em ;
+}
+.contacts
+{
+position:right;
+}
+.info
+{
+font-size:1.2em;
+margin-left:5em;
+margin-bottom:3em ; 
+color:white;
+}
+.marge
+{
+margin-right: 5em;
+padding: 0.5em;
+border-radius: 0.5em;
+background-color:#1f3b08 ;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset white;
+}
+.marge:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset #B6D85A;
+}
+.date_pulication
+{
+  margin-left:5em;
+}
+.image
+{
+margin-top: 3em;
+margin-bottom:3em;
+margin-left: 4em; 
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+
+
+}
+.image:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
+.prix
+{
+font-size:1.2em;
+margin-left:1em;  
+}
+.date
+{
+font-size:1.2em;
+margin-left:1em; 
+margin-bottom:3em;
+}
+
+.date_peremption
+{
+margin-right: 3em;
+padding: 0.5em;
+border-radius: 0.5em;
+
+}
+.titreDetail
+{
+  margin-left:14em;
+  font-size: 1.3em;
+  color:red;
+}
+.detail
+{
+margin-left: 3em;
+margin-right: 3em;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px inset white;
+}
+.detail:hover
+{
+
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px inset #B6D85A;
+}
+
+.description
+{
+  margin-top: 3em;
+  margin-bottom:3em;
+  margin-left: 3em;
+  margin-right:3em;
+  text-align: justify;
+}
+.coordonees
+{
+margin-left: 21em;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px outset white;
+}
+.coordonees:hover
+{
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px outset #B6D85A;
+}
+.contact
+{
+color:red;
+margin-left: 2em;
+}
+.coordoneesTTA
+{
+  margin-top: 1em;
+  margin-bottom:1em;
+  margin-left: 1em;
+  margin-right:1em;
+  text-align: justify;
+}
+/************************ Fin offre*****************/
+
+/************************Inscription/Connexion************************/
+
+.formLog 
 {
  background-color:#FAFAFA;
  padding:100px;
  width:350px;
- height:600px;
+ height:500px;
  margin-left:50px;
-<<<<<<< Updated upstream
- margin-top:;
  }
 
-=======
-
- }*/
->>>>>>> Stashed changes
  .formulaire
 {
 	border: 3px solid #ffffff;
@@ -278,7 +408,6 @@ form
  margin-left: 10px;
  color:#DF3F3F;
  font-weight:bold
- 
  }
 .connexion
 {
@@ -453,7 +582,10 @@ position:absolute;
 }
 
 /************************ Barre de recherche/ les offres ******************/
-
+#divGlobal
+{
+ 
+}
 #divGlobal #MenuCentre
 {
 display: inline-block;
@@ -464,32 +596,10 @@ border: 2px;
 font-family: Arial;
 }
 
-#divOffre
-{
-  width:95%;
-  padding-left: 3em;
-  border-radius: 10px;
-  border: 1px white solid;
-  box-shadow: 6px 6px 0px #CCE3DB;
-
-}
-.image_offre
-{
-  padding-top: 10px;
-  float:left;
-  width: 10%;
-}
-
-.description_offre
-{
-  width:70%;
-  font-family: Arial;
-}
-
 #divGlobal #rechercheOffre
 {
 display: inline-block;
-width: 50% ; 
+width: 60% ; 
 float: left;
 font-family: Arial;
 }
@@ -500,9 +610,7 @@ font-family: Arial;
 }
 .formulaire-recherche
 {
-  background-color: white;
-  padding: 0.75em;
-  margin: auto;
+  background-color: #F4EAE2; 
 }
 #submit-button-search
 {
@@ -513,25 +621,12 @@ font-family: Arial;
   color: #DF3F3F;
 }
 
-.titre_offre
-{
-  color: red ;
-}
-
 #divGlobal
 { 
   margin: 5px;
-  border: 1px white solid;
-  border-radius: 10px;
-  padding-bottom:1em;
-  margin-bottom: 2em;
-  box-shadow: 6px 6px 0px #CCE3DB;
-}
-
-#rechercheOffre
-{
-
-
+  border: 1px black solid;
+  padding-bottom:5em;
+ 
 }
 /************************formulaire-de-connexion************************/
 .form-container {

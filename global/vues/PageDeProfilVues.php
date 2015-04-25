@@ -2,21 +2,22 @@
     <section id="bodyprofil"> 
         <div id="header">
 			<?php
-			if(isset($_SESSION['member'])){
-            echo"<h1 class='titles' id='votre'>Bonjour $username</h1>";
+			if(isset($_SESSION['member'])||isset($MembreInscrit)){
+            echo"<h1 class='titles' id='votre'>Bonjour $username</h1>
+			<img id='image' src='vues/PhotoDeProfil/$photo'/>";
 			}
 			?>
-            <img id="image" src="vues/images/Contact.gif"/>
         </div>
         
         <div class="left" class="dive">
             <?php 
-			if(isset($_SESSION['member'])){
+			if(isset($_SESSION['member'])||isset($MembreInscrit)){
 				echo"<h2 class='titles'>$username</h2>";
+				if(isset($photo)){
+					echo"<img id='photoleft' src='vues/PhotoDeProfil/$photo'/>";
+				}
 			}
 			?>
-            <img id="photoleft" src="vues/images/Contact.gif"/>
-
             <h4 style="text-align:center">Date d'inscription: 23/03/2015</h4>
 
             <ol><h4>Mes fruits préférés</h4>
@@ -44,7 +45,21 @@
             <ul><h4>Gérer mes offres</h4>
                 <a class="modification" href=""><li>Ajouter une offre</li></a>
                 <a class="modification" href=""><li>Supprimer une offre</li></a>
-                <a class="modification" href=""><li>Voir mes offres</li></a>
+                <a class="modification" href=""><li>Mes offres</li></a>
+                    <?php
+                    $k=NbAnnonces();
+                    if($k==0){
+                      echo"<p>Vous n'/avez réalisé aucune annonces<p>";  
+                    }
+                    else{
+                    for($i=1;$i<=$k;$i++){
+                    $Annonce=getAnnonces($i);
+                    echo"$Annonce";
+                    }
+                    }
+                    
+                    ?>
+
             </ul>
 
             <table id="tablecontact">
@@ -52,7 +67,7 @@
                     <tr>
                         <th colspan="3" style="text-align:center; text-decoration:underline">Mes contacts préférés</th>
                     </tr>
-                </thaed>
+                </thead>
 
                 <tbody>
                     <tr>
@@ -81,15 +96,18 @@
         
         <div class="center" class="dive">
             <h2 class="titles">Vos informations</h2>
-            <ul>Informations générales
-                    <li>Nom Prénon</li>
-                    <li>Âge</li>
-                </ul>
+            
 
 				<?php
-				if(isset($_SESSION['member'])){
+				if(isset($_SESSION['member'])||isset($MembreInscrit)){
 				echo"
-					<ul>Informations de contacts
+				<legend>Informations générales</legend>
+				<ul>
+                    <li>Date de naissance:<br/>$DateDeNaissance</li>
+                </ul>
+				<legend>Vos coordoonées:</legend>
+					<ul>
+					
 						<li>Adresse</li>
 						<li>$AdresseEmail</li>
 						<li>$TelephoneMobile</li>

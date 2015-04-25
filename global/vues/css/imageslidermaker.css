@@ -18,7 +18,7 @@
 }
 
 #imageslider li.bjqs-slide {
-  position:absolute;
+  
   border-radius: 6px;
   background-repeat: no-repeat;
 }
@@ -50,7 +50,7 @@
   list-style:none;
   margin:0;
   padding:0;
-  z-index:9999;
+  
 }
 
 #imageslider ul.bjqs-controls li a {
