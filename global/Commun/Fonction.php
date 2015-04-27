@@ -35,10 +35,11 @@ function getAnnonces($IdAnnonce)
 {
 $ID=$_SESSION['ID'];
 $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
-$requete=$bdd->prepare('SELECT `Produit` FROM annonces WHERE `idAnnonces`= ? AND `Members_idMembers`= ?' );	
-$requete->execute(array($IdAnnonce,$ID));
+$requete=$bdd->prepare('SELECT `Produit`,`idAnnonces` FROM annonces WHERE `Members_idMembers`= ? AND `idAnnonces`= ?'  );	
+$requete->execute(array($ID,$IdAnnonce));
 $reponse=$requete->fetch();
 $Produit=$reponse['Produit'];
+$Annonce=$reponse['idAnnonces'];
 if($reponse){
 echo"<a href='Produits.php?variable=".$Produit."'>$Produit</a><br />";
 }
@@ -64,11 +65,28 @@ return $nb_Annonces=0;
 }
 ?>
 <?php
+function getIdAnnonceMax($Members_idMembers)
+{
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8','root','cedbos456');
+$requete=$bdd->prepare('SELECT MAX(idAnnonces) FROM annonces WHERE `Members_idMembers`= ?' );	
+$requete->execute(array($Members_idMembers));
+$reponse=$requete->fetch();
+$Id=$reponse['MAX(idAnnonces)'];
+if($reponse){
+return $Id; 
+}
+else
+{
+return $Id=0;
+}
+}
+?>
+<?php
 function getOffre($idAnnonce)
 {
 $ID=$_SESSION['ID'];
 $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
-$requete=$bdd->prepare('SELECT * FROM annonces WHERE `idAnnonces`= ?');	
+$requete=$bdd->prepare('SELECT `Produit` FROM annonces WHERE `idAnnonces`= ?');	
 $requete->execute(array($idAnnonce));
 $reponse=$requete->fetch();
 $Titre=$reponse['Produit'];
@@ -81,5 +99,21 @@ $Date=$reponse['Date'];
 $Description=$reponse['Description'];
 $CategorieTitre=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
+}
+
+?>
+<?php
+function Annonces($idMembre)
+{
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
+$requete=$bdd->prepare('SELECT `Produit`,`idAnnonces` FROM annonces WHERE `Members_idMembers`= ? GROUP BY `DatePublication`');  
+$requete->execute(array($idMembre));
+
+while ($donnees = $requete->fetch())
+{
+	$Produit=$donnees['Produit'];
+	$Annonce=$donnees['idAnnonces'];
+   	echo"<a href='Produits.php?variable=".$Produit."'>$Produit</a><br />";
+}
 }
 ?>

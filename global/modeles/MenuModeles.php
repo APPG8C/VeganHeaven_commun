@@ -55,4 +55,53 @@
 		";
 	}*/
 ?>	
-	
+<?php
+function JourPublication($Id,$jour){
+	if(isset($Id)){
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
+	$requete=$bdd->prepare('SELECT DAY(DatePublication),DAY(NOW()),MONTH(DatePublication),MONTH(NOW()),YEAR(DatePublication),YEAR(NOW()),`Produit`,`Url_Image` FROM annonces WHERE `Members_idMembers`=? GROUP BY `DatePublication`');
+	$requete->execute(array($Id));
+	$reponse=$requete->fetch();
+	$jourPublication=$reponse['DAY(DatePublication)'];
+	$jourActuel=$reponse['DAY(NOW())'];
+	$moisPublication=$reponse['MONTH(DatePublication)'];
+	$moisActuel=$reponse['MONTH(NOW())'];
+	$AnneePublication=$reponse['YEAR(DatePublication)'];
+	$AnneeActuel=$reponse['YEAR(NOW())'];
+	$Produit=$reponse['Produit'];
+	$Url_Image=$reponse['Url_Image'];
+	$difference=$jourActuel-$jourPublication;
+
+	if($AnneePublication==$AnneeActuel){
+		if($moisPublication==$moisActuel){
+			if($difference<$jour){
+				if(isset($Produit) AND isset($Url_Image)){
+					return $table=array($Produit, $Url_Image);
+				}
+			}
+				
+		}
+	}
+	}
+}
+if(isset($_SESSION['ID'])){
+$ID=$_SESSION['ID'];
+$tab1=JourPublication($ID,5);
+$tab2=JourPublication($ID+1,5);
+$tab3=JourPublication($ID-1,5);
+$tab4=JourPublication($ID-2,5);
+$tab5=JourPublication($ID+2,5);
+
+$Produit1=$tab1[0];
+$Produit2=$tab2[0];
+$Produit3=$tab3[0];
+$Produit4=$tab4[0];
+$Produit5=$tab5[0];
+
+$URL1=$tab1[1];
+$URL2=$tab2[1];
+$URL3=$tab3[1];
+$URL4=$tab4[1];
+$URL5=$tab5[1];
+}
+?>

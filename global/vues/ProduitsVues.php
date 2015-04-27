@@ -9,7 +9,7 @@
 		<table>
 			<tr>
 				<td>
-				<img class='image' src='vues/PhotoDeProduit/$Url_Image'/>
+				<img class='image' src='vues/PhotoDeProduit/$Url_Image' width=400px height=300px />
 				</td>
 				<td >
 					<div class='detail'>
@@ -37,6 +37,7 @@
 			</td>
 		</tr>
 		</table>
+		
 		";
 
 	?>	

@@ -22,7 +22,7 @@
 								</label>
 							<legend><h2 class="Offre">Votre Offre</h2></legend>
 								<label>Nom du produit: <input type="text" name="Produit"/></label>
-								<label>Detail de l'offre: <br/><textarea type="text" name="Description"></textarea></label>
+								<label>Detail de l'offre: <br/><textarea type="longtext" name="Description"></textarea></label>
 								<label>Date péremption*: <input type="date" name="DatePeremption"/></label>
 								<label>Prix (euros) : <br/><input type="text" name="prix_offre"/></label>
 								<label>Photo du produit :<input type="file" name="fichier"/></label>

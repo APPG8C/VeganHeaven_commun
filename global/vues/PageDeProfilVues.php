@@ -47,17 +47,8 @@
                 <a class="modification" href=""><li>Supprimer une offre</li></a>
                 <a class="modification" href=""><li>Mes offres</li></a>
                     <?php
-                    $k=NbAnnonces();
-                    if($k==0){
-                      echo"<p>Vous n'/avez réalisé aucune annonces<p>";  
-                    }
-                    else{
-                    for($i=1;$i<=$k;$i++){
-                    $Annonce=getAnnonces($i);
-                    echo"$Annonce";
-                    }
-                    }
-                    
+                    $Id=$_SESSION['ID'];
+                    Annonces($Id);
                     ?>
 
             </ul>

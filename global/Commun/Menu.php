@@ -5,9 +5,9 @@
 		<div class="header"><h1 class="adresse">Vegan Heaven !</h1><p><h2 class="slogan">Besoin d'un bon avocat ?</h2></p>
 		<nav>
             <ul class="menu">
-				<div class="section">
+				<div class="section" >
 				<ul id="Connex">
-					<p><li class="fondLogo"><a href="Accueil.php"><img class="logo" src="vues/images/VeganHeavenCherry_thumb.png" /></a>
+					<p><li class="fondLogo"><a href="Accueil.php"><img class="logo"  src="vues/images/VeganHeavenCherry_thumb.png" /></a>
 						<?php
 						include('Fonction.php');
 						if(isset($_SESSION['member']))
@@ -16,7 +16,7 @@
 						}
 						else
 						{
-							echo"<br /><a id='connexion'>Connexion</a></p>
+							echo"<br /><div id='connexion'>Connexion</div></p>
 						
 							<ul>
 									<li>		

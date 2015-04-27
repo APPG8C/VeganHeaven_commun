@@ -86,8 +86,8 @@ font-style: italic;
 
 nav li
 {
-    display: inline-block;
-    margin-left:1.5em;
+  display: inline-block;
+  margin-left:1.5em;
 	margin-right:1.5em;
 	
 }
@@ -644,6 +644,10 @@ font-family: Arial;
    margin-left:-4em;
    background-color:#FAFAFA;
    }
+#Connex 
+{
+margin-left:10em;
+}
 #Connex ul
 {
 	position: absolute;
@@ -653,6 +657,7 @@ font-family: Arial;
 #Connex li:hover ul
 {
 	left: auto;
+  z-index: 1;
 }
 .section
 {
@@ -730,6 +735,7 @@ font-family: Arial;
    background-image: -ms-linear-gradient(top, #6aa436 0%, #8dc059 100%);
    color: #fff;
    }
+   
 
 
  /*CSS pour la page de profil*/

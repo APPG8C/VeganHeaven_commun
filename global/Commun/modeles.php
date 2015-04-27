@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['user'])AND($_POST['pass'])){	
+if(isset($_POST['user'])AND isset($_POST['pass'])){	
 	$user=$_POST['user'];
 	$pass=$_POST['pass'];
 	$membreConnecte=false;
@@ -28,5 +28,18 @@ else
 {	
     echo'Veuillez remplir les deux champs';
 }
+}
+?>
+<?php
+$ID=$_SESSION['ID'];
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
+$requete=$bdd->prepare('SELECT `Produit`,`idAnnonces` FROM annonces WHERE `Members_idMembers`= ?');  
+$requete->execute(array($ID));
+
+while ($donnees = $requete->fetch())
+{
+	$Produit=$donnees['Produit'];
+	$Annonce=$donnees['idAnnonces'];
+   	echo"<a href='Produits.php?variable=".$Produit."'>$Produit</a><br />";
 }
 ?>

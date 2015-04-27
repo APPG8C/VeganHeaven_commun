@@ -13,14 +13,14 @@
    $PhotoDeProduit=$_FILES['fichier']['name'];
    $file=$_FILES["fichier"]["tmp_name"];
    $directory= 'vues/PhotoDeProduit/';
-  if(isset($Vente_Echange) AND isset($TypeProduit)){
-  if($Vente_Echange=='vente')
+ if(isset($Vente_Echange) AND isset($TypeProduit)){
+  if($Vente_Echange=='Vente')
    {
-   $Transaction='vente'; 
+   $Transaction='Vente'; 
    }
-  if($Vente_Echange=='echange')
+  if($Vente_Echange=='Echange')
    {
-   $Transaction='echange';
+   $Transaction='Echange';
    }
    if($TypeProduit=='fruits'){
    $Categorie='fruit';
@@ -36,11 +36,11 @@
    {
    $Categorie='autre';
    }
-   }
+}
 
     if(isset($Produit) AND isset($Peremption) AND isset($Description) AND isset($Categorie) AND isset($Transaction))
-    {
-         $request = $bdd->query("INSERT INTO `membre`.`annonces` (`idAnnonces`, `Members_idMembers`,`Transaction`,`prix_offre`,`lieu_transaction`,`departement`,`code_postal`, `Produit`,`Date`,`Description`,`Categorie`,`Url_Image`,`DatePublication`) VALUES (
+  {
+         $request = $bdd->query("INSERT INTO `membre`.`annonces` (`idAnnonces`, `Members_idMembers`,`Transaction`,`prix_offre`,`lieu_transaction`,`departement`,`code_postal`, `Produit`,`Date`,`Description`,`Categorie`,`Url_Image`,`DatePublication`,`Effectuee`) VALUES (
          NULL,
          '$idMembre',
          '$Transaction',
@@ -53,11 +53,9 @@
          '$Description',
          '$Categorie',
          '$PhotoDeProduit',
-           NOW());"); 
+          NOW(),
+         'FALSE');"); 
        LoadPictures($file,$PhotoDeProduit,$directory);
-    }
+ }
   
 ?>
-
-
-
