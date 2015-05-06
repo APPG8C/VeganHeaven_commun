@@ -4,23 +4,7 @@
 	<table>
 	
         <tr>
-			<td>
-				
-				<article class="texteI">
-				<legend><h2>Rejoingnez nous !!</h2></legend>
-				<p>	Pourquoi s'inscrire sur Vegan Heaven ? Voyons ne vous posez plus cette question.
-					Rejoindre la communauté la plus fruitée et vitaminée du web proche de chez vous change à tout jamais vôtre alimentation. Si, si croyez nous, vos repas seront meilleurs,
-					et vous resplendirez de santez.<br/>Vous allez pouvoir comparez les annonces que nos membres publient quotidienement, et concoctez vos dessert et vos plat de la plus belle manière qui soit:
-					avec le sourire ! Finit les produits pas frais, les membres s'engagent à échanger(ou à payer si necessaire) votre produit contre un de qualité provenant du jardin ou de l'argent venant de leur poches.
-				</p>
-				<p>					
-					Vous avez compris ? Non, je ne crois pas, vous lisez encore ce texte au lieu de vous inscrire gratuitement...Allez, soyer des nôtres!On vous attend impatiement et on espére vite vous retrouvez sur la communauté de VeganHeaven.
-				</p>
-				<p><img  src='vues/images/Inscription.jpg' width="570px" height="300px"/></p>				
-				</article>
-				
-			</td>
-			<td>
+        	<td>
 				<section>
 						<form class="formLog" action="InformationMembres.php" method="POST"enctype="multipart/form-data">
 							<legend><h2>Inscription</h2>*Obligatoire</legend>
@@ -37,6 +21,21 @@
 						</form>
 				</section>
             </td>
+			<td>
+				<article class="texteI">
+				<legend><h2>Rejoingnez nous !!</h2></legend>
+				<p>	Pourquoi s'inscrire sur Vegan Heaven ? Voyons ne vous posez plus cette question.
+					Rejoindre la communauté la plus fruitée et vitaminée du web proche de chez vous change à tout jamais vôtre alimentation. Si, si croyez nous, vos repas seront meilleurs,
+					et vous resplendirez de santez.<br/>Vous allez pouvoir comparez les annonces que nos membres publient quotidienement, et concoctez vos dessert et vos plat de la plus belle manière qui soit:
+					avec le sourire ! Finit les produits pas frais, les membres s'engagent à échanger(ou à payer si necessaire) votre produit contre un de qualité provenant du jardin ou de l'argent venant de leur poches.
+				</p>
+				<p>					
+					Vous avez compris ? Non, je ne crois pas, vous lisez encore ce texte au lieu de vous inscrire gratuitement...Allez, soyer des nôtres!On vous attend impatiement et on espére vite vous retrouvez sur la communauté de VeganHeaven.
+				</p>
+				<p><img  src='vues/images/Inscription.jpg' width="570px" height="300px"/></p>				
+				</article>
+				
+			</td>
 		</tr>
 	</table>
 	</body>

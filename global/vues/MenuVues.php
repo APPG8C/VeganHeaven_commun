@@ -55,63 +55,28 @@
 					<div id="imageslider">
 						<ul class="bjqs">
 						<li class="slide-1">
-					<div class="caption">Offre:</div>
-						 <?php	
-						 if(isset($Produit1) || isset($_SESSION['member'])){
-						 echo"<a href='Produits.php?variable=".$Produit1."'><img src='vues/PhotoDeProduit/$URL1' width=750px height=400px/></a>";
-						}
-						else{
-						 echo"Visualiser une offre dans le caroussel demande que vous soyez connecté,sinon cliquez sur <a class='fond' href= 'Recherche.php'> Voir les offres</a>";
-						 echo"<img src='vues/css/images/slides/1.jpg' width=750px height=400px/>";		
-						 }
+						<?php	
+						 carroussel();
 						 ?>
 						</li>
 						<li class="slide-2">
-					<div class="caption">Offre:</div>
 						<?php	
-						if(isset($Produit2) || isset($_SESSION['member'])){
-						 echo"<a href='Produits.php?variable=".$Produit2."'><img src='vues/PhotoDeProduit/$URL2' width=750px height=400px/></a>";
-						 }
-						 else{
-						 echo" Visualiser une offre dans le caroussel demande que vous soyez connecté,sinon cliquez sur <a class='fond' href= 'Recherche.php'> Voir les offres</a>";
-						 echo"<img src='vues/css/images/slides/2.jpg' width=750px height=400px/>";	
-						 }
+						 carroussel();
 						 ?>
 						</li>
 						<li class="slide-3">
-					<div class="caption">Offre:</div>
 						<?php	
-						if(isset($Produit3) || isset($_SESSION['member'])){
-						 echo"<a href='Produits.php?variable=".$Produit3."'><img src='vues/PhotoDeProduit/$URL3' width=750px height=400px/></a>";
-						 }
-						 else{
-						 echo" Visualiser une offre dans le caroussel demande que vous soyez connecté,sinon cliquez sur <a class='fond' href= 'Recherche.php'> Voir les offres</a>";
-						 echo"<img src='vues/css/images/slides/3.jpg' width=750px height=400px/>";		
-						 }
+						 carroussel();
 						 ?>
 						</li>
 						<li class="slide-4">
-					<div class="caption">Offre:</div>
 						<?php	
-						if(isset($Produit4) || isset($_SESSION['member'])){
-						 echo"<a href='Produits.php?variable=".$Produit4."'><img src='vues/PhotoDeProduit/$URL4' width=750px height=400px/></a>";
-						 }
-						 else{
-						 echo" Visualiser une offre dans le caroussel demande que vous soyez connecté,sinon cliquez sur <a class='fond' href= 'Recherche.php'> Voir les offres</a>";
-						 echo"<img src='vues/css/images/slides/4.jpg' width=750px height=400px/>";		
-						 }
+						 carroussel();
 						 ?>
 						</li>
 						<li class="slide-5">
-					<div class="caption">Offre:></div>
-						<?php
-						if(isset($Produit5) || isset($_SESSION['member'])){	
-						 echo"<a href='Produits.php?variable=".$Produit5."'><img src='vues/PhotoDeProduit/$URL5' width=750px height=400px/></a>";
-						}
-						else{
-						 echo" Visualiser une offre dans le caroussel demande que vous soyez connecté,sinon cliquez sur <a class='fond' href= 'Recherche.php'> Voir les offres</a>";
-						 echo"<img src='vues/css/images/slides/5.jpg' width=750px height=400px/>";	 
-						 }
+						<?php	
+						 carroussel();
 						 ?>
 						</li>
 						</ul>

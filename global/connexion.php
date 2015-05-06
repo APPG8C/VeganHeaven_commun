@@ -15,7 +15,7 @@ if(!isset($_SESSION['membre'])){
 
 				if(password_verify($pass,$passh))
 				{
-					session_start();
+					
 					$_SESSION['membre']=$user;
 					$_SESSION['ID']=$ID;
 					$membreConnecte=true;

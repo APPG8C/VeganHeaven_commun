@@ -56,9 +56,9 @@
 	}*/
 ?>	
 <?php
-function JourPublication($Id,$jour){
+/*function JourPublication($Id,$jour){
 	if(isset($Id)){
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT DAY(DatePublication),DAY(NOW()),MONTH(DatePublication),MONTH(NOW()),YEAR(DatePublication),YEAR(NOW()),`Produit`,`Url_Image` FROM annonces WHERE `Members_idMembers`=? GROUP BY `DatePublication`');
 	$requete->execute(array($Id));
 	$reponse=$requete->fetch();
@@ -103,5 +103,31 @@ $URL2=$tab2[1];
 $URL3=$tab3[1];
 $URL4=$tab4[1];
 $URL5=$tab5[1];
+}*/
+?>
+<?php
+function JourPublication(){
+	
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$requete=$bdd->query('SELECT `Produit`,`Url_Image`,`Transaction` FROM `annonces` WHERE `Effectuee`= 0 GROUP BY `DatePublication` ORDER BY RAND() LIMIT 1');
+	while($reponse=$requete->fetch()){
+		$Produit=$reponse['Produit'];
+		$Url_Image=$reponse['Url_Image'];
+		$Transaction=$reponse['Transaction'];
+		$table=array($Produit, $Url_Image,$Transaction);
+	}
+	return $table;
+}
+?>
+<?php
+function carroussel(){
+$tab=JourPublication();
+$tab0=$tab[0];
+$tab1=$tab[1];
+$tab2=$tab[2];
+	 if(isset($tab0) || isset($_SESSION['member'])){
+		 echo"<div class='caption'>$tab2: $tab0</div>
+		<a href='Produits.php?variable=".$tab0."'><img src='vues/PhotoDeProduit/$tab1' width=765px height=400px/></a>";
+	}
 }
 ?>

@@ -1,17 +1,3 @@
-/**
- * Basic jQuery Slider plug-in v.1.3
- *
- * http://www.basic-slider.com
- *
- * Authored by John Cobb
- * http://www.johncobb.name
- * @john0514
- *
- * Copyright 2011, John Cobb
- * License: GNU General Public License, version 3 (GPL-3.0)
- * http://www.opensource.org/licenses/gpl-3.0.html
- *
- */
 
 ;(function($) {
 
@@ -19,14 +5,14 @@
 
     $.fn.bjqs = function(o) {
         
-        // slider default settings
+        
         var defaults        = {
 
             // w + h to enforce consistency
             width           : 700,
             height          : 300,
 
-            // transition valuess
+            
             animtype        : 'fade',
             animduration    : 450,      // length of transition
             animspeed       : 4000,     // delay between transitions
@@ -49,7 +35,7 @@
             randomstart     : false,    // start from a random slide
             responsive      : false,    // enable responsive behaviour
 
-            // ***Addition*** to support marker type
+            //***Addition*** to support marker type
             markertype      : '1'       // '1'|'01'|'i'|'I'|'a'|'A'|'_'
 
         };

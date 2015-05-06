@@ -3,11 +3,14 @@
 
 .header 
 {
+  
 	background-image:url("images/Cerise.jpg");
 	background-repeat: no-repeat;
 	background-size:100%;
 	padding-top:0.4em;
 	border-radius:1.5em;
+
+ 
 	
 }
 	
@@ -136,9 +139,15 @@ h1
 }
 ul li a
 {
-    color: white;
+  color: white;
 	font-size: 20px;
 	text-decoration: none;
+}
+ul li a.MenuDeroulant
+{
+  color:#1f3b08;
+  font-size: 20px;
+  text-decoration: none;
 }
 div
 {
@@ -293,8 +302,6 @@ border-radius:5em;
 -webkit-border-radius:2.5px;
 border-radius:5em;
 border: 5px inset white;
-
-
 }
 .image:hover
 {
@@ -389,10 +396,10 @@ margin-left: 2em;
 .formLog 
 {
  background-color:#FAFAFA;
- padding:100px;
- width:350px;
- height:500px;
- margin-left:50px;
+ padding:5em;
+ width:15em;
+ height:35em;
+ margin-left:2.5em;
  }
 
  .formulaire
@@ -439,6 +446,11 @@ text-align: justify;
 {
 margin-right:1em;
 margin-left:10em;
+}
+.repondre
+{
+  margin-left:10em ;
+  
 }
 /************************FIN Inscription/Connexion************************/
 
@@ -582,7 +594,92 @@ position:absolute;
 }
 
 /************************ Barre de recherche/ les offres ******************/
+/************************ Barre de recherche/ les offres ******************/
+
+#divGlobal #MenuCentre
+{
+display: inline-block;
+  
+width: 40%;
+margin-bottom: 5%;
+border: 2px;
+font-family: Arial;
+}
+
+#divOffre
+{
+  width:95%;
+  padding-left: 3em;
+  border-radius: 10px;
+  border: 1px white solid;
+  box-shadow: 6px 6px 0px #CCE3DB;
+
+}
+.image_offre
+{
+  padding-top: 10px;
+  float:left;
+  width: 10%;
+}
+
+.description_offre
+{
+  width:70%;
+  font-family: Arial;
+}
+
+#divGlobal #rechercheOffre
+{
+display: inline-block;
+width: 50% ; 
+float: left;
+font-family: Arial;
+}
+
+.liste-categorie
+{
+  color:red;
+}
+.formulaire-recherche
+{
+  background-color: white;
+  padding: 0.75em;
+  margin: auto;
+  margin-left: 4em ;
+}
+
+#recherche_avancee
+{
+  margin-left: 4em;
+}
+#submit-button-search
+{
+  float:left;
+}
+#recherche-titre
+{
+  color: #DF3F3F;
+}
+
+.titre_offre
+{
+  color: red ;
+}
+
 #divGlobal
+{ 
+  margin: 5px;
+  border: 1px white solid;
+  border-radius: 10px;
+  padding-bottom:1em;
+  margin-bottom: 2em;
+  box-shadow: 6px 6px 0px #CCE3DB;
+}
+.champs_annonce
+{
+  /*font-weight: bold;*/
+}
+/*#divGlobal
 {
  
 }
@@ -627,7 +724,7 @@ font-family: Arial;
   border: 1px black solid;
   padding-bottom:5em;
  
-}
+}*/
 /************************formulaire-de-connexion************************/
 .form-container {
    border: 1px solid #000000;
@@ -754,21 +851,12 @@ margin-left:10em;
     word-wrap: break-word;
 }
  
-#image {
-    height:65px;
-    float: right;
-    margin-top: -71px;
-    margin-right: 35px;
-    border-radius: 100%;
-    border: 2px solid black;
-}
 
 #header{
     height: 60px;
     width: 100%;
-    z-index: 1;
+    
     margin-top: -5;
-    border-bottom: 1px dashed black;
     margin-bottom: 0px;
   }
 
@@ -783,7 +871,7 @@ margin-left:10em;
     height: 650px;
     width: 25%;
     background-color: #B6D85A;
-    float: left;
+    
     position: absolute;
     left: 10px;
     border-bottom-left-radius: 28px;
@@ -794,7 +882,7 @@ margin-left:10em;
     height: 650px;
     width: 25%;
     background-color: #B6D85A; /*#7FC6BC*/
-    float: right;
+    
     border-bottom-right-radius: 28px;
     border-top-right-radius: 28px;
 }
@@ -825,19 +913,12 @@ color: #000000;
   border: 3px solid #000000;
 }
 
-#maptable {
-  margin: auto;
-  width: 90%;
-  padding: 10px;
-  margin-top:50px;
-  border-radius: 20px;
-  border: 1px dotted #000000;
+.table {
+  margin-left:10em;
 }
 
 .titles {
     text-align: center;
-    text-decoration: underline;
-    color: black;
     }
     
 #vous {
@@ -855,7 +936,7 @@ color: #000000;
   margin-right: 10px;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
-  margin:auto;
+  margin-bottom:3em;
   padding:5px 5px 0px 5px;
   margin-top: 40px;
 }
@@ -873,4 +954,122 @@ color: #000000;
   height:75px;
 }
 
+
 /*Fin de CSS page de profil*/
+.photoMembre
+{
+
+margin-bottom:3em;
+margin-left: 4em; 
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.photoMembre:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
+.localisation
+{
+margin-right:4em;
+margin-bottom:3em;  
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.localisation:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
+
+.modif
+{
+    text-decoration: none;
+    color:white;
+}
+.infor
+{
+font-size:1.2em;
+margin-bottom:3em ; 
+color:white;
+
+}
+.marg
+{
+margin-right: 3em;
+}
+.marger
+{
+margin-right: 3em;
+padding: 0.5em;
+border-radius: 0.5em;
+background-color:#1f3b08 ;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset white;
+}
+.marger-produit
+{
+margin-right: 3em;
+padding: 0.5em;
+border-radius: 0.5em;
+background-color:#663300 ;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset white;
+}
+.marger-produit:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset #B6D85A;
+}
+.marger:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset #B6D85A;
+}
+.mini
+{
+margin-top: 2.60em;
+border-radius:2em;
+
+}
+.photo
+{
+margin-right: 2em ;
+}
+.information
+{
+margin-top:-5em;
+margin-bottom:3em; 
+}
+.nom
+{
+background-image:url("images/pommeVerte.jpg");
+background-repeat: no-repeat;
+background-size:100%;
+border-radius: 3em;
+margin-left:-3em;
+}
+.logoPagedeprofil
+{
+  float:right;
+  margin:auto;
+  width:10%;
+}

@@ -8,32 +8,63 @@
 	<body>
 	<div id='divGlobal'>
 		<div id="rechercheOffre">
-			<legend><h2> Recherchez une catégorie </h2></legend> 
+			<legend id='recherche_avancee'><h2> Recherche avancée </h2></legend> 
 			<form action='RecherchesOffres.php' class='Formulaire-recherche'method='POST'>
-			<div class='form-title'>fruits/légumes: </div>
-			<div class='form-title'>Préférences:</div>
-			<input class='form-field' type='text' name='categorie-fruits' /><br />
-			<div class='submit-container'>
-			<input class='submit-button' id='submit-button-search' type='submit' value='rechercher' />				
-		</div>
+				<label class='form-title'> Type de transaction:
+					<p>
+						<select name="Transaction">
+							<option value="Vente">Vente</option>
+							<option value="Echange">Echange</option>
+							<option value="Demande">Demande</option>
+						</select>
+					</p>
+				</label>
+				<label class='form-title'> Type de produit:
+					<p>
+						<select name="Categorie">
+							<option value="fruit">fruit</option>
+							<option value="legumes">Légumes</option>
+							<option value="graines">Graines</option>
+							<option value="autres">Autres</option>
+						</select>
+					</p>
+				</label>
+			<div class='form-title'>Produit: 
+				</div>
+				<input class='form-field' type='text' name='Produit' /><br />
+				<div class='form-title'>Dates de péremption: 
+				</div>
+				<input class='form-field' type='text' name='date' /><br />
+			</div>
 
+		<div id="MenuCentre">
+			<h2 id='recherche-titre'> Informations complémentaires </h2>
+				<label class='form-title'> Gamme de prix:
+					<p>
+						<select name="prix_offre">
+							<option value="0-10">0 à 10 €</option>
+							<option value="10-30">10 à 30 €</option>
+							<option value="30-60">30 à 60 €</option>
+							<option value="60+">60 € et plus</option>
+						</select>
+					</p>
+				</label>
+				<div class='form-title'>Code Postal: 
+				</div>
+				<input class='form-field' type='text' name='code_postal' /><br />
+				<div class='form-title'>Vendeur: 
+				</div>
+				<input class='form-field' type='text' name='idMembre' /><br />
+				<div class='submit-container'>
+				<input class='submit-button' id='submit-button-search' type='submit' value='rechercher' />				
+				</div>
 
 			</form>
 		</div>
-
-		<div id="MenuCentre">
-			<h2 id='recherche-titre'> Nos catégories </h2>
-			<ul class="MenuCategorie">
-				<li ><a class="liste-categorie" href="#pepins">Fruits à pépins</a></li>
-				<li ><a class="liste-categorie" href="#noyaux">Fruits à noyaux</a></li>
-				<li ><a class="liste-categorie" href="#exotique">Fruits exotiques</a></li>
-				<li ><a class="liste-categorie" href="#coque">Fruits à coques</a></li>
-				<li ><a class="liste-categorie" href="#finesHerbes">Fines Herbes</a></li>
-				<li ><a class="liste-categorie" href="#petitsFruits">Petits fruits</a></li>
-				<li ><a class="liste-categorie" href="#baies">Baies</a></li>
-				<li ><a class="liste-categorie" href="#légumes"> légumes</a></li>
-			</ul>
-		</div>
 	</div>
 	</body>
+	
+	<?php
+		AnnonceRecherche();
+	?>
 </html> 

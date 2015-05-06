@@ -1,7 +1,8 @@
 <?php
+
 if (isset ($_GET["variable"])) {
 	$Produit = $_GET["variable"];
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `Produit`= ?');	
 	$requete->execute(array($Produit));
 	$reponse=$requete->fetch();
@@ -17,6 +18,7 @@ if (isset ($_GET["variable"])) {
 	$Url_Image=$reponse['Url_Image'];
 	$DatePublication=$reponse['DatePublication'];
 	$idMember=$reponse['Members_idMembers'];
+	$idAnnonces=$reponse['idAnnonces'];
 	} 
 	else 
 	{
@@ -26,7 +28,7 @@ if (isset ($_GET["variable"])) {
 <?php
 	if(isset($_SESSION['member']))
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
+		$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 		$requete=$bdd->prepare('SELECT `TelephoneMobile`, `TelephoneFixe`, `AdresseEmail` FROM users WHERE `id`= ?');
 		$requete->execute(array($idMember));
 		$reponse=$requete->fetch();

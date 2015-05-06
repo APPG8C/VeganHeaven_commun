@@ -1,5 +1,5 @@
 <?php
-   $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
+   
    $idMembre=$_SESSION['ID'];
    $Vente_Echange=$_POST['Transaction'];
    $TypeProduit=$_POST['Categorie'];
@@ -22,6 +22,10 @@
    {
    $Transaction='Echange';
    }
+   if($Vente_Echange=='Demande')
+   {
+   $Transaction='Demande';
+   }
    if($TypeProduit=='fruits'){
    $Categorie='fruit';
    }
@@ -40,6 +44,7 @@
 
     if(isset($Produit) AND isset($Peremption) AND isset($Description) AND isset($Categorie) AND isset($Transaction))
   {
+         $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
          $request = $bdd->query("INSERT INTO `membre`.`annonces` (`idAnnonces`, `Members_idMembers`,`Transaction`,`prix_offre`,`lieu_transaction`,`departement`,`code_postal`, `Produit`,`Date`,`Description`,`Categorie`,`Url_Image`,`DatePublication`,`Effectuee`) VALUES (
          NULL,
          '$idMembre',
@@ -55,7 +60,7 @@
          '$PhotoDeProduit',
           NOW(),
          'FALSE');"); 
-       LoadPictures($file,$PhotoDeProduit,$directory);
+          LoadPictures($file,$PhotoDeProduit,$directory);
  }
   
 ?>
