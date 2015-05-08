@@ -92,7 +92,7 @@ while ($donnees = $requete->fetch())
    {
 	echo"<p class='infor'><span class='marger-produit'><a class='modif' href='Produits.php?variable=".$Produit."'>$Produit:</a></span>";
    	echo"<span class='marg'><img class='mini' src='vues/PhotoDeProduit/$Image' width=50px height=35px /></span><span class='marg'><a href='PageDeProfil.php?Realisee=".$Annonce."'><button class='submit-button'>Réalisée</button></a></span></p>";
-   	echo"";
+  
    }  
 }
 }
@@ -100,7 +100,7 @@ while ($donnees = $requete->fetch())
 <?php
 function AutomaticMail($user,$EmailBy,$EmailGive,$text,$transaction,$produit)
 {
-			ini_set("SMTP","smtp.sfr.fr");
+			ini_set("SMTP","SMTP.WIFIRST.NET");
 			$mail ="$EmailGive";	
 			if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.
 			{
@@ -182,5 +182,321 @@ $request->execute(array($donnee,$idmembre));
 $reponse=$request->fetch();
 }
 ?>
+<?php
+function Moyenne_Note($idmembre)
+{
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root'); 
+$requete = $bdd->prepare("SELECT AVG(note) FROM avis  WHERE `idMembre_note`= ?");
+$requete->execute(array($idmembre));
+$reponse = $requete->fetch();
+$Moyenne = $reponse['AVG(note)'];
+return $Moyenne;
+}
+?>
+<?php
+function GetAvis_Note($idmembre,$username)
+{
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root'); 
+$requete = $bdd->prepare("SELECT `contenu`,`note`FROM avis  WHERE `idMembre_note`= ? GROUP BY `DatePublicationAvis` LIMIT 2 ");
+$requete->execute(array($idmembre));
+$Moyenne=Moyenne_Note($idmembre);
+echo"
+    <legend> Avis des utilisateurs</legend>";
+	while($reponse = $requete->fetch()){
+	$note=$reponse['note'];
+	$contenu=$reponse['contenu'];
+	echo"
+        
+       <p>
+       	Note attribuée: $note/5<br/>
+       <span style ='text-align: justify;'>Avis associé sur $username :<br/>
+       $contenu
+       </span>
+       </p>
+      ";
+    }
+ echo" Moyenne des notes: <br/>$Moyenne/5"; 
+}
+?>
+<?php
+function Recherche($effectuee,$champ){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete = $bdd->prepare("SELECT `$champ` FROM annonces WHERE `Effectuee`= ? GROUP BY `$champ`");
+$requete->execute(array($effectuee));
+
+echo"<p><select name= $champ>
+	<option value=''>$champ :</option>";
+while($reponse=$requete->fetch())
+{
+$donneeProduit=$reponse[$champ];
+echo"<option value='$donneeProduit'>$donneeProduit</option>";
+}
+echo"</select></p>";
+}
+?>
+<?php
+function Recherche1Champ($champ,$Valeurchamp){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ?");
+$requete->execute(array($Valeurchamp));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$code_postal=$reponse['code_postal'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+
+echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Code postal : $code_postal </br>
+				Prix : $prix_offre € </br>
+				Date de péremption : $DatePeremption </br>
+			</p>
+		</div>
+
+	</div>
+	";
+	}
+}	
+?>
+<?php
+function Recherche2Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$code_postal=$reponse['code_postal'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+
+echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Code postal : $code_postal </br>
+				Prix : $prix_offre € </br>
+				Date de péremption : $DatePeremption </br>
+			</p>
+		</div>
+
+	</div>
+	";
+}	
+}
+?>
+
+<?php
+function Recherche3Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$code_postal=$reponse['code_postal'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Code postal : $code_postal </br>
+				Prix : $prix_offre € </br>
+				Date de péremption : $DatePeremption </br>
+			</p>
+		</div>
+
+	</div>
+	";
+}
+}	
+?>
+<?php
+function Recherche4Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$code_postal=$reponse['code_postal'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+
+echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Code postal : $code_postal </br>
+				Prix : $prix_offre € </br>
+				Date de péremption : $DatePeremption </br>
+			</p>
+		</div>
+
+	</div>
+	";
+}	
+}
+?>
+<?php
+function Recherche5Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3,$champ4,$Valeurchamp4){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3,$Valeurchamp4));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$code_postal=$reponse['code_postal'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+
+echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Code postal : $code_postal </br>
+				Prix : $prix_offre € </br>
+				Date de péremption : $DatePeremption</br>
+			</p>
+		</div>
+
+	</div>
+	";
+}	
+}
+?>
+<?php
+function Recherche6Champ($champ,$Valeurchamp,$champ1,$champ2,$champ3,$champ4,$champ5){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `Transaction`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `$champ5`=?");
+$requete->execute(array($Transaction,$champ1,$champ2,$champ3,$champ4,$champ5));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$code_postal=$reponse['code_postal'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+
+echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Code postal : $code_postal </br>
+				Prix : $prix_offre € </br>
+				Date de péremption : $DatePeremption </br>
+			</p>
+		</div>
+
+	</div>
+	";
+}	
+}
+?>
+<?php
+function Recherche7Champ($champ,$Valeurchamp,$champ1,$champ2,$champ3,$champ4,$champ5,$champ6){
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `Transaction`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `$champ5`=?,AND `$champ6`=?");
+$requete->execute(array($Transaction,$champ1,$champ2,$champ3,$champ4,$champ5,$champ6));
+$reponse=$requete->fetch();
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$code_postal=$reponse['code_postal'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+
+echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Code postal : $code_postal </br>
+				Prix : $prix_offre € </br>
+				Date de péremption : $DatePeremption </br>
+			</p>
+		</div>
+
+	</div>
+	";
+}
+}	
+?>
+
+
+
+
 
 

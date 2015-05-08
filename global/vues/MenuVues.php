@@ -56,27 +56,27 @@
 						<ul class="bjqs">
 						<li class="slide-1">
 						<?php	
-						 carroussel();
+						 carroussel(0,10);
 						 ?>
 						</li>
 						<li class="slide-2">
 						<?php	
-						 carroussel();
+						 carroussel(0,10);
 						 ?>
 						</li>
 						<li class="slide-3">
 						<?php	
-						 carroussel();
+						 carroussel(0,10);
 						 ?>
 						</li>
 						<li class="slide-4">
 						<?php	
-						 carroussel();
+						 carroussel(0,10);
 						 ?>
 						</li>
 						<li class="slide-5">
 						<?php	
-						 carroussel();
+						 carroussel(0,10);
 						 ?>
 						</li>
 						</ul>

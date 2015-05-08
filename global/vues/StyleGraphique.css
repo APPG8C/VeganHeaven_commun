@@ -61,11 +61,6 @@ font-style: italic;
  display: inline-block;
  text-align: center;
  font-family: arial;
- /*background-color:#1f3b08;
- padding-right:10em;
- border-radius:28px;
- padding-bottom:2em;*/
- 
 }
 
 .MenuDeroulant
@@ -97,28 +92,23 @@ nav li
 
 .men
 {
-  text-shadow: 1px 1px 2px #ffffff;
-  font-family: Arial;
-  font-size: 1.2em;
-  text-decoration: none;
-}
-.men :hover
-{
-padding: 0.5em 0.75em 0.5em 0.75em;
-font-size: 1em;
--webkit-border-radius: 7;
--moz-border-radius: 7;
+  
+font-family: Arial;
+font-size: 1.2em;
+text-decoration: none;
+border: solid 1px;
 border-radius: 0.5em;
-border: solid white 1px;
-color: #1f3b08;
--webkit-transition: all 0.4s ;
--moz-transition: all 0.4s ;
--ms-transition: all 0.4s ;
--o-transition: all 0.4s ;
-transition: all 0.4s ;
+color: white;
+padding: 0.5em 0.75em 0.5em 0.75em;
 
 }
-
+.men:hover
+{
+border: solid 1px;
+border-radius: 0.5em;
+color: #1f3b08;
+padding: 0.5em 0.75em 0.5em 0.75em;
+}
 
 .fondLogo
 {
@@ -596,16 +586,18 @@ position:absolute;
 /************************ Barre de recherche/ les offres ******************/
 /************************ Barre de recherche/ les offres ******************/
 
+#divGlobal
+{
+
+}
 #divGlobal #MenuCentre
 {
 display: inline-block;
-  
 width: 40%;
 margin-bottom: 5%;
 border: 2px;
 font-family: Arial;
 }
-
 #divOffre
 {
   width:95%;
@@ -613,7 +605,6 @@ font-family: Arial;
   border-radius: 10px;
   border: 1px white solid;
   box-shadow: 6px 6px 0px #CCE3DB;
-
 }
 .image_offre
 {
@@ -836,131 +827,19 @@ margin-left:10em;
 
 
  /*CSS pour la page de profil*/
-
-   #bodyprofil {
-    font-family: arial;
-   }
-
-.dive {
-    display: inline-block;
-    word-wrap: break-word;
-    margin: 0px;
+.table 
+{
+margin-left:7em;
 }
 
-#profil {
-    word-wrap: break-word;
+.titles 
+{
+text-align: center;
 }
- 
-
-#header{
-    height: 60px;
-    width: 100%;
-    
-    margin-top: -5;
-    margin-bottom: 0px;
-  }
-
-#photoleft {
- margin-left: 80px;
- height: 160px;
-
-}
-
-
-.left{
-    height: 650px;
-    width: 25%;
-    background-color: #B6D85A;
-    
-    position: absolute;
-    left: 10px;
-    border-bottom-left-radius: 28px;
-    border-top-left-radius: 28px;
-}
-
-.right {
-    height: 650px;
-    width: 25%;
-    background-color: #B6D85A; /*#7FC6BC*/
-    
-    border-bottom-right-radius: 28px;
-    border-top-right-radius: 28px;
-}
-
-.contactprefere:hover {
-    height:90px;
-}
-
-.modification:hover {
-  font-size: 15px;
-
-}
-
-.modification {
-text-decoration: none;
-color: #000000;
-}
-.center {
-    height: 650px;
-    width: 50%;
-   /* background-color: #EFECCA;*/
-    float:left;
-    float:right;
-}
-
-#mapphoto {
-  width: 99%;
-  border: 3px solid #000000;
-}
-
-.table {
-  margin-left:10em;
-}
-
-.titles {
-    text-align: center;
-    }
-    
-#vous {
-      margin: 0px 5px 5px 40px;
-}
-
-.liens {
-  text-decoration: none;
-}
-
-#tablecontact {
-  color: white;
-  border: #000000 1px solid;
-  background-color: #CF0A1D;/*#046380*/
-  margin-right: 10px;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  margin-bottom:3em;
-  padding:5px 5px 0px 5px;
-  margin-top: 40px;
-}
-
-#tablemodification:hover {
-  font-size: 11px;
-}
-
-#tablemodification {
-  text-decoration: none;
-  color: #000000;
-}
-
-.imagecontact{
-  height:75px;
-}
-
-
-/*Fin de CSS page de profil*/
 .photoMembre
 {
-
 margin-bottom:3em;
-margin-left: 4em; 
+margin-left: 2em; 
 border-radius:5em;
 -moz-border-radius:2.5px;
 -webkit-border-radius:2.5px;
@@ -1050,10 +929,7 @@ margin-top: 2.60em;
 border-radius:2em;
 
 }
-.photo
-{
-margin-right: 2em ;
-}
+
 .information
 {
 margin-top:-5em;
@@ -1073,3 +949,6 @@ margin-left:-3em;
   margin:auto;
   width:10%;
 }
+
+/*Fin de CSS page de profil*/
+

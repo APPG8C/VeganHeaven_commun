@@ -64,21 +64,28 @@
                                      ?>
                         </div>
                         <?php
-                                        if(!isset ($_GET["idMember"]))
-                                        {
-                                        echo"<span class='marger'><a class='modif' href='ModificationProfil.php'>Modifier mon profil</a></span>";
-                                        }
+                        if(!isset ($_GET["idMember"]))
+                        {
+                        echo"<span class='marger'><a class='modif' href='ModificationProfil.php'>Modifier mon profil</a></span>";
+                        }
                         ?>
                         </td>
                         <td>
                         <?php
-                            if(isset($_SESSION['member'])||isset($MembreInscrit)){
-                            echo"
-                            <legend> Avis des utilisateurs</legend>
-                                <ul>
-                                    <li>Moyenne des notes: 5/5</li>
-                                    <li>Avis $username :<br/></li>
-                                </ul>";
+                            if((isset($_SESSION['member'])||isset($MembreInscrit)) AND !isset($_GET["idMember"])){
+                            $idmembre=$_SESSION['ID'];
+                            GetAvis_Note($idmembre,$username);
+                            }
+                            if((isset($_SESSION['member'])||isset($MembreInscrit)) AND isset($_GET["idMember"]))
+                            {
+                                if($_GET["idMember"]<=5000){
+                                    $IDmembre=(int)$_GET["idMember"];
+                                    $idmembre=$_SESSION['ID'];
+                                    if($IDmembre!=$idmembre){
+                                    $idmembre=$_GET["idMember"];
+                                    GetAvis_Note($idmembre,$username);
+                                    }
+                                }        
                             }
                             ?>
                         </td>
@@ -98,41 +105,53 @@
                         <?php
                         if(isset($_GET["idMember"]))
                         {
-                        $idMember=$_GET["idMember"];    
-                        echo"<div class='photo'> 
-                                <form action='PageDeProfil.php?idMember=".$idMember."'' method='POST'>
-                                    <h1>Donner votre avis sur $username:</h1>
-                                        <label>Commentaire:<br/><textarea type='text' name='avis'></textarea></label>
-                                        <p><label>Note:<br/><select type='text' name='note'>
-                                        <option value='1'>1/5</option>
-                                        <option value='2'>2/5</option>
-                                        <option value='3'>3/5</option>
-                                        <option value='4'>4/5</option>
-                                        <option value='5'>5/5</option>
-                                        </select></label></p>
-                                        <input type='submit'class='submit-button'value='Valider'/>
-                                 </form>
-                            <div>";
+                            if($_GET["idMember"]<=5000)
+                            {
+                                $IDmembre=$_GET["idMember"];
+                                $idmembre=$_SESSION['ID'];
+                                if($IDmembre!=$idmembre)
+                                {
+                                    $idMember=$_GET["idMember"];    
+                                    echo"<div class='photo'> 
+                                            <form action='PageDeProfil.php?idMember=".$idMember."'' method='POST'>
+                                                <h1>Donner votre avis sur $username:</h1>
+                                                    <label>Commentaire:<br/><textarea type='text' name='avis'></textarea></label>
+                                                    <p><label>Note:<br/><select type='text' name='note'>
+                                                    <option value='1'>1/5</option>
+                                                    <option value='2'>2/5</option>
+                                                    <option value='3'>3/5</option>
+                                                    <option value='4'>4/5</option>
+                                                    <option value='5'>5/5</option>
+                                                    </select></label></p>
+                                                <input type='submit'class='submit-button'value='Valider'/>
+                                            </form>
+                                        <div>";
+                                }
+                            }
                         }
-                        if(!isset ($_GET["idMember"])){
+                        if(!isset ($_GET["idMember"]))
+                        {
                             $Id=$_SESSION['ID'];   
                             if(isset($_GET["Realisee"]) )
                             { 
                             $realisee=$_GET["Realisee"];
                             ModifierStatut_Annonces(1,$realisee);  
                             }
-                            else{
-                            echo"<div class='information'>
-                                    <h1 >Actualiser mon panier</h1>";
-                                        Annonces($Id);
-                               echo" </div>
+                            else
+                            {
+                            echo"
+                            <div class='information'>
+                                    <h1 >Actualiser mon panier</h1>
+                            ";
+                            Annonces($Id);
+                            echo" 
+                            </div>
                                 <p class='infor'><span class='marger'><a class='modif' href='MonCompte.php'>Mes offres</a></span>
                                 <span class='marger'><a class='modif' href='creationOffre.php'>Ajouter une offre</a></span></p>
-                                        ";
-                                }
+                            ";
                             }
+                        }
                          ?>
-                        
                         </td>
                     </tr>
     </table>

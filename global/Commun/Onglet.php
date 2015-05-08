@@ -48,8 +48,6 @@
                 <li ><a class="men" href="Recherche.php">Voir les offres</a>
                 		<ul>
                 			<p>
-                				<li><a class="MenuDeroulant" href="CategorieProduit.php">Recherche par catégorie de produit</a></li>
-								<li><a class="MenuDeroulant" href="CategorieAgriculteur.php">Recherche par agriculteurs</a></li>
 								<?php
 								if(isset($_SESSION['member'])){
 								echo"<li><a class='MenuDeroulant' href='CreationOffre.php'>Créer son offre</a></li>";

@@ -37,13 +37,14 @@ if(isset($_SESSION['member'])){
    {
    $avis=$_POST['avis'];
    $note=$_POST['note'];
-   $request = $bdd->query("INSERT INTO `membre`.`avis` (`idAvis`, `contenu`, `note`,`idMembre_note`,`idEvaluateur`) VALUES (
+   $request = $bdd->query("INSERT INTO `membre`.`avis` (`idAvis`, `contenu`, `note`,`idMembre_note`,`idEvaluateur`,`DatePublicationAvis`) VALUES (
          NULL,
          '$avis',
          '$note',
          '$IDmember',
-         '$idEvaluateur'
-          );"); 
+         '$idEvaluateur',
+          NOW()
+         );"); 
    }
 }
 ?>
