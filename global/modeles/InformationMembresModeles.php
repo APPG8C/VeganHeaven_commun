@@ -1,25 +1,27 @@
 
 <?php
+
   $MembreInscrit=false;
+  $NbChars=6;
   $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
-  $username=$_POST['username'];
-  $DateDeNaissance=$_POST['DateDeNaissance'];
-  $TelephoneMobile=$_POST['TelephoneMobile'];
-  $TelephoneFixe=$_POST['TelephoneFixe'];
-  $AdresseEmail=$_POST['AdresseEmail'];
+  $username=htmlspecialchars($_POST['username']);
+  $DateDeNaissance=htmlspecialchars($_POST['DateDeNaissance']);
+  $TelephoneMobile=htmlspecialchars($_POST['TelephoneMobile']);
+  $TelephoneFixe=htmlspecialchars($_POST['TelephoneFixe']);
+  $AdresseEmail=htmlspecialchars($_POST['AdresseEmail']);
+  $password1=htmlspecialchars($_POST['password']);
+  $password2=htmlspecialchars($_POST['repeatpassword']);
+  $PhotoDeProfil=htmlspecialchars($_FILES['fichier']['name']);
+  $file=htmlspecialchars($_FILES["fichier"]["tmp_name"]);
   $directory= 'vues/PhotoDeProfil/';
-  $password1=$_POST['password'];
-  $password2=$_POST['repeatpassword'];
-  $PhotoDeProfil=$_FILES['fichier']['name'];
-  $file=$_FILES["fichier"]["tmp_name"];
-  $file=$_FILES["fichier"]["tmp_name"];
-  
-  if(filter_var($AdresseEmail, FILTER_VALIDATE_EMAIL))
+
+  if(filter_var($AdresseEmail, FILTER_VALIDATE_EMAIL)!== false)
   { 
     if(nomIdentique($username)==0)
     {
-			if(($password1 === $password2))
-			{
+		if(($password1 === $password2))
+		{
+			if($password1>=$NbChars){
 			$passwordh=password_hash($password1,PASSWORD_BCRYPT); 
 			$request = $bdd->query("INSERT INTO `membre`.`users` (`id`, `username`, `password`,`DateDeNaissance`,`TelephoneMobile`,`TelephoneFixe`,`AdresseEmail`,`PhotoDeProfil`) VALUES (
 			NULL,
@@ -34,14 +36,25 @@
 			LoadPictures($file,$PhotoDeProfil,$directory);
 			echo"Félicitation, vous voila maintenant inscrit comme membre de VeganHeaven,veuillez vous connecter pour commencer vos échanges";
 			}
-			
-		} 
-        //  echo '<p><a href='ConnexionInscription.php'>Le mot de passe et la confirmation du mot de passe diffèrent, veuillez ressaissir vos informations</a></p>';	
-		  else
+			else
+			{
+			echo"Votre mot de passe est trop court, il doit contenir minimum 6 caractères";
+			}
+		}	
+		else
 		{
-          echo"Echec de validation du mot de passe";
-		} 
-  }
+        echo"Echec de validation du mot de passe";
+		} 	
+	} 
+	else
+	{
+    echo"Cet identifiant est déja utilisé, veuillez en choisir un autre";
+	}   
+}
+else
+{
+echo"Une erreur est survenue, l'adresse mail n'est pas valide";
+} 
 	
 ?>
 

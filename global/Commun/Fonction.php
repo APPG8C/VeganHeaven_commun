@@ -81,19 +81,8 @@ while ($donnees = $requete->fetch())
 	$Produit=$donnees['Produit'];
 	$Annonce=$donnees['idAnnonces'];
 	$Image=$donnees['Url_Image'];
-	if($Annonce%2==0)
-	{
-   	echo"<span class='marger-produit'><a class='modif' href='Produits.php?variable=".$Produit."'>$Produit:</a></span>";
-   	echo"<span class='marg'><img class='mini' src='vues/PhotoDeProduit/$Image' width=50px height=35px /></span><span class='marg'><a href='PageDeProfil.php?Realisee=".$Annonce."'><button class='submit-button'>Réalisée</button></a></span>";
-  
-   	
-   	}
-   else
-   {
 	echo"<p class='infor'><span class='marger-produit'><a class='modif' href='Produits.php?variable=".$Produit."'>$Produit:</a></span>";
-   	echo"<span class='marg'><img class='mini' src='vues/PhotoDeProduit/$Image' width=50px height=35px /></span><span class='marg'><a href='PageDeProfil.php?Realisee=".$Annonce."'><button class='submit-button'>Réalisée</button></a></span></p>";
-  
-   }  
+   	echo"<span class='marg'><img class='mini' src='vues/PhotoDeProduit/$Image' width=50px height=35px /></span><span class='marg'><a href='PageDeProfil.php?Realisee=".$Annonce."'><button class='submit-button'>Réalisée</button></a></span></p>";    
 }
 }
 ?>

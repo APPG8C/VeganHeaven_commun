@@ -92,7 +92,6 @@ nav li
 
 .men
 {
-  
 font-family: Arial;
 font-size: 1.2em;
 text-decoration: none;
@@ -382,7 +381,21 @@ margin-left: 2em;
 /************************ Fin offre*****************/
 
 /************************Inscription/Connexion************************/
-
+.imageCerise
+{ 
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.imageCerise:hover
+{ 
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
 .formLog 
 {
  background-color:#FAFAFA;

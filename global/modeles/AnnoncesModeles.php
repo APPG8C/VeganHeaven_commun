@@ -2,17 +2,17 @@
    
    $idMembre=$_SESSION['ID'];
    $username=$_SESSION['member'];
-   $Vente_Echange=$_POST['Transaction'];
-   $TypeProduit=$_POST['Categorie'];
-   $Produit=$_POST['Produit'];
-   $Peremption=$_POST['DatePeremption'];
-   $Description=$_POST['Description'];
-   $prix_offre=$_POST['prix_offre'];
-   $lieu_transaction=$_POST['lieu_transaction'];
-   $departement=$_POST['departement'];
-   $code_postal=$_POST['code_postal'];
-   $PhotoDeProduit=$_FILES['fichier']['name'];
-   $file=$_FILES["fichier"]["tmp_name"];
+   $Vente_Echange=htmlspecialchars($_POST['Transaction']);
+   $TypeProduit=htmlspecialchars($_POST['Categorie']);
+   $Produit=htmlspecialchars($_POST['Produit']);
+   $Peremption=htmlspecialchars($_POST['DatePeremption']);
+   $Description=htmlspecialchars($_POST['Description']);
+   $prix_offre=htmlspecialchars($_POST['prix_offre']);
+   $lieu_transaction=htmlspecialchars($_POST['lieu_transaction']);
+   $departement=htmlspecialchars($_POST['departement']);
+   $code_postal=htmlspecialchars($_POST['code_postal']);
+   $PhotoDeProduit=htmlspecialchars($_FILES['fichier']['name']);
+   $file=htmlspecialchars($_FILES["fichier"]["tmp_name"]);
    $directory= 'vues/PhotoDeProduit/';
  if(isset($Vente_Echange) AND isset($TypeProduit)){
   if($Vente_Echange=='Vente')

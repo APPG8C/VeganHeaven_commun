@@ -6,11 +6,11 @@
         <tr>
         	<td>
 				<section>
-						<form class="formLog" action="InformationMembres.php" method="POST"enctype="multipart/form-data">
+						<form class="formLog" action="ConnexionInscription.php" method="POST"enctype="multipart/form-data">
 							<legend><h2>Inscription</h2>*Obligatoire</legend>
 							<label>Pseudo*: <input type="text" name="username"/></label>				
 							<label>Adresse* : <input type="text" name="Adresse"/></label>
-							<label>Date de naissance* : <input type="int" name="DateDeNaissance"/></label>
+							<label>Age* : <input type="int" name="Age"/></label>
 							<label>Téléphone mobile*: <input type="int" name="TelephoneMobile"/></label>
 							<label>Téléphone fixe*: <input type="int" name="TelephoneFixe"/></label>
 							<label>Adresse email*: <input type="string" name="AdresseEmail"/></label>
@@ -32,7 +32,7 @@
 				<p>					
 					Vous avez compris ? Non, je ne crois pas, vous lisez encore ce texte au lieu de vous inscrire gratuitement...Allez, soyer des nôtres!On vous attend impatiement et on espére vite vous retrouvez sur la communauté de VeganHeaven.
 				</p>
-				<p><img  src='vues/images/Inscription.jpg' width="570px" height="300px"/></p>				
+				<p><img class='imageCerise' src='vues/images/Inscription.jpg' width="570px" height="300px"/></p>				
 				</article>
 				
 			</td>

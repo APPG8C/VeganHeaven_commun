@@ -41,7 +41,7 @@
 	echo "
 			<div id='divOffre'>
 		<div class='image_offre' >
-		<img src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/>
+		<a href='Produits.php?variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
 		</div>
 			<div class='description_offre'>	
 			<h3 class='titre_offre'> $Produit </h3>
