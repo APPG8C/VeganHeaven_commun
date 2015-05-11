@@ -104,7 +104,7 @@ section p{
                 </div>
 
                 <div class="forum">
-                    <h1> <img src="vues/images/forumcontactlogo1.jpg" alt="Photo de Zozor" class="ico_categorie"/> Par chat sur le <h1><a href="vues/ForumVues.php">forum</a> </h1>
+                    <h1> <img src="vues/images/forumcontactlogo1.jpg" alt="Photo de Zozor" class="ico_categorie"/> Sur le <a href="Forum.php">forum</a> </h1>
                     <p>N'hésitez pas à poser vos questions sur le forum</p>
                     <p>Espace public pour communiquer et partager vos experiences, avis et questions en rapport avec le site. Ce forum vous permet ainsi de trouver les informations qui vous manquent</p>
                 </div>

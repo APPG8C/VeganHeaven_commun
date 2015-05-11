@@ -465,22 +465,15 @@ z-index: 100;
 text-align:center;
 border-radius:28px;
 background: #b21a00; /* Old browsers */
-background: -moz-linear-gradient(top,  #b21a00 0%, #1f3b08 71%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b21a00), color-stop(71%,#1f3b08)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  #b21a00 0%,#1f3b08 71%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  #b21a00 0%,#1f3b08 71%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  #b21a00 0%,#1f3b08 71%); /* IE10+ */
-background: linear-gradient(to bottom,  #b21a00 0%,#1f3b08 71%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b21a00', endColorstr='#1f3b08',GradientType=0 ); /* IE6-9 */
-clear: both;
+
 }
 .pied
 {
 	
-    color: white;
-    text-align:center;
-	font-style: italic;
-	margin-left:40px;
+color: white;
+text-align:center;
+font-style: italic;
+margin-left:40px;
      
 }
 .pied:hover

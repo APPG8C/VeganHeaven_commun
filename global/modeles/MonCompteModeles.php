@@ -37,7 +37,7 @@ if (isset ($_GET["idAnnonces"]))
 			$EmailBy=$_SESSION['Email'];
 			$user=$_SESSION['member'];
 			$text="Bonjour";
-		    AutomaticMail($user,$EmailBy,$AdresseEmail,$text,$Transaction,$Titre);
+		    //AutomaticMail($user,$EmailBy,$AdresseEmail,$text,$Transaction,$Titre);
 		}
 	}
 }

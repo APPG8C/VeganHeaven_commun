@@ -8,10 +8,11 @@ if(isset($_SESSION['member'])){
       $reponse=$requete->fetch();
       
       $username=$reponse['username'];
-      $DateDeNaissance=$reponse['DateDeNaissance'];
+      $DateDeNaissance=$reponse['Age'];
       $TelephoneMobile=$reponse['TelephoneMobile'];
       $TelephoneFixe=$reponse['TelephoneFixe'];
       $AdresseEmail=$reponse['AdresseEmail'];
+      $Adresse=$reponse['Adresse'];
       $photo=$reponse['PhotoDeProfil'];
    }
    else{
@@ -23,28 +24,33 @@ if(isset($_SESSION['member'])){
    $reponse=$requete->fetch();
    $id=$reponse['id'];
    $username=$reponse['username'];
-   $DateDeNaissance=$reponse['DateDeNaissance'];
+   $DateDeNaissance=$reponse['Age'];
    $TelephoneMobile=$reponse['TelephoneMobile'];
    $TelephoneFixe=$reponse['TelephoneFixe'];
    $AdresseEmail=$reponse['AdresseEmail'];
+   $Adresse=$reponse['Adresse'];
    $photo=$reponse['PhotoDeProfil'];
    }
 }
  if(isset ($_GET["idMember"])){
    $IDmember=$_GET["idMember"];
    $idEvaluateur=$_SESSION['ID'];
-   if(isset($_POST['avis']) AND isset($_POST['note']))
-   {
-   $avis=$_POST['avis'];
-   $note=$_POST['note'];
-   $request = $bdd->query("INSERT INTO `membre`.`avis` (`idAvis`, `contenu`, `note`,`idMembre_note`,`idEvaluateur`,`DatePublicationAvis`) VALUES (
-         NULL,
-         '$avis',
-         '$note',
-         '$IDmember',
-         '$idEvaluateur',
-          NOW()
-         );"); 
+   $highNumber=1000000;
+   if(TrueId($IDmember) AND $IDmember<=$highNumber){
+      if(isset($_POST['avis']) AND isset($_POST['note']))
+      {
+      $commentaire=htmlspecialchars($_POST['avis']);
+      $avis=addslashes($commentaire);
+      $note=$_POST['note'];
+      $request = $bdd->query("INSERT INTO `membre`.`avis` (`idAvis`, `contenu`, `note`,`idMembre_note`,`idEvaluateur`,`DatePublicationAvis`) VALUES (
+            NULL,
+            '$avis',
+            '$note',
+            '$IDmember',
+            '$idEvaluateur',
+             NOW()
+            );"); 
+      }
    }
 }
 ?>

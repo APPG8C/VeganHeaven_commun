@@ -1,8 +1,12 @@
 <section class="corp"> 
             
              <?php 
-             if(isset($_SESSION['member'])||isset($MembreInscrit)){
+             $idmembre=$_SESSION['ID']; // identifiant du membre connecté
+             if(isset($idmembre)||isset($MembreInscrit)){
              echo"<a href='Accueil.php'><img class='logoPagedeprofil'  src='vues/images/VeganHeavenCherry_thumb.png'/></a><p class='infor'><h1 class='titles'>$username</h1></p>";
+             }
+             if(isset($_GET["idMember"])){
+             $IdUrl=(int)$_GET["idMember"];// identifiant d'un autre membre présent dans l'url afin d'accerder à sa page de profil 
              }
              ?>
             
@@ -24,9 +28,10 @@
                             echo"<img class='photoMembre' src='vues/PhotoDeProfil/$photo' height=330px width=280px/>";
                             }
                             if(!isset($photo) AND !isset($_FILES['fichier']['name'])){
-                            echo"<img class='image' src='vues/PhotoDeProfil/contact.gif' height=330px width=260px/>";    
+                            echo"<img class='image' src='vues/PhotoDeProfil/contact.gif' height=330px width=260px/>"; 
+                            echo"<p> Cet identifiant ne correspond à aucun utilisateur</p>";   
                             }
-                            if(!isset ($_GET["idMember"])){
+                            if(!isset ($IdUrl)){
 
                             echo"
                             <form action='PageDeProfil.php' method='POST'enctype='multipart/form-data'>
@@ -49,14 +54,14 @@
                                         echo"
                                          <legend>Informations générales</legend>
                                             <ul>
-                                                <li>Date de naissance:<br/>$DateDeNaissance</li>
+                                                <li>Age:<br/>$DateDeNaissance</li>
                                            </ul>
                                             <legend> Coordoonées:</legend>
                                             <ul>
-                                                <li>Adresse</li>
-                                                <li>$AdresseEmail</li>
-                                                <li>$TelephoneMobile</li>
-                                                <li>$TelephoneFixe</li>
+                                                <li>Adresse: $Adresse</li>
+                                                <li>Email: $AdresseEmail</li>
+                                                <li>Tél. Mobile: $TelephoneMobile</li>
+                                                <li>Tél. Fixe: $TelephoneFixe</li>
                                             </ul>
                                             ";
                                         }
@@ -64,7 +69,9 @@
                                      ?>
                         </div>
                         <?php
-                        if(!isset ($_GET["idMember"]))
+                        
+                       
+                        if(!isset ($IdUrl))
                         {
                         echo"<span class='marger'><a class='modif' href='ModificationProfil.php'>Modifier mon profil</a></span>";
                         }
@@ -72,18 +79,15 @@
                         </td>
                         <td>
                         <?php
-                            if((isset($_SESSION['member'])||isset($MembreInscrit)) AND !isset($_GET["idMember"])){
-                            $idmembre=$_SESSION['ID'];
+                            if((isset($idmembre)||isset($MembreInscrit)) AND !isset($IdUrl)){
                             GetAvis_Note($idmembre,$username);
                             }
-                            if((isset($_SESSION['member'])||isset($MembreInscrit)) AND isset($_GET["idMember"]))
+                            if((isset($idmembre)||isset($MembreInscrit)) AND isset($IdUrl))
                             {
-                                if($_GET["idMember"]<=5000){
-                                    $IDmembre=(int)$_GET["idMember"];
-                                    $idmembre=$_SESSION['ID'];
-                                    if($IDmembre!=$idmembre){
-                                    $idmembre=$_GET["idMember"];
-                                    GetAvis_Note($idmembre,$username);
+                                if(TrueId($IdUrl) AND  $IdUrl<=1000000){
+                                    if($idmembre!=$IdUrl){
+                                    $idUrlMembre=$IdUrl;
+                                    GetAvis_Note($idUrlMembre,$username);
                                     }
                                 }        
                             }
@@ -103,17 +107,14 @@
                         </td>
                         <td>
                         <?php
-                        if(isset($_GET["idMember"]))
+                        if(isset($IdUrl))
                         {
-                            if($_GET["idMember"]<=5000)
+                            if($IdUrl<=1000000)
                             {
-                                $IDmembre=$_GET["idMember"];
-                                $idmembre=$_SESSION['ID'];
-                                if($IDmembre!=$idmembre)
-                                {
-                                    $idMember=$_GET["idMember"];    
+                                if($IdUrl!=$idmembre)
+                                {   
                                     echo"<div class='photo'> 
-                                            <form action='PageDeProfil.php?idMember=".$idMember."'' method='POST'>
+                                            <form action='PageDeProfil.php?idMember=".$IdUrl."'' method='POST'>
                                                 <h1>Donner votre avis sur $username:</h1>
                                                     <label>Commentaire:<br/><textarea type='text' name='avis'></textarea></label>
                                                     <p><label>Note:<br/><select type='text' name='note'>
@@ -129,9 +130,8 @@
                                 }
                             }
                         }
-                        if(!isset ($_GET["idMember"]))
-                        {
-                            $Id=$_SESSION['ID'];   
+                        if(!isset ($IdUrl))
+                        {   
                             if(isset($_GET["Realisee"]) )
                             { 
                             $realisee=$_GET["Realisee"];
@@ -143,7 +143,7 @@
                             <div class='information'>
                                     <h1 >Actualiser mon panier</h1>
                             ";
-                            Annonces($Id);
+                            Annonces($idmembre);
                             echo" 
                             </div>
                                 <p class='infor'><span class='marger'><a class='modif' href='MonCompte.php'>Mes offres</a></span>

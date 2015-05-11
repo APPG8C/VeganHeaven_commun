@@ -23,7 +23,7 @@
 								</label>
 							<legend><h2 class="Offre">Votre Offre</h2></legend>
 								<label>Nom du produit: <input type="text" name="Produit"/></label>
-								<label>Detail:<br/><input type="longtext" name="Description"/></label>
+								<label>Detail:<br/><textarea type="longtext" name="Description"/></textarea></label>
 								<label>Date péremption*: <input type="date" name="DatePeremption"/></label>
 								<label>Prix (euros) : <br/><input type="text" name="prix_offre"/></label>
 								<label>Photo du produit:<input type="file" name="fichier"/><br/>En cas de demande, ce sera une photo du produit espéré</label>
@@ -46,7 +46,6 @@
 								<label>Code postal : <input type="text" name="code_postal"/></label>
 								<label>Adresse : <input type="text" name="lieu_transaction"/></label>
 								<p><input type="submit"class="submit-button"value="Valider"/></p>
-
 						</td>
 					</tr>
 				</table>

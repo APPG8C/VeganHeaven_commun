@@ -18,11 +18,6 @@ Oui et Non! Veggan Heaven est un site sur lequel on ne s'inscrit pas. On y va ju
 <h4>Est- ce gratuit d'utiliser Veggan Heaven?</h4>
 <p>Oui ! Veggan Heaven est un site entierement gratuit.</p>
 <br />
-<!--
-<h4> J'ai déjà donné, mais je n'ai pas l'impression que le Bien est avec moi, que puis-je faire ?</h4>
-<p>Il ne faut pas perdre la foi ! Peut-être votre générosité n'est pas à la hauteur du Bien que vous attendez. Ouvrez votre coeur.</p>
-<br />
--->
 <h4>Comment m'assurer que le fruit où le légumes proposé correspond à la réalité?</h4>
 <p>Le bon fonctionnement du site repose sur l'honnêteté et la confiance entre utilisateurs. Les agriculteurs ou les particuliers qui proposent leurs produits sont notés puis classés en fonction des notes. Il est également possible de commenter après un échange ou un achat. </p>
 <br />
