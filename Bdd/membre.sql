@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 18 Mai 2015 à 17:51
+-- Généré le :  Lun 18 Mai 2015 à 18:01
 -- Version du serveur :  5.6.15-log
 -- Version de PHP :  5.5.8
 
@@ -89,6 +89,21 @@ INSERT INTO `avis` (`idAvis`, `contenu`, `note`, `idMembre_note`, `idEvaluateur`
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `messageforum`
+--
+
+CREATE TABLE IF NOT EXISTS `messageforum` (
+  `idMessage` int(11) NOT NULL AUTO_INCREMENT,
+  `urlForum` int(11) NOT NULL,
+  `idUsers` int(11) NOT NULL,
+  `ContenuMsgForum` longtext NOT NULL,
+  `datePost` datetime NOT NULL,
+  PRIMARY KEY (`idMessage`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `panier`
 --
 
@@ -119,6 +134,21 @@ INSERT INTO `panier` (`idPanier`, `idAnnonces`, `idMember`, `Titre`, `Transactio
 (64, 76, 74, 'Mandarine', 'Echange', 40, '2016-03-02', '2015-05-11 14:10:13', '16 bis ave font de veyre', 632015963, 123456789, 'cedlautard@gmail.com', 'mandarine.jpg'),
 (66, 76, 73, 'Mandarine', 'Echange', 40, '2016-03-02', '2015-05-11 14:10:13', '16 bis ave font de veyre', 632015963, 123456789, 'cedlautard@gmail.com', 'mandarine.jpg'),
 (68, 50, 73, 'Abricot', 'Demande', 10, '2015-06-05', '2015-05-05 12:07:48', '16 bis ave font de veyre', 632015963, 123456789, 'cedlautard@gmail.com', '6a00d8341d1d7953ef0115710cd61e970b-800wi.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `topic`
+--
+
+CREATE TABLE IF NOT EXISTS `topic` (
+  `idTopic` int(11) NOT NULL AUTO_INCREMENT,
+  `titreTopic` text NOT NULL,
+  `datePost` datetime NOT NULL,
+  `idUsers` int(11) NOT NULL,
+  `actif` int(11) NOT NULL,
+  PRIMARY KEY (`idTopic`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
