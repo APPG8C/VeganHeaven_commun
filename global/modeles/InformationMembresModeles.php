@@ -3,7 +3,7 @@
 
   $MembreInscrit=false;
   $NbChars=6;
-  $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+  $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
   $username=htmlspecialchars($_POST['username']);
   $DateDeNaissance=htmlspecialchars($_POST['DateDeNaissance']);
   $TelephoneMobile=htmlspecialchars($_POST['TelephoneMobile']);

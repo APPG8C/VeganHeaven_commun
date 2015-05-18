@@ -33,7 +33,7 @@
 		if(isset($_SESSION['member'])){
 
 			echo"<div class='repondre'><a href='MonCompte.php?idMember=".$idMember."&amp;Titre=".$Titre."&amp;Transaction=".$Transaction."&amp;Peremtion=".$Date."&amp;prix_offre=".$prix_offre."&amp;lieu_transaction=".$lieu_transaction."&amp;DatePublication=".$DatePublication."
-				&amp;TelephoneMobile=".$TelephoneMobile."&amp;TelephoneFixe=".$TelephoneFixe."&amp;AdresseEmail=".$AdresseEmail."&amp;idAnnonces=".$idAnnonces."'><button class='submit-button'>
+				&amp;TelephoneMobile=".$TelephoneMobile."&amp;TelephoneFixe=".$TelephoneFixe."&amp;AdresseEmail=".$AdresseEmail."&amp;idAnnonces=".$idAnnonces."&amp;UrlImage=".$UrlImage."'><button class='submit-button'>
 				Ajouter au panier</button></a><br/><strong>*Email automatique</strong></div>
 				<td>
 			<div class='coordonees'>

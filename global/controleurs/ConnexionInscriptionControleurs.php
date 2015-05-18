@@ -7,6 +7,7 @@ $options = array
     'TelephoneFixe' => FILTER_SANITIZE_STRING, //Enlever les balises.
     'AdresseEmail' => FILTER_VALIDATE_EMAIL, //Valider l'adresse de messagerie.
     'Adresse' => FILTER_SANITIZE_STRING,
+    'Ville' => FILTER_SANITIZE_STRING,
     'Age' => array('filter' => FILTER_VALIDATE_INT, 'options' => array('min_range' => 0 )),
     'password' => FILTER_SANITIZE_STRING,
     'repeatpassword' => FILTER_SANITIZE_STRING
@@ -55,6 +56,7 @@ if($resultat != null) { //Si le formulaire a bien été posté.
                 $TelephoneFixe=$resultat['TelephoneFixe'];
                 $AdresseEmail=$resultat['AdresseEmail'];
                 $Adresse=$resultat['Adresse'];
+                $Ville=$resultat['Ville'];
                 $PhotoDeProfil=htmlspecialchars($_FILES['fichier']['name']);
                 $file=htmlspecialchars($_FILES["fichier"]["tmp_name"]);
                 $directory= 'vues/PhotoDeProfil/';

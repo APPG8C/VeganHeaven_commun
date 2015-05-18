@@ -54,11 +54,12 @@
                                         echo"
                                          <legend>Informations générales</legend>
                                             <ul>
-                                                <li>Age:<br/>$DateDeNaissance</li>
+                                                <li>Age:$DateDeNaissance ans</li>
                                            </ul>
                                             <legend> Coordoonées:</legend>
                                             <ul>
                                                 <li>Adresse: $Adresse</li>
+                                                <li>Ville: $Ville</li>
                                                 <li>Email: $AdresseEmail</li>
                                                 <li>Tél. Mobile: $TelephoneMobile</li>
                                                 <li>Tél. Fixe: $TelephoneFixe</li>
@@ -100,10 +101,25 @@
 
                     <tr>
                         <td>
-                        <div class="photo"> 
+                        <div > 
                         <h1>Ma localisation</h1>
-                        <img class='localisation' src="vues/images/map.PNG" height=250px width=500px/>
-                        </div>
+                        <?php
+                        include("geocalisation.php");
+                        ?>
+                       
+                        <form>
+                            <input type="button"  value="Localiser l'adresse du membre " onclick="TrouverAdresse();"/>
+                           <?php
+                           if(isset($Adresse) AND isset($Ville)){
+                            echo"<input style='margin-left:-12em;' type='text' value='$Adresse $Ville' id='adresse'/>";
+                            }
+                            else
+                            {
+                            echo"<input type='text' id='adresse'/>";     
+                            }
+                            ?>
+                        </form>
+                         </div>
                         </td>
                         <td>
                         <?php
@@ -141,7 +157,7 @@
                             {
                             echo"
                             <div class='information'>
-                                    <h1 >Actualiser mon panier</h1>
+                                    <h1 >Actualiser mes annonces</h1>
                             ";
                             Annonces($idmembre);
                             echo" 

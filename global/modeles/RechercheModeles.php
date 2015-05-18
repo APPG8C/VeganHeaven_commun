@@ -5,7 +5,7 @@
 	global $compteur;	
 	for($i=0; $i<4; $i++)
 	{
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete = $bdd->query('SELECT `idAnnonces` FROM annonces ORDER BY RAND() LIMIT 1');
 	while($reponse=$requete->fetch()) 
 	{
@@ -23,7 +23,7 @@
 	for($i=0; $i<4; $i++)
 	{	
 	$idAnnonces = AnnonceAleatoire();
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT `Produit`,`Transaction`,`prix_offre`,`code_postal`,`Description`, `Categorie`,`Url_Image`,`DatePublication` 
 		FROM annonces WHERE `idAnnonces`= ?');	
 	$requete->execute(array($idAnnonces));

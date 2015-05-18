@@ -3,15 +3,12 @@
 			<link rel='stylesheet' href='vues/StyleGraphique.css'>
 		</head>
 		<div class="header">
-			<h1 class="adresse">Vegan Heaven !</h1>
-			<p>
-				<h2 class="slogan">Besoin de bons avocats ?</h2>
-			</p>
+			<h2 class="adresse">Vegan Heaven</h2>
 		<nav>
             <ul class="menu">
 				<div class="section" >
 				<ul id="Connex">
-					<p><li class="fondLogo"><a href="Accueil.php"><img class="logo"  src="vues/images/VeganHeavenCherry_thumb.png" /></a>
+					<p><li class="fondLogo"><a href="Accueil.php"><img src="vues/images/VeganHeavenCherry_thumb.png" /></a>
 						<?php
 						if(!$membreConnecte){
 						session_start();
@@ -19,11 +16,11 @@
 						include('Fonction.php');
 						if(isset($_SESSION['member']))
 						{
-						echo"<br /><a id='connexion' href='deconnexion.php'>Deconnexion</a></p>";
+						echo"<br/><a id='connexion' href='deconnexion.php'>Deconnexion</a></p>";
 						}
 						else
 						{
-							echo"<br /><div id='connexion'>Connexion</div></p>
+							echo"<br/><div id='connexion'>Connexion</div></p>
 						
 							<ul>
 									<li>		
@@ -45,6 +42,20 @@
 				</div>
                 <li ><a class="men" href="Accueil.php">Accueil</a></li>
                 <ul id="menu-deroulant"class="menu">
+						<?php
+						if(isset($_SESSION['member'])){
+						echo"<li ><a class='men'>Mon espace</a>
+							<ul>
+								<p>
+								<li><a class='MenuDeroulant' href='PageDeProfil.php'>Page de profil</a></li>
+								<li><a class='MenuDeroulant' href='MonCompte.php'>Mes Offres</a></li>
+								</p>
+							</ul>
+						</li>";
+						}
+						?>
+				</ul>
+                <ul id="menu-deroulant"class="menu">
                 <li ><a class="men" href="Recherche.php">Voir les offres</a>
                 		<ul>
                 			<p>
@@ -57,34 +68,21 @@
                 		</ul>
                 </li>
                 </ul>
-					<ul id="menu-deroulant"class="menu">
-							<li ><a class="men" href="Apropos.php">A propos</a>
-								<ul>
-									<p>
-									<li><a class="MenuDeroulant" href="FAQ.php">Aide en ligne</a></li>
-									<li><a class="MenuDeroulant" href="Contacts.php">Contacts</a></li></p>
-								</ul>
-							</li>
-							<?php
-							if(isset($_SESSION['member'])){
-							echo"<li ><a class='men'>Mon espace</a>
-								<ul>
-									<p>
-									<li><a class='MenuDeroulant' href='PageDeProfil.php'>Page de profil</a></li>
-									<li><a class='MenuDeroulant' href='MonCompte.php'>Mes Offres</a></li>
-									<li><a class='MenuDeroulant' href='MesTransactions.php'>Mes transactions</a></li>
-									</p>
-								</ul>
-							</li>";
-							}
-							?>
-					</ul>
+				
                 <li ><a class="men" href="Forum.php">Forum</a></li>
 				<?php
 				if(!isset($_SESSION['member'])){
                 echo"<li ><a class='men' href='ConnexionInscription.php'>Inscription</a></li>";
 				}
 				?>
+				<ul id="menu-deroulant"class="menu">
+					<li ><a class="men" href="FAQ.php">A propos</a>
+						<ul>
+							<p>
+							<li><a class="MenuDeroulant" href="Contacts.php">Contacts</a></li></p>
+						</ul>
+					</li>
+				</ul>
             </ul>
         </nav>
 		</div>
