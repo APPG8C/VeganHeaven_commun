@@ -1,5 +1,4 @@
 <?php
-include('./modeles/MenuModeles.php'); 
+include('./modeles/ForumModeles.php'); 
 include('./vues/ForumVues.php');
-
 ?>

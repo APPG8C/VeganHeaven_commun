@@ -953,3 +953,122 @@ margin-left:-3em;
 
 /*Fin de CSS page de profil*/
 
+#divForum
+{
+  width: 100%;
+  margin: 5px;
+  border: 1px #CCE3DB solid;
+  border-radius: 10px;
+  padding-bottom:1em;
+  margin-bottom: 2em;
+  /*box-shadow: 6px 6px 0px #CCE3DB;*/
+  box-shadow: 6px 6px 0px #CED4C9;
+  font-family: Arial;
+  background-color: #B6D85A;
+  color:white;
+}
+#titre_forum,#titre_msg_forum
+{
+  text-align: center;
+  font-family: Arial;
+  color:red;
+}
+#titre_topic
+{
+  font-family: Arial;
+  text-align: left;
+  color: red;
+}
+.Topic
+{
+  width:60%;
+  float: left;
+  padding-top: 1em;
+}
+#dateDerniersMsg
+{
+  width:40%;
+}
+#divForumGlobal
+{
+  width:80%;
+  
+  border: 3px black solid;
+  background color: gray;
+  font-family: arial;
+}
+
+#divInfoMsg
+{
+  width:15%;
+  padding-left: 1em;
+  float: left;
+  margin-top: 3em;
+  border: 1px gray dotted;
+  margin-left: 10px;
+}
+.Pseudo
+{
+  font-weight: bold;
+}
+.topicMsg
+{
+  color: red;
+}
+#divTextDroite
+{
+  width: 80%;
+  float: left;
+  border: 1px gray dotted;
+  padding-left: 1em;
+}
+#dateDuPost
+{
+   width: 80%;
+  float: left;
+  padding-left: 1em;
+  border-top: 1px gray dotted;
+  border-right: 1px gray dotted;
+  
+}
+#divTextDroite
+{
+  margin-bottom: 2em; 
+}
+#dateDuPost
+{
+  margin-top: 3em;
+  padding-bottom: 1em;
+}
+/*#divGlobalPost
+{
+  width:100%;
+  border:1px red solid;
+  height: 200px;
+}*/
+#textareaForum
+{
+  width: 50%;
+  height: 20%;
+}
+.divFormulaireMessage
+{
+  width: 90%;
+  border: 1px gray dotted;
+
+}
+
+.formMessageForum,#titreMessageForum
+{
+  text-align: center;
+  color:red;
+}
+.formMessageForum
+{
+
+}
+.submit-button
+{
+  position: left;
+}
+

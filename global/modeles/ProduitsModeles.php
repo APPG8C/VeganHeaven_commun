@@ -15,6 +15,7 @@ if (isset ($_GET["variable"])) {
 	$Date=$reponse['Date'];
 	$Description=$reponse['Description'];
 	$Categorie=$reponse['Categorie'];
+	$Quantite=$reponse['Quantite'];
 	$Url_Image=$reponse['Url_Image'];
 	$DatePublication=$reponse['DatePublication'];
 	$idMember=$reponse['Members_idMembers'];

@@ -148,10 +148,20 @@
                         }
                         if(!isset ($IdUrl))
                         {   
-                            if(isset($_GET["Realisee"]) )
+                            if(isset($_GET["Realisee"]))
                             { 
                             $realisee=$_GET["Realisee"];
-                            ModifierStatut_Annonces(1,$realisee);  
+                            ModifierStatutAnnonces(1,$realisee); 
+                            echo"
+                            <div class='information'>
+                                    <h1 >Actualiser mes annonces</h1>
+                            ";
+                            Annonces($idmembre,0);
+                            echo" 
+                            </div>
+                                <p class='infor'><span class='marger'><a class='modif' href='MonCompte.php'>Mes offres</a></span>
+                                <span class='marger'><a class='modif' href='creationOffre.php'>Ajouter une offre</a></span></p>
+                            "; 
                             }
                             else
                             {
@@ -159,7 +169,7 @@
                             <div class='information'>
                                     <h1 >Actualiser mes annonces</h1>
                             ";
-                            Annonces($idmembre);
+                            Annonces($idmembre,0);
                             echo" 
                             </div>
                                 <p class='infor'><span class='marger'><a class='modif' href='MonCompte.php'>Mes offres</a></span>

@@ -10,7 +10,7 @@
 		<div id="rechercheOffre">
 			<legend id='recherche_avancee'><h2> Recherche avancée </h2></legend> 
 			<form action="Recherche.php?Transaction='.$Transaction.'&amp;Categorie='.$Categorie.'&amp;Produit='.$Produit.'&amp;Date='.$Date.'&amp;prix_offre='.$prix_offre.'
-				&amp;code_postal='.$code_postal.'&amp;Annonceur='.$Annonceur.'">
+				&amp;code_postal='.$code_postal.'&amp;Annonceur='.$Annonceur.'&amp;Quantite='.$Quantite.'">
 				<label class='form-title'> Type de transaction:
 					<p>
 						<select name="Transaction">
@@ -40,9 +40,9 @@
 
 		<div id="MenuCentre">
 			<h2 id='recherche-titre'> Informations complémentaires </h2>
-				<div class='form-title'>Code Postal: </div>
+				<div class='form-title'>Quantité: </div>
 				<?php
-				Recherche(0,"code_postal");
+				Recherche(0,"Quantite");
 				?>
 				<div class='form-title'>Membres: </div>
 				<?php
@@ -60,7 +60,7 @@
 	</div>
 	</body>
 	<?php
-	if(isset($_GET["Transaction"]) AND isset($_GET["Categorie"]) AND isset($_GET["Produit"]) AND isset($_GET["Date"]) AND isset($_GET["Annonceur"])){
+	if(isset($_GET["Transaction"]) AND isset($_GET["Categorie"]) AND isset($_GET["Produit"]) AND isset($_GET["Date"]) AND isset($_GET["Annonceur"]) AND isset($_GET["Quantite"])){
 	RechercheTotale();
 	}
 	else

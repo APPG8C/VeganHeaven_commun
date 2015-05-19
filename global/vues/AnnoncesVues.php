@@ -20,6 +20,7 @@
 					<p class='description'>
 						$Detail 
 					</p>
+					<p class='prix'><span class='date_peremption'>Quantité: $Quantite</span></p>
 					<p class='prix'><span class='date_peremption'>Prix (si non echange): $prix_offre euros</span></p>
 					<p class='date'><span class='date_peremption'>Date de peremption: $Peremption </span></p>
 					<div>

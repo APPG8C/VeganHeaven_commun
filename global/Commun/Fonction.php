@@ -48,7 +48,7 @@ $idMember=$reponse['idMember'];
 }
 ?>
 <?php
-function ModifierStatut_Annonces($Effectuee,$idAnnonces)
+function ModifierStatutAnnonces($Effectuee,$idAnnonces)
 {
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 $requete = $bdd->prepare("UPDATE `membre`.`annonces` SET `Effectuee`= ? WHERE `idAnnonces`= ?");  
@@ -67,9 +67,9 @@ return $Effectuee;
 }
 ?>
 <?php
-function Annonces($idMembre)
+function Annonces($idMembre,$effectue)
 {
-$effectue=0;
+
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare('SELECT `Produit`,`idAnnonces`,`Url_Image` FROM annonces WHERE `Members_idMembers`= ? AND `Effectuee`= ?  GROUP BY `DatePublication`');  
 $requete->execute(array($idMembre,$effectue));
@@ -231,7 +231,7 @@ $Produit=$reponse['Produit'];
 $Categorie=$reponse['Categorie'];
 $Transaction=$reponse['Transaction'];
 $prix_offre=$reponse['prix_offre'];
-$code_postal=$reponse['code_postal'];
+$Quantite=$reponse['Quantite'];
 $Description=$reponse['Description'];
 $Categorie=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
@@ -247,7 +247,7 @@ echo "
 			Catégorie du produit: $Categorie </br>
 			<p class='paragraphe_offre'> Description:<br/>
 				$Description
-				Code postal : $code_postal </br>
+				Code postal : $Quantite </br>
 				Prix : $prix_offre € </br>
 				Date de péremption : $DatePeremption </br>
 			</p>
@@ -268,7 +268,7 @@ $Produit=$reponse['Produit'];
 $Categorie=$reponse['Categorie'];
 $Transaction=$reponse['Transaction'];
 $prix_offre=$reponse['prix_offre'];
-$code_postal=$reponse['code_postal'];
+$Quantite=$reponse['Quantite'];
 $Description=$reponse['Description'];
 $Categorie=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
@@ -284,7 +284,7 @@ echo "
 			Catégorie du produit: $Categorie </br>
 			<p class='paragraphe_offre'> Description:<br/>
 				$Description
-				Code postal : $code_postal </br>
+				Quantité: $Quantite </br>
 				Prix : $prix_offre € </br>
 				Date de péremption : $DatePeremption </br>
 			</p>
@@ -306,7 +306,7 @@ $Produit=$reponse['Produit'];
 $Categorie=$reponse['Categorie'];
 $Transaction=$reponse['Transaction'];
 $prix_offre=$reponse['prix_offre'];
-$code_postal=$reponse['code_postal'];
+$Quantite=$reponse['Quantite'];
 $Description=$reponse['Description'];
 $Categorie=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
@@ -321,7 +321,7 @@ echo "
 			Catégorie du produit: $Categorie </br>
 			<p class='paragraphe_offre'> Description:<br/>
 				$Description
-				Code postal : $code_postal </br>
+				Code postal : $Quantite </br>
 				Prix : $prix_offre € </br>
 				Date de péremption : $DatePeremption </br>
 			</p>
@@ -342,7 +342,7 @@ $Produit=$reponse['Produit'];
 $Categorie=$reponse['Categorie'];
 $Transaction=$reponse['Transaction'];
 $prix_offre=$reponse['prix_offre'];
-$code_postal=$reponse['code_postal'];
+$Quantite=$reponse['Quantite'];
 $Description=$reponse['Description'];
 $Categorie=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
@@ -358,7 +358,7 @@ echo "
 			Catégorie du produit: $Categorie </br>
 			<p class='paragraphe_offre'> Description:<br/>
 				$Description
-				Code postal : $code_postal </br>
+				Code postal : $Quantite </br>
 				Prix : $prix_offre € </br>
 				Date de péremption : $DatePeremption </br>
 			</p>
@@ -379,7 +379,7 @@ $Produit=$reponse['Produit'];
 $Categorie=$reponse['Categorie'];
 $Transaction=$reponse['Transaction'];
 $prix_offre=$reponse['prix_offre'];
-$code_postal=$reponse['code_postal'];
+$Quantite=$reponse['Quantite'];
 $Description=$reponse['Description'];
 $Categorie=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
@@ -395,7 +395,7 @@ echo "
 			Catégorie du produit: $Categorie </br>
 			<p class='paragraphe_offre'> Description:<br/>
 				$Description
-				Code postal : $code_postal </br>
+				Code postal : $Quantite </br>
 				Prix : $prix_offre € </br>
 				Date de péremption : $DatePeremption</br>
 			</p>
@@ -416,7 +416,7 @@ $Produit=$reponse['Produit'];
 $Categorie=$reponse['Categorie'];
 $Transaction=$reponse['Transaction'];
 $prix_offre=$reponse['prix_offre'];
-$code_postal=$reponse['code_postal'];
+$Quantite=$reponse['Quantite'];
 $Description=$reponse['Description'];
 $Categorie=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
@@ -432,7 +432,7 @@ echo "
 			Catégorie du produit: $Categorie </br>
 			<p class='paragraphe_offre'> Description:<br/>
 				$Description
-				Code postal : $code_postal </br>
+				Code postal : $Quantite </br>
 				Prix : $prix_offre € </br>
 				Date de péremption : $DatePeremption </br>
 			</p>
@@ -454,7 +454,7 @@ $Produit=$reponse['Produit'];
 $Categorie=$reponse['Categorie'];
 $Transaction=$reponse['Transaction'];
 $prix_offre=$reponse['prix_offre'];
-$code_postal=$reponse['code_postal'];
+$Quantite=$reponse['Quantite'];
 $Description=$reponse['Description'];
 $Categorie=$reponse['Categorie'];
 $Url_Image=$reponse['Url_Image'];
@@ -470,7 +470,7 @@ echo "
 			Catégorie du produit: $Categorie </br>
 			<p class='paragraphe_offre'> Description:<br/>
 				$Description
-				Code postal : $code_postal </br>
+				Code postal : $Quantite </br>
 				Prix : $prix_offre € </br>
 				Date de péremption : $DatePeremption </br>
 			</p>
@@ -546,7 +546,7 @@ $tab=JourPublication(10,0);
 $tab0=$tab[0];
 $tab1=$tab[1];
 $tab2=$tab[2];
-	 if(isset($tab0) || isset($_SESSION['member'])){
+	 if(isset($tab0)){
 		 echo"<div class='caption'>$tab2: $tab0</div>
 		<a href='Produits.php?variable=".$tab0."'><img src='vues/PhotoDeProduit/$tab1' width=765px height=400px/></a>";
 	}
