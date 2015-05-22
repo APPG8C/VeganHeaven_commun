@@ -1,0 +1,1081 @@
+
+/***********************EN-TETE********************/
+.fondEcran 
+{
+background-image:url("images/FondCerise.jpg");
+background-repeat: no-repeat;
+background-size:100%; 
+}
+.header 
+{
+  
+	background-image:url("images/Cerise.jpg");
+	background-repeat: no-repeat;
+	background-size:100%;
+	border-radius:1.0em;
+  margin-top: -1.75em;
+}
+	
+
+.adresse
+{
+    font-size:2em;
+    padding-top:0.2em;
+    margin-left:1.8em;
+    color: white;
+    font-family: arial;
+    text-align:left;
+    text-transform: uppercase;
+}
+
+.slogan
+{
+  
+  font-size: 2em;
+  color: white;
+	
+        
+}
+#connexion
+{
+color: white;
+text-decoration:none;
+font-size: 20px;
+font-style: italic;
+
+}
+#connexion:hover
+{
+ color: #1f3b08;
+ 
+}
+
+/************************FIN EN-TETE************************/
+/************************MENU************************/
+
+.menu
+{
+ display: inline-block;
+ text-align: center;
+ font-family: arial;
+}
+
+.MenuDeroulant
+{
+  margin:auto;
+ -webkit-border-radius: 7;
+ -moz-border-radius: 7;
+  border-radius: 7px;
+  text-shadow: 1px 1px 2px black;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #B6D85A;
+  text-decoration: none;
+  background:white;
+  position:relative;
+  
+}
+
+
+
+nav li
+{
+  display: inline-block;
+  margin-left:1.5em;
+	margin-right:1.5em;
+	
+}
+
+.men
+{
+font-family: Arial;
+font-size: 1.2em;
+text-decoration: none;
+border: solid 1px;
+border-radius: 0.5em;
+color: white;
+padding: 0.5em 0.75em 0.5em 0.75em;
+
+}
+.men:hover
+{
+border: solid 1px;
+border-radius: 0.5em;
+padding: 0.5em 0.75em 0.5em 0.75em
+}
+
+.fondLogo
+{
+background-color:#B6D85A;
+border-radius:15px;
+padding-right:10px;
+padding-left:10px;
+}
+
+.couverture
+{
+    width: 100%;
+}
+
+h1
+{
+    color: #1f3b08;
+}
+ul li a
+{
+  color: white;
+	font-size: 20px;
+	text-decoration: none;
+}
+ul li a.MenuDeroulant
+{
+  color:#1f3b08;
+  font-size: 20px;
+  text-decoration: none;
+}
+div
+{
+    margin:auto;
+}
+
+em
+{
+    font-style: normal;
+}
+h2
+{
+    font-style: italic;
+}
+
+.barre
+{
+    text-decoration: line-through;
+}
+h1
+{
+    text-align:left;
+}
+
+article
+{
+    text-align: justify;
+}
+
+aside
+{
+    text-align: center;
+}
+.imageflottante
+{
+    float: left;
+}
+
+body
+{
+  color: black;
+	max-width:100%;
+	background-color: white;
+}
+.annonce
+{
+padding-bottom:1em;
+padding-top:1em;
+text-align:center;
+}
+
+
+.bloc_page
+{
+    width: 100px;
+    margin: auto;
+}
+aside
+{
+float:right;
+position:relative;
+}
+.tabAccueil
+{
+margin-top:4em;
+}
+.texte
+{
+margin-right:1em;
+
+}
+
+
+
+/************************FIN CORP************************/
+/************************ Formulaire creation d'offre*****************/
+.formOffre 
+{
+ background-color:#FAFAFA;
+ padding-bottom:6em;
+ width:350px;
+ height:400px;
+ margin-left:15em;
+ }
+#titreCreationOffre
+{
+  text-align: center;
+  color:red;
+}
+
+.creationOffre
+{
+  font-family: arial;
+}
+
+/************************ Fin Formulaire creation d'offre*****************/
+/************************ offre*****************/
+.corp
+{
+margin-top:2em ;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:0.5em;
+border: 5px groove #1f3b08; 
+}
+.annonce
+{
+
+margin-top:2em ;
+margin-bottom:3em ;
+}
+.contacts
+{
+position:right;
+}
+.info
+{
+font-size:1.2em;
+margin-left:5em;
+margin-bottom:3em ; 
+color:white;
+}
+.marge
+{
+margin-right: 5em;
+padding: 0.5em;
+border-radius: 0.5em;
+background-color:#1f3b08 ;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset white;
+}
+.marge:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset #B6D85A;
+}
+.date_pulication
+{
+  margin-left:5em;
+}
+.image
+{
+margin-top: 3em;
+margin-bottom:3em;
+margin-left: 4em; 
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.image:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
+.prix
+{
+font-size:1.2em;
+margin-left:1em;  
+}
+.date
+{
+font-size:1.2em;
+margin-left:1em; 
+margin-bottom:3em;
+}
+
+.date_peremption
+{
+margin-right: 3em;
+padding: 0.5em;
+border-radius: 0.5em;
+
+}
+.titreDetail
+{
+  margin-left:14em;
+  font-size: 1.3em;
+  color:red;
+}
+.detail
+{
+margin-left: 3em;
+margin-right: 3em;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px inset white;
+}
+.detail:hover
+{
+
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px inset #B6D85A;
+}
+
+.description
+{
+  margin-top: 3em;
+  margin-bottom:3em;
+  margin-left: 3em;
+  margin-right:3em;
+  text-align: justify;
+}
+.coordonees
+{
+margin-left: 21em;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px outset white;
+}
+.coordonees:hover
+{
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+border: 10px outset #B6D85A;
+}
+.contact
+{
+color:red;
+margin-left: 2em;
+}
+.coordoneesTTA
+{
+  margin-top: 1em;
+  margin-bottom:1em;
+  margin-left: 1em;
+  margin-right:1em;
+  text-align: justify;
+}
+/************************ Fin offre*****************/
+
+/************************Inscription/Connexion************************/
+.imageCerise
+{ 
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.imageCerise:hover
+{ 
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
+.formLog 
+{
+ background-color:#FAFAFA;
+ padding:5em;
+ width:15em;
+ height:35em;
+ margin-left:2.5em;
+ }
+
+ .formulaire
+{
+	border: 3px solid #ffffff;
+   background: #fafafa;
+   -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+}
+ legend 
+ {
+ margin-left: 10px;
+ color:#DF3F3F;
+ font-weight:bold
+ }
+.connexion
+{
+background-color:#FAFAFA;
+padding:100px;
+width:300px;
+display:block;
+margin-left:100px;
+margin-bottom:340px;
+border: 3px solid #ffffff;
+   background: #fafafa;
+   -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+}
+
+label
+{
+margin-top:10px;
+display:block;
+
+}
+input
+{
+margin-right:200px;
+text-align: justify;
+}
+.texteI
+{
+margin-right:1em;
+margin-left:10em;
+}
+.repondre
+{
+  margin-left:10em ;
+  
+}
+/************************FIN Inscription/Connexion************************/
+
+
+/************************Pied-de-page************************/
+.footers
+{
+
+text-align:center;
+border-radius:28px;
+background-image:url("images/footers.JPG");
+background-repeat: no-repeat;
+background-size:100%;
+margin-bottom: -3em;
+}
+.pied
+{
+	
+color: white;
+text-align:center;
+margin-left:40px;
+     
+}
+.pied:hover
+{
+color:#3B2C2B
+}
+.paragraphe
+{
+  width:22em;
+  text-align:justify;
+  color:white;
+}
+.tablefooter
+{
+  padding-left: 2em;
+}
+.Copyright
+{
+color:white;
+text-align: center;
+}
+.case
+{
+height:6em;
+padding-left: 1em;
+padding-right: 2em;
+padding-top: 1em;
+padding-bottom: 1em;
+border-left: 0.1em solid white;
+}
+/************************Essai1************************/
+#menu-deroulant, #menu-deroulant ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#menu-deroulant li {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+}
+#menu-deroulant ul li {
+/* on enlève ce comportement pour les liens du sous menu */
+    display: inherit;
+}
+#menu-deroulant .MenuDeroulant {
+    text-decoration: none;
+    display: block;
+	
+}
+#menu-deroulant ul {
+    position: absolute;
+/* on cache les sous menus complètement sur la gauche */
+    left: -999em;
+    text-align: left;
+	
+}
+#menu-deroulant li:hover ul {
+/* Au survol des li du menu on replace les sous menus */
+    left: auto;
+
+	
+}
+#menu-deroulant ul
+{
+position:absolute;
+
+}
+/************************Panier************************/
+.panier
+{
+margin-top: 5em;
+margin-bottom: 3em;
+height: 100%;
+width:80%;
+padding-left: -3em;
+border-left: 0.2em solid #1f3b08; 
+border-bottom: 0.2em solid #1f3b08; 
+}
+.description
+{
+text-align:justify;
+}
+.inforCompte
+{
+margin-right:3.9em; 
+ 
+}
+.inforDate
+{
+margin-top:5em; 
+margin-bottom:1em; 
+ 
+}
+.plusloin1
+{
+margin-left:10em; 
+
+}
+.plusloin2
+{
+margin-left:10em;
+margin-top: 5em;
+float:left;
+width:30em;
+
+}
+.button
+{
+float:right;  
+margin-right: 5em;
+}
+.title
+{
+  text-align: center;
+}
+
+.right
+{
+  float:left;
+}
+.pack
+{
+margin-bottom:3em;
+
+}
+/************************ Barre de recherche/ les offres ******************/
+/************************ Barre de recherche/ les offres ******************/
+
+#divGlobal #MenuCentre
+{
+display: inline-block;
+width: 40%;
+margin-bottom: 5%;
+border: 2px;
+font-family: Arial;
+}
+#divOffre
+{
+  width:95%;
+  padding-left: 3em;
+  border-radius: 10px;
+  border: 1px white solid;
+  box-shadow: 6px 6px 0px #CCE3DB;
+}
+.image_offre
+{
+  padding-top: 10px;
+  float:left;
+  width: 10%;
+}
+
+.description_offre
+{
+  width:70%;
+  font-family: Arial;
+}
+
+#divGlobal #rechercheOffre
+{
+display: inline-block;
+width: 50% ; 
+float: left;
+font-family: Arial;
+}
+
+.liste-categorie
+{
+  color:red;
+}
+.formulaire-recherche
+{
+  background-color: white;
+  padding: 0.75em;
+  margin: auto;
+  margin-left: 4em ;
+}
+
+#recherche_avancee
+{
+  margin-left: 4em;
+}
+#submit-button-search
+{
+  float:left;
+}
+#recherche-titre
+{
+  color: #DF3F3F;
+}
+
+.titre_offre
+{
+  color: red ;
+}
+
+#divGlobal
+{ 
+  margin: 5px;
+  border: 1px white solid;
+  border-radius: 10px;
+  padding-bottom:1em;
+  margin-bottom: 2em;
+  box-shadow: 6px 6px 0px #CCE3DB;
+}
+.champs_annonce
+{
+  /*font-weight: bold;*/
+}
+/*#divGlobal
+{
+ 
+}
+#divGlobal #MenuCentre
+{
+display: inline-block;
+  
+width: 40%;
+margin-bottom: 5%;
+border: 2px;
+font-family: Arial;
+}
+
+#divGlobal #rechercheOffre
+{
+display: inline-block;
+width: 60% ; 
+float: left;
+font-family: Arial;
+}
+
+.liste-categorie
+{
+  color:red;
+}
+.formulaire-recherche
+{
+  background-color: #F4EAE2; 
+}
+#submit-button-search
+{
+  float:left;
+}
+#recherche-titre
+{
+  color: #DF3F3F;
+}
+
+#divGlobal
+{ 
+  margin: 5px;
+  border: 1px black solid;
+  padding-bottom:5em;
+ 
+}*/
+/************************formulaire-de-connexion************************/
+.form-container {
+   border: 1px solid #000000;
+   -webkit-border-radius: 9px;
+   -moz-border-radius: 9px;
+   border-radius: 9px;
+   -webkit-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+   -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+   box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
+   font-family: 'arial',Helvetica,sans-serif;
+   padding:0.5em;
+   width:120px;
+   text-align:left;
+   margin-left:-4em;
+   background-color:#FAFAFA;
+   }
+
+#Connex ul
+{
+	position: absolute;
+	left: -999em;
+	
+}
+#Connex li:hover ul
+{
+	left: auto;
+  z-index: 1;
+}
+.section
+{
+	float:right;
+	margin-top:-25px;
+  position:auto;	
+}
+
+.form-field {
+   border: 1px solid #000000;
+   background: #fafafa;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+   color: #000000;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
+   padding:8px;
+   margin-bottom:5px;
+   width:100px;
+   }
+.form-title
+{
+	color:red;
+}
+
+.submit-container {
+   margin:8px 0;
+   text-align:right;
+   }
+.submit-button {
+   border: 1px solid #447314;
+   background: #6aa436;
+   background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
+   background: -webkit-linear-gradient(top, #8dc059, #6aa436);
+   background: -moz-linear-gradient(top, #8dc059, #6aa436);
+   background: -ms-linear-gradient(top, #8dc059, #6aa436);
+   background: -o-linear-gradient(top, #8dc059, #6aa436);
+   background-image: -ms-linear-gradient(top, #8dc059 0%, #6aa436 100%);
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #addc7e 0 1px 0;
+   color: #31540c;
+   font-family: helvetica, serif;
+   padding: 8.5px ;
+   font-size: 14px;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.submit-button:hover {
+   border: 1px solid #447314;
+   text-shadow: #31540c 0 1px 0;
+   background: #6aa436;
+   background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
+   background: -webkit-linear-gradient(top, #8dc059, #6aa436);
+   background: -moz-linear-gradient(top, #8dc059, #6aa436);
+   background: -ms-linear-gradient(top, #8dc059, #6aa436);
+   background: -o-linear-gradient(top, #8dc059, #6aa436);
+   background-image: -ms-linear-gradient(top, #8dc059 0%, #6aa436 100%);
+   color: #fff;
+   }
+.submit-button:active {
+   text-shadow: #31540c 0 1px 0;
+   border: 1px solid #447314;
+   background: #8dc059;
+   background: -webkit-gradient(linear, left top, left bottom, from(#6aa436), to(#6aa436));
+   background: -webkit-linear-gradient(top, #6aa436, #8dc059);
+   background: -moz-linear-gradient(top, #6aa436, #8dc059);
+   background: -ms-linear-gradient(top, #6aa436, #8dc059);
+   background: -o-linear-gradient(top, #6aa436, #8dc059);
+   background-image: -ms-linear-gradient(top, #6aa436 0%, #8dc059 100%);
+   color: #fff;
+   }
+   
+
+
+ /*CSS pour la page de profil*/
+.table 
+{
+margin-left:7em;
+}
+
+.titles 
+{
+text-align: center;
+}
+.photoMembre
+{
+margin-bottom:3em;
+margin-left: 2em; 
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.photoMembre:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
+.localisation
+{
+margin-right:4em;
+margin-bottom:3em;  
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.localisation:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
+
+.modif
+{
+    text-decoration: none;
+    color:white;
+}
+.infor
+{
+font-size:1.2em;
+margin-bottom:3em ; 
+color:white;
+
+}
+.marg
+{
+margin-right: 3em;
+}
+.marger
+{
+margin-right: 3em;
+padding: 0.5em;
+border-radius: 0.5em;
+background-color:#1f3b08 ;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset white;
+}
+.marger-produit
+{
+margin-right: 3em;
+padding: 0.5em;
+border-radius: 0.5em;
+background-color:#663300 ;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset white;
+}
+.marger-produit:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset #B6D85A;
+}
+.marger:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:3em;
+border: 5px inset #B6D85A;
+}
+.mini
+{
+margin-top: 2.60em;
+border-radius:2em;
+
+}
+
+.information
+{
+margin-top:-5em;
+margin-bottom:3em; 
+}
+.nom
+{
+background-image:url("images/pommeVerte.jpg");
+background-repeat: no-repeat;
+background-size:100%;
+border-radius: 3em;
+margin-left:-3em;
+}
+.logoPagedeprofil
+{
+  float:right;
+  margin:auto;
+  width:10%;
+}
+
+/*Fin de CSS page de profil*/
+
+#divForum
+{
+  width: 100%;
+  margin: 5px;
+  border: 1px #CCE3DB solid;
+  border-radius: 10px;
+  padding-bottom:1em;
+  margin-bottom: 2em;
+  /*box-shadow: 6px 6px 0px #CCE3DB;*/
+  box-shadow: 6px 6px 0px #CED4C9;
+  font-family: Arial;
+  background-color: #B6D85A;
+  color:white;
+}
+#titre_forum,#titre_msg_forum
+{
+  text-align: center;
+  font-family: Arial;
+  color:red;
+}
+#titre_topic
+{
+  font-family: Arial;
+  text-align: left;
+  color: red;
+}
+.Topic
+{
+  width:60%;
+  float: left;
+  padding-top: 1em;
+}
+#dateDerniersMsg
+{
+  width:40%;
+}
+#divForumGlobal
+{
+  width:80%;
+  
+  border: 3px black solid;
+  background color: gray;
+  font-family: arial;
+}
+
+#divInfoMsg
+{
+  width:15%;
+  padding-left: 1em;
+  float: left;
+  margin-top: 3em;
+  border: 1px gray dotted;
+  margin-left: 10px;
+}
+.Pseudo
+{
+  font-weight: bold;
+}
+.topicMsg
+{
+  color: red;
+}
+#divTextDroite
+{
+  width: 80%;
+  float: left;
+  border: 1px gray dotted;
+  padding-left: 1em;
+}
+#dateDuPost
+{
+   width: 80%;
+  float: left;
+  padding-left: 1em;
+  border-top: 1px gray dotted;
+  border-right: 1px gray dotted;
+  
+}
+#divTextDroite
+{
+  margin-bottom: 2em; 
+}
+#dateDuPost
+{
+  margin-top: 3em;
+  padding-bottom: 1em;
+}
+/*#divGlobalPost
+{
+  width:100%;
+  border:1px red solid;
+  height: 200px;
+}*/
+#textareaForum
+{
+  width: 50%;
+  height: 20%;
+}
+.divFormulaireMessage
+{
+  width: 90%;
+  border: 1px gray dotted;
+
+}
+
+.formMessageForum,#titreMessageForum
+{
+  text-align: center;
+  color:red;
+}
+.formMessageForum
+{
+
+}
+.submit-button
+{
+  position: left;
+}
+

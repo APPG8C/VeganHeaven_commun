@@ -1,0 +1,77 @@
+/*------------Onglet------------*/
+nav
+{
+margin-left:5em ;
+margin-bottom:3em;
+margin-top:3em;
+}
+nav ul li
+{
+display: inline-block;
+margin-left: 5em;
+}
+nav ul li a
+{
+	text-decoration:none; 
+	font-size:1.2em;
+}
+/*------------Fin Onglet-----------*/
+
+/*--------Gerer Annonce--------*/
+.description
+{
+text-align:justify;
+}
+.infor
+{
+margin-right:3.9em; 
+ 
+}
+.inforDate
+{
+margin-top:5em; 
+margin-bottom:1em; 
+ 
+}
+.plusloin1
+{
+margin-left:14em; 
+
+}
+.plusloin2
+{
+margin-left:14em; 
+width:30em;
+
+}
+.button
+{
+float:right;	
+margin-right: 5em;
+}
+.title
+{
+	text-align: center;
+}
+
+.right
+{
+	float:left;
+}
+.pack
+{
+margin-top:-4em; 
+margin-bottom:3em;
+}
+.separation
+{
+
+border-left: 0.1em solid black; 
+border-top: 0.1em solid black;
+border-bottom: 0.1em solid black;  
+}
+.recherche
+{
+margin-left:10em;	
+}
+/*--------Fin Gerer Annonce--------*/
