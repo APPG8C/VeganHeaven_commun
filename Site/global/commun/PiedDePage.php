@@ -5,7 +5,7 @@
 		<tr>
 			<td>
 				<div class='case'>
-				<li><a href="FAQ.php">Aide en ligne</a></li>
+				<li><a href="globalControleur.php?page=FAQ">Aide en ligne</a></li>
 				<p class="paragraphe"> 
 					Un problème ? Conseil pratique, idée de recette, 
 					nous vous guidons dans l'univers de Vegan Heaven. 
@@ -14,7 +14,7 @@
 			</td>
 			<td>
 				<div class='case'>
-				<li><a href="MentionsLegales.php">Condition d'utilisation</a></li>
+				<li><a href="globalControleur.php?page=MentionsLegales">Condition d'utilisation</a></li>
 				<p class="paragraphe">
 					Echangé vos expériences, respecté nos 
 					valeurs et administré Vegan Heaven.
@@ -23,7 +23,7 @@
 			</td>
 			<td>
 				<div class='case'>
-				<li><a href="Contacts.php">Contacts</a></li>
+				<li><a href="globalControleur.php?page=Contacts">Contacts</a></li>
 				<p class="paragraphe">
 					L'Equipe Vegan Heaven est à votre disposition, une communauté vous soutient.
 				</p>

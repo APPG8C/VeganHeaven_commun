@@ -31,22 +31,23 @@
 			</td>
 			
 		";
-		if(isset($_SESSION['member'])){
+		if(isset($_SESSION['ID'])){
+			if($_SESSION['ID']!=$idMember){
+				echo"<div class='repondre'><a href='globalControleur.php?page=MonCompte&amp;idMember=".$idMember."&amp;Titre=".$Titre."&amp;Transaction=".$Transaction."&amp;Peremtion=".$Date."&amp;prix_offre=".$prix_offre."&amp;lieu_transaction=".$lieu_transaction."&amp;DatePublication=".$DatePublication."
+					&amp;TelephoneMobile=".$TelephoneMobile."&amp;TelephoneFixe=".$TelephoneFixe."&amp;AdresseEmail=".$AdresseEmail."&amp;idAnnonces=".$idAnnonces."&amp;UrlImage=".$UrlImage."'><button class='submit-button'>
+					Ajouter au panier</button></a><br/><strong>*Email automatique</strong></div>
+					<td>
+				<div class='coordonees'>
+					<p class='contact'>Contact</p>
+					<p class='coordoneesTTA'><span class=''>TelephoneMobile: $TelephoneMobile</span></p>
+					<p class='coordoneesTTA'coordoneesTTA''><span class=''>TelephoneFixe: $TelephoneFixe </span></p>
+					<p class='coordoneesTTA''><span class=''>AdresseEmail: $AdresseEmail </span></p>
+					<span class='marger'><a class='modif' href='globalControleur.php?page=PageDeProfil&amp;idMember=".$idMember."''>Profil du Membre</a></span></p>
 
-			echo"<div class='repondre'><a href='MonCompte.php?idMember=".$idMember."&amp;Titre=".$Titre."&amp;Transaction=".$Transaction."&amp;Peremtion=".$Date."&amp;prix_offre=".$prix_offre."&amp;lieu_transaction=".$lieu_transaction."&amp;DatePublication=".$DatePublication."
-				&amp;TelephoneMobile=".$TelephoneMobile."&amp;TelephoneFixe=".$TelephoneFixe."&amp;AdresseEmail=".$AdresseEmail."&amp;idAnnonces=".$idAnnonces."&amp;UrlImage=".$UrlImage."'><button class='submit-button'>
-				Ajouter au panier</button></a><br/><strong>*Email automatique</strong></div>
-				<td>
-			<div class='coordonees'>
-				<p class='contact'>Contact</p>
-				<p class='coordoneesTTA'><span class=''>TelephoneMobile: $TelephoneMobile</span></p>
-				<p class='coordoneesTTA'coordoneesTTA''><span class=''>TelephoneFixe: $TelephoneFixe </span></p>
-				<p class='coordoneesTTA''><span class=''>AdresseEmail: $AdresseEmail </span></p>
-				<span class='marger'><a class='modif' href='PageDeProfil.php?idMember=".$idMember."''>Profil du Membre</a></span></p>
-
-			</div>
-			</td>
-		</tr>";
+				</div>
+				</td>
+			</tr>";
+			}
 		}
 		echo"</table>";
 	?>	

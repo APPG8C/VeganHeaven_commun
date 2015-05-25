@@ -3,7 +3,7 @@
              <?php 
              $idmembre=$_SESSION['ID']; // identifiant du membre connecté
              if(isset($idmembre)||isset($MembreInscrit)){
-             echo"<a href='Accueil.php'><img class='logoPagedeprofil'  src='vues/images/VeganHeavenCherry_thumb.png'/></a><p class='infor'><h1 class='titles'>$username</h1></p>";
+             echo"<a href='globalControleur.php?page=Accueil'><img class='logoPagedeprofil'  src='vues/images/VeganHeavenCherry_thumb.png'/></a><p class='infor'><h1 class='titles'>$username</h1></p>";
              }
              if(isset($_GET["idMember"])){
              $IdUrl=(int)$_GET["idMember"];// identifiant d'un autre membre présent dans l'url afin d'accerder à sa page de profil 
@@ -74,7 +74,7 @@
                        
                         if(!isset ($IdUrl))
                         {
-                        echo"<span class='marger'><a class='modif' href='ModificationProfil.php'>Modifier mon profil</a></span>";
+                        echo"<span class='marger'><a class='modif' href='globalControleur.php?page=ModificationProfil'>Modifier mon profil</a></span>";
                         }
                         ?>
                         </td>
@@ -130,7 +130,7 @@
                                 if($IdUrl!=$idmembre)
                                 {   
                                     echo"<div class='photo'> 
-                                            <form action='PageDeProfil.php?idMember=".$IdUrl."'' method='POST'>
+                                            <form action='globalControleur.php?page=PageDeProfil&amp;idMember=".$IdUrl."'' method='POST'>
                                                 <h1>Donner votre avis sur $username:</h1>
                                                     <label>Commentaire:<br/><textarea type='text' name='avis'></textarea></label>
                                                     <p><label>Note:<br/><select type='text' name='note'>
@@ -159,8 +159,8 @@
                             Annonces($idmembre,0);
                             echo" 
                             </div>
-                                <p class='infor'><span class='marger'><a class='modif' href='MonCompte.php'>Mes offres</a></span>
-                                <span class='marger'><a class='modif' href='creationOffre.php'>Ajouter une offre</a></span></p>
+                                <p class='infor'><span class='marger'><a class='modif' href='globalControleur.php?page=MonCompte'>Mes offres</a></span>
+                                <span class='marger'><a class='modif' href='globalControleur.php?page=creationOffre'>Ajouter une offre</a></span></p>
                             "; 
                             }
                             else
@@ -172,8 +172,8 @@
                             Annonces($idmembre,0);
                             echo" 
                             </div>
-                                <p class='infor'><span class='marger'><a class='modif' href='MonCompte.php'>Mes offres</a></span>
-                                <span class='marger'><a class='modif' href='creationOffre.php'>Ajouter une offre</a></span></p>
+                                <p class='infor'><span class='marger'><a class='modif' href='globalControleur.php?page=MonCompte'>Mes offres</a></span>
+                                <span class='marger'><a class='modif' href='globalControleur.php?page=creationOffre'>Ajouter une offre</a></span></p>
                             ";
                             }
                         }

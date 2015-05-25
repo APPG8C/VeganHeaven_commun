@@ -2,7 +2,7 @@
 if(isset($_SESSION['member'])){
    if(isset ($_GET["idMember"])){
       $IDmember=$_GET["idMember"];
-      $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+      $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
       $requete=$bdd->prepare('SELECT * FROM users WHERE`id`=?');
       $requete->execute(array($IDmember));
       $reponse=$requete->fetch();
@@ -18,10 +18,10 @@ if(isset($_SESSION['member'])){
    }
    else{
    
-   $member=$_SESSION['member'];
-   $bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
-   $requete=$bdd->prepare('SELECT * FROM users WHERE`username`=?');
-   $requete->execute(array($member));
+   $id=$_SESSION['ID'];
+   $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+   $requete=$bdd->prepare('SELECT * FROM users WHERE`id`=?');
+   $requete->execute(array( $id));
    $reponse=$requete->fetch();
    $id=$reponse['id'];
    $username=$reponse['username'];

@@ -23,7 +23,7 @@ if(isset($_GET['titreTopic']))
 	{	
 	$idTopic=$_GET['idTopic'];
 	$titreTopic=$_GET['titreTopic'];
-		echo"<form class='FormMessageForum' action='MessageForum.php?idTopic=".$idTopic."&amp;titreTopic=".$titreTopic."'method='POST'>
+		echo"<form class='FormMessageForum' action='globalControleur.php?page=MessageForum&amp;idTopic=".$idTopic."&amp;titreTopic=".$titreTopic."'method='POST'>
 				<label id='titreMsgForum'> Ecrivez un message: </br>
 					</br>
 					<textarea id='textareaForum' type='longtext' name='ContenuMsgForum'></textarea>

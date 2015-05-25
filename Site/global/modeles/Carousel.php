@@ -3,9 +3,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <div id="carrousel">
    	 	<ul class="carrousel">
-			<a href="Offre.php"><img src="images/photoCouverture2.jpg" class="image1"/></a>
-			<a href="Offre.php"><img src="images/Offres.jpeg" class="image2"/></a>
-			<a href="Offre.php"><img src="images/fruit.jpg" class="image3"/></a>
+			<a href="globalControleur.php?page=Offre"><img src="images/photoCouverture2.jpg" class="image1"/></a>
+			<a href="globalControleur.php?page=Offre"><img src="images/Offres.jpeg" class="image2"/></a>
+			<a href="globalControleur.php?page=Offre"><img src="images/fruit.jpg" class="image3"/></a>
    	 	</ul>	
 	</div>
 <script>

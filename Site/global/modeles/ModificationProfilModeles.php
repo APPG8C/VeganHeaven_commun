@@ -11,13 +11,13 @@ if(isset($_SESSION['member']))
          echo"<p>Nouveau Prénom : $username</p>"; 
       }  
    }
-   if(isset($_POST['DateDeNaissance']))
+   if(isset($_POST['Age']))
    {
-      $DateDeNaissance=$_POST['DateDeNaissance'];
-      if($DateDeNaissance!=NULL)
+      $Age=$_POST['Age'];
+      if($Age!=NULL)
       {
-         ModifierChampProfil('DateDeNaissance',$DateDeNaissance,$id); 
-         echo"<p>Nouvelle date de Naissance : $DateDeNaissance (Il est étrange de changer de date de naissance, mais puisque vous insistez....)</p>" ;  
+         ModifierChampProfil('Age',$Age,$id); 
+         echo"<p>Nouvelle date de Naissance : $Age ans (Il est étrange de changer d'age, mais puisque vous insistez....)</p>" ;  
       }
    }
    if(isset($_POST['TelephoneMobile']))

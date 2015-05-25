@@ -1,4 +1,60 @@
 <?php
+function AutomaticMail($user,$EmailBy,$EmailGive,$text,$transaction,$produit)
+{
+			ini_set("SMTP","SMTP.WIFIRST.NET");
+			$mail ="$EmailGive";	
+			if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.
+			{
+			$passage_ligne = "\r\n";
+			}
+			else
+			{
+			$passage_ligne = "\n";
+			}
+			//=====Déclaration des messages au format texte et au format HTML.
+			
+			$message_txt = "$text";
+			$message_html = "<html><head></head><body><b>Bonjour</b>, je suis un membre de VeganHeaven et je suis interessé par vôtre $transaction nommé(e) <i>$produit</i>.</body></html>";
+			//==========
+ 
+			//=====Création de la boundary
+			$boundary = "-----=".md5(rand());
+			//==========
+ 
+		//=====Définition du sujet.
+		$sujet = "$user est interessé par votre $transaction";
+		//=========
+ 
+		//=====Création du header de l'e-mail.
+		$header = "From: \"VeganHeaven\"<$EmailBy>".$passage_ligne;
+		$header.= "Reply-to: \"$user\" <$EmailBy>".$passage_ligne;
+		$header.= "MIME-Version: 1.0".$passage_ligne;
+		$header.= "Content-Type: multipart/alternative;".$passage_ligne." boundary=\"$boundary\"".$passage_ligne;
+//==========
+ 
+//=====Création du message.
+		$message = $passage_ligne."--".$boundary.$passage_ligne;
+//=====Ajout du message au format texte.
+		$message.= "Content-Type: text/plain; charset=\"ISO-8859-1\"".$passage_ligne;
+		$message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+		$message.= $passage_ligne.$message_txt.$passage_ligne;
+//==========
+		$message.= $passage_ligne."--".$boundary.$passage_ligne;
+//=====Ajout du message au format HTML
+		$message.= "Content-Type: text/html; charset=\"ISO-8859-1\"".$passage_ligne;
+		$message.= "Content-Transfer-Encoding: 8bit".$passage_ligne;
+		$message.= $passage_ligne.$message_html.$passage_ligne;
+//==========
+		$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+		$message.= $passage_ligne."--".$boundary."--".$passage_ligne;
+//==========
+ 
+//=====Envoi de l'e-mail.
+		mail($mail,$sujet,$message,$header);
+
+}
+?>
+<?php
 if (isset ($_GET["idAnnonces"]))
 {
 	$idAnnonces=$_GET["idAnnonces"] ;
@@ -20,7 +76,7 @@ if (isset ($_GET["idAnnonces"]))
 			$TelephoneFixe=$_GET["TelephoneFixe"];
 			$AdresseEmail=$_GET["AdresseEmail"];
 			$UrlImage=$_GET["UrlImage"];
-			$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+			$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 			$request = $bdd->query("INSERT INTO `membre`.`panier` (`idPanier`, `idAnnonces`, `idMember`,`Titre`,`Transaction`,`prix_offre`,`Peremtion`,`DatePublication`,`lieu_transaction`,`TelephoneMobile`,`TelephoneFixe`,`AdresseEmail`,`UrlImage`) VALUES (
 			NULL,
 			'$idAnnonces',
@@ -45,7 +101,6 @@ if (isset ($_GET["idAnnonces"]))
 }
 ?>
 <?php
-	$nbArticle=0;
 	$Member=$_SESSION['ID'];
 	$AnnonceSuppr=0;
 	if(isset($_GET['suppr']))
@@ -53,7 +108,7 @@ if (isset ($_GET["idAnnonces"]))
 	$id=$_GET['suppr'];
     Suppr_AnnoncesPanier($id);
 	}
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT * FROM panier WHERE `idMember`= ? GROUP BY `idPanier`');
 	$requete->execute(array($Member));	
 	echo"<h1 class='title'>Mon Panier</h1>";
@@ -91,7 +146,7 @@ if (isset ($_GET["idAnnonces"]))
 					<td>
 						<div class='inforCompte'>
 							<p class='suppr'>
-								<a href='MonCompte.php?suppr=".$idAnnonces."'><button class='submit-button'>Effacer</button></a>
+								<a href='globalControleur.php?page=MonCompte&amp;suppr=".$idAnnonces."'><button class='submit-button'>Effacer</button></a>
 							</p>
 						</div>
 					</td>
@@ -132,14 +187,14 @@ if (isset ($_GET["idAnnonces"]))
 							</tr>
 						</table>
 						<div class='plusloin2'>
-								<a href='Produits.php?variable=".$Titre."'><img class='image' src='vues/PhotoDeProduit/$UrlImage' width=350px height=250px /></a>	
+								<a href='globalControleur.php?page=Produits&amp;variable=".$Titre."'><img class='image' src='vues/PhotoDeProduit/$UrlImage' width=350px height=250px /></a>	
 						</div>
 						<div>
 						<table>
 							<tr>
 								<td>
 									<div class='inforDate'>
-										<h4>Adresse Email:</h4>$AdresseEmail<br/>
+										<h4>Date de publication:</h4>$AdresseEmail<br/>
 									<div>
 								</td>		
 							</tr>
@@ -158,12 +213,6 @@ if (isset ($_GET["idAnnonces"]))
 				</tr>
 		</table>
 		</div>";
-		$nbArticle++;
-	}
-
-	function AfficherNbArticle($nbArticle)
-	{
-		echo "$nbArticle article(s)";
 	}
 ?>
 

@@ -14,6 +14,7 @@ background-size:100%;
 	background-size:100%;
 	border-radius:1.0em;
   margin-top: -1.75em;
+  
 }
 	
 
@@ -49,14 +50,14 @@ font-style: italic;
  color: #1f3b08;
  
 }
-
+#inscript:hover
+{
+ color: red;
+ 
+}
 /************************FIN EN-TETE************************/
 /************************MENU************************/
 
-.sectionPanier
-{
-  float: right;
-}
 .menu
 {
  display: inline-block;
@@ -109,7 +110,7 @@ border-radius: 0.5em;
 padding: 0.5em 0.75em 0.5em 0.75em
 }
 
-.fondLogo, .LogoPanier
+.fondLogo
 {
 background-color:#B6D85A;
 border-radius:15px;
@@ -166,6 +167,10 @@ article
     text-align: justify;
 }
 
+aside
+{
+    text-align: center;
+}
 .imageflottante
 {
     float: left;
@@ -175,8 +180,7 @@ body
 {
   color: black;
 	max-width:100%;
-  font-family: Arial;
-	/*background-color: white;*/
+	background-color: white;
 }
 .annonce
 {
@@ -191,55 +195,17 @@ text-align:center;
     width: 100px;
     margin: auto;
 }
-aside
-{
-/*float:right;
-position:relative;*/
-}
+
 .tabAccueil
 {
 margin-top:4em;
-margin-left: 11em;
 }
-.texte,.texte2
+.texte
 {
-margin-left:1em;
-margin-right: 1em;
-margin-bottom: 2em;
-}
-
-.sectionAccueil
-{
-  width:80%;
-  border: 3px gray solid;
-  border-radius: 10px;
-  background color: gray;
-  font-family: arial;
-  margin-left: 8em;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  box-shadow: 6px 6px 0px #CCE3DB;
+margin-right:1em;
 
 }
-#titreCaroussel
-{
-  text-align: center;
-  color: red;
-}
-#titreParadis
-{
-  margin-left: 1em;
-  color: red;
-}
-#titreDescription
-{
-  margin-left: 1em;
-  color: red;
-}
- /*body
- {
-  background-image: url("vues/images/jardinfond.jpg");
- }*/
+
 
 
 /************************FIN CORP************************/
@@ -272,8 +238,6 @@ margin-top:2em ;
 -webkit-border-radius:5px;
 border-radius:0.5em;
 border: 5px groove #1f3b08; 
-width: 80%;
-margin-left: 8em;
 }
 .annonce
 {
@@ -636,10 +600,6 @@ margin-bottom:3em;
 }
 /************************ Barre de recherche/ les offres ******************/
 /************************ Barre de recherche/ les offres ******************/
-.divGlobalSite
-{
-  width: 80%;
-}
 
 #divGlobal #MenuCentre
 {
@@ -649,10 +609,9 @@ margin-bottom: 5%;
 border: 2px;
 font-family: Arial;
 }
-
 #divOffre
 {
-  width:80%;
+  width:95%;
   padding-left: 3em;
   border-radius: 10px;
   border: 1px white solid;
@@ -669,7 +628,6 @@ font-family: Arial;
 {
   width:70%;
   font-family: Arial;
-  margin-left: 15em;
 }
 
 #divGlobal #rechercheOffre
@@ -680,11 +638,6 @@ float: left;
 font-family: Arial;
 }
 
-#titreAnnonceRecherche
-{
-  color:red;
-  text-align: center
-}
 .liste-categorie
 {
   color:red;
@@ -805,8 +758,9 @@ font-family: Arial;
 .section
 {
 	float:right;
-	margin-top:-25px;
-  position:auto;	
+	margin-top:-3.5em;
+  margin-right:-30em;
+
 }
 
 .form-field {
@@ -1008,8 +962,6 @@ margin-left:-3em;
 
 /*Fin de CSS page de profil*/
 
-/********************** FORUM *************************/
-
 #divForum
 {
   width: 100%;
@@ -1038,7 +990,6 @@ margin-left:-3em;
 }
 .Topic
 {
-  margin-left: 2em;
   width:60%;
   float: left;
   padding-top: 1em;
@@ -1097,10 +1048,6 @@ margin-left:-3em;
 {
   margin-top: 3em;
   padding-bottom: 1em;
-}
-#MsgForumBas
-{
-  text-align: center;
 }
 /*#divGlobalPost
 {

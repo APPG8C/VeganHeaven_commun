@@ -5,7 +5,7 @@
 	global $compteur;	
 	for($i=0; $i<4; $i++)
 	{
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete = $bdd->query('SELECT `idAnnonces` FROM annonces ORDER BY RAND() LIMIT 1');
 	while($reponse=$requete->fetch()) 
 	{
@@ -19,11 +19,11 @@
 	function AnnonceRecherche()
 	//$Produit = 'Oranges';
 	{
-	echo"<h1 id='titreAnnonceRecherche'>Des annonces selectionnées par nos soins:</h1>";
+	echo"<h1>Des annonces selectionnées par nos soins:</h1>";
 	for($i=0; $i<4; $i++)
 	{	
 	$idAnnonces = AnnonceAleatoire();
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT `Produit`,`Transaction`,`prix_offre`,`code_postal`,`Description`, `Categorie`,`Url_Image`,`DatePublication`,`Quantite` 
 		FROM annonces WHERE `idAnnonces`= ?');	
 	$requete->execute(array($idAnnonces));
@@ -42,7 +42,7 @@
 	echo "
 			<div id='divOffre'>
 		<div class='image_offre' >
-		<a href='Produits.php?variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
 		</div>
 			<div class='description_offre'>	
 			<h3 class='titre_offre'> $Produit </h3>

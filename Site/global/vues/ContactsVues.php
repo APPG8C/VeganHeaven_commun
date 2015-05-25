@@ -9,13 +9,6 @@ section h1{
   text-align:center;
 
 }
-section
-{
-  padding-top: 5em;
-  padding-bottom: 5em;
-  width: 80%;
-  padding-left: 8em;
-}
 
 section p{
   color: #1f3b08;
@@ -111,7 +104,7 @@ section p{
                 </div>
 
                 <div class="forum">
-                    <h1> <img src="vues/images/forumcontactlogo1.jpg" alt="Photo de Zozor" class="ico_categorie"/> Sur le <a href="Forum.php">forum</a> </h1>
+                    <h1> <img src="vues/images/forumcontactlogo1.jpg" alt="Photo de Zozor" class="ico_categorie"/> Sur le <a href="globalControleur.php?page=Forum">forum</a> </h1>
                     <p>N'hésitez pas à poser vos questions sur le forum</p>
                     <p>Espace public pour communiquer et partager vos experiences, avis et questions en rapport avec le site. Ce forum vous permet ainsi de trouver les informations qui vous manquent</p>
                 </div>

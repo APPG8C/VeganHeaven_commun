@@ -5,7 +5,7 @@
 
 <body>
 <div class="creationOffre">
-	<form class="formOffre" action="Annonces.php" method="POST"enctype="multipart/form-data">
+	<form class="formOffre" action="globalControleur.php?page=Annonces" method="POST"enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>

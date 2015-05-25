@@ -12,7 +12,7 @@
 			<tr>
 				<td>
 				<img class='image' src='vues/PhotoDeProduit/$PhotoDeProduit' width=400px height=300px/><br/>
-				<p><span class='marger'><a class='modif' href='PageDeProfil.php'> Ma page de profil</a></span></p>
+				<p><span class='marger'><a class='modif' href='globalControleur.php?page=PageDeProfil'> Ma page de profil</a></span></p>
 				</td>
 				<td >
 					<div class='detail'>

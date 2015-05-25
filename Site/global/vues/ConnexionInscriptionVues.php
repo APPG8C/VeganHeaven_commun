@@ -3,7 +3,7 @@
         <tr>
         	<td>
 				<section>
-						<form class="formLog" action="ConnexionInscription.php" method="POST"enctype="multipart/form-data">
+						<form class="formLog" action="globalControleur.php?page=ConnexionInscription" method="POST"enctype="multipart/form-data">
 							<legend><h2>Inscription</h2>*Obligatoire</legend>
 							<label>Pseudo*: <input type="text" name="username"/></label>				
 							<label>Adresse* : <input type="text" name="Adresse"/></label>

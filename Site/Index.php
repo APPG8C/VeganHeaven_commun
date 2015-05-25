@@ -1,3 +1,3 @@
 <?php
-header("Location:global/Accueil.php");
+header("Location:global/globalControleur.php?page=Accueil");
 ?>
