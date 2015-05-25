@@ -9,6 +9,13 @@ section h1{
   text-align:center;
 
 }
+section
+{
+  padding-top: 5em;
+  padding-bottom: 5em;
+  width: 80%;
+  padding-left: 8em;
+}
 
 section p{
   color: #1f3b08;

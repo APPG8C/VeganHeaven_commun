@@ -1,18 +1,47 @@
+<<<<<<< Updated upstream:Site/global/commun/Onglet.php
 <!DOCTYPE html>
 <html>
 <link rel='stylesheet' href='vues/StyleGraphique.css'>
 <body>
 		<head>
+=======
+
+	<head>
+>>>>>>> Stashed changes:global/Commun/Onglet.php
 			<meta charset='utf-8'/><title>VeganHeaven !</title>
 		</head>
 		<div class="header">
 			<h2 class="adresse">Vegan Heaven</h2>
 		<nav>
             <ul class="menu">
+            	<?php
+            	if(isset($_SESSION['ID']))
+            	{
+            		echo"
+		            	<div class='sectionPanier'>
+		            		<ul>
+
+		            			<li class='LogoPanier'><a href='MonCompte.php'><img src='vues/images/Panier.gif' width='60px' height='60px'/></a>
+		            			
+		            		</ul>
+		            	</div>";
+            	}
+            	?>
 				<div class="section" >
 				<ul id="Connex">
 					<p><li class="fondLogo"><a href="Accueil.php"><img src="vues/images/VeganHeavenCherry_thumb.png" /></a>
 						<?php
+<<<<<<< Updated upstream:Site/global/commun/Onglet.php
+=======
+						/*if(isset($membreConnecte))
+						{
+							if(!$membreConnecte)
+							{
+								session_start();
+							}
+						}*/
+	
+>>>>>>> Stashed changes:global/Commun/Onglet.php
 						include('Fonction.php');
 						if(isset($_SESSION['member']))
 						{

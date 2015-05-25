@@ -20,7 +20,7 @@ if (isset ($_GET["idAnnonces"]))
 			$TelephoneFixe=$_GET["TelephoneFixe"];
 			$AdresseEmail=$_GET["AdresseEmail"];
 			$UrlImage=$_GET["UrlImage"];
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+			$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 			$request = $bdd->query("INSERT INTO `membre`.`panier` (`idPanier`, `idAnnonces`, `idMember`,`Titre`,`Transaction`,`prix_offre`,`Peremtion`,`DatePublication`,`lieu_transaction`,`TelephoneMobile`,`TelephoneFixe`,`AdresseEmail`,`UrlImage`) VALUES (
 			NULL,
 			'$idAnnonces',
@@ -45,6 +45,7 @@ if (isset ($_GET["idAnnonces"]))
 }
 ?>
 <?php
+	$nbArticle=0;
 	$Member=$_SESSION['ID'];
 	$AnnonceSuppr=0;
 	if(isset($_GET['suppr']))
@@ -52,7 +53,7 @@ if (isset ($_GET["idAnnonces"]))
 	$id=$_GET['suppr'];
     Suppr_AnnoncesPanier($id);
 	}
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT * FROM panier WHERE `idMember`= ? GROUP BY `idPanier`');
 	$requete->execute(array($Member));	
 	echo"<h1 class='title'>Mon Panier</h1>";
@@ -138,7 +139,7 @@ if (isset ($_GET["idAnnonces"]))
 							<tr>
 								<td>
 									<div class='inforDate'>
-										<h4>Date de publication:</h4>$AdresseEmail<br/>
+										<h4>Adresse Email:</h4>$AdresseEmail<br/>
 									<div>
 								</td>		
 							</tr>
@@ -157,6 +158,12 @@ if (isset ($_GET["idAnnonces"]))
 				</tr>
 		</table>
 		</div>";
+		$nbArticle++;
+	}
+
+	function AfficherNbArticle($nbArticle)
+	{
+		echo "$nbArticle article(s)";
 	}
 ?>
 
