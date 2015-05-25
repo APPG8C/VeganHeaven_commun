@@ -76,7 +76,7 @@ if (isset ($_GET["idAnnonces"]))
 			$TelephoneFixe=$_GET["TelephoneFixe"];
 			$AdresseEmail=$_GET["AdresseEmail"];
 			$UrlImage=$_GET["UrlImage"];
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+			$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 			$request = $bdd->query("INSERT INTO `membre`.`panier` (`idPanier`, `idAnnonces`, `idMember`,`Titre`,`Transaction`,`prix_offre`,`Peremtion`,`DatePublication`,`lieu_transaction`,`TelephoneMobile`,`TelephoneFixe`,`AdresseEmail`,`UrlImage`) VALUES (
 			NULL,
 			'$idAnnonces',
@@ -108,7 +108,7 @@ if (isset ($_GET["idAnnonces"]))
 	$id=$_GET['suppr'];
     Suppr_AnnoncesPanier($id);
 	}
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT * FROM panier WHERE `idMember`= ? GROUP BY `idPanier`');
 	$requete->execute(array($Member));	
 	echo"<h1 class='title'>Mon Panier</h1>";

@@ -78,6 +78,17 @@
 					</li>
 				</ul>
 				</div>
+
+				<?php
+				if(isset($_SESSION['member']))
+				{
+					echo"<div class='sectionPanier'>
+						<ul>
+							<p><li class='LogoPanier'><a href='globalControleur.php?page=MonCompte'> <img src='vues/images/panier.gif' width='45px' height='45px'/> </a>
+						</ul>
+					</div>";
+				}
+				?>
             </ul>
         </nav>
 		</div>

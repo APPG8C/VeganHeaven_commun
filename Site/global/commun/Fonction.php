@@ -15,7 +15,7 @@ function LoadPictures($file,$name,$directory){
 <?php
 function nomIdentique($utilisateur)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare('SELECT`username`FROM users WHERE`username`= ?');
 $requete->execute(array($utilisateur));	
 $reponse=$requete->fetch();
@@ -32,7 +32,7 @@ $USER=$reponse['username'];
 <?php
 function memeAnnonce($Annonce,$idMember)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare('SELECT`idAnnonces`,`idMember`FROM panier WHERE`idAnnonces`= ? AND`idMember`=?');
 $requete->execute(array($Annonce,$idMember));	
 $reponse=$requete->fetch();
@@ -50,7 +50,7 @@ $idMember=$reponse['idMember'];
 <?php
 function ModifierStatutAnnonces($Effectuee,$idAnnonces)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete = $bdd->prepare("UPDATE `membre`.`annonces` SET `Effectuee`= ? WHERE `idAnnonces`= ?");  
 $requete->execute(array($Effectuee,$idAnnonces));
 }
@@ -58,7 +58,7 @@ $requete->execute(array($Effectuee,$idAnnonces));
 <?php
 function Statut_Annonces($idAnnonces)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare('SELECT `Effectuee` FROM annonces WHERE `idAnnonces`= ?');    
 $requete->execute(array($idAnnonces));
 $reponse=$requete->fetch();
@@ -70,7 +70,7 @@ return $Effectuee;
 function Annonces($idMembre,$effectue)
 {
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare('SELECT `Produit`,`idAnnonces`,`Url_Image` FROM annonces WHERE `Members_idMembers`= ? AND `Effectuee`= ?  GROUP BY `DatePublication`');  
 $requete->execute(array($idMembre,$effectue));
 
@@ -88,7 +88,7 @@ while ($donnees = $requete->fetch())
 <?php
 function Suppr_AnnoncesPanier($idMembre_Annonce)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare('DELETE FROM panier WHERE `idAnnonces`= ?');  
 $requete->execute(array($idMembre_Annonce));
 }
@@ -96,7 +96,7 @@ $requete->execute(array($idMembre_Annonce));
 <?php
 function changerPhoto($idMembre,$PhotoDeProfil)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("UPDATE`membre`.`users` SET `PhotoDeProfil`=? WHERE `id`=?");  
 $requete->execute(array($PhotoDeProfil,$idMembre));
 $PhotoDeProfil=$_FILES['fichier']['name'];
@@ -108,7 +108,7 @@ LoadPictures($file,$PhotoDeProfil,$directory);
 <?php
 function ModifierChampProfil($champ,$donnee,$idmembre)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root'); 
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root'); 
 $request = $bdd->prepare("UPDATE `users` SET `$champ` = ? WHERE `id`= ?");
 $request->execute(array($donnee,$idmembre));
 $reponse=$request->fetch();
@@ -117,7 +117,7 @@ $reponse=$request->fetch();
 <?php
 function Moyenne_Note($idmembre)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root'); 
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root'); 
 $requete = $bdd->prepare("SELECT AVG(note) FROM avis  WHERE `idMembre_note`= ?");
 $requete->execute(array($idmembre));
 $reponse = $requete->fetch();
@@ -128,7 +128,7 @@ return $Moyenne;
 <?php
 function GetAvis_Note($idmembre,$username)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root'); 
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root'); 
 $requete = $bdd->prepare("SELECT `contenu`,`note`FROM avis  WHERE `idMembre_note`= ? GROUP BY `DatePublicationAvis` LIMIT 2 ");
 $requete->execute(array($idmembre));
 $Moyenne=Moyenne_Note($idmembre);
@@ -152,7 +152,7 @@ echo"
 ?>
 <?php
 function Recherche($effectuee,$champ){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete = $bdd->prepare("SELECT `$champ` FROM annonces WHERE `Effectuee`= ? GROUP BY `$champ`");
 $requete->execute(array($effectuee));
 
@@ -168,7 +168,7 @@ echo"</select></p>";
 ?>
 <?php
 function Recherche1Champ($champ,$Valeurchamp){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ?");
 $requete->execute(array($Valeurchamp));
 while($reponse=$requete->fetch()){
@@ -205,7 +205,7 @@ echo "
 ?>
 <?php
 function Recherche2Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=?");
 $requete->execute(array($Valeurchamp,$Valeurchamp1));
 while($reponse=$requete->fetch()){
@@ -243,7 +243,7 @@ echo "
 
 <?php
 function Recherche3Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=?");
 $requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2));
 while($reponse=$requete->fetch()){
@@ -279,7 +279,7 @@ echo "
 ?>
 <?php
 function Recherche4Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=?");
 $requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3));
 while($reponse=$requete->fetch()){
@@ -316,7 +316,7 @@ echo "
 ?>
 <?php
 function Recherche5Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3,$champ4,$Valeurchamp4){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=?");
 $requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3,$Valeurchamp4));
 while($reponse=$requete->fetch()){
@@ -353,7 +353,7 @@ echo "
 ?>
 <?php
 function Recherche6Champ($champ,$Valeurchamp,$champ1,$champ2,$champ3,$champ4,$champ5){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("SELECT * FROM annonces WHERE `Transaction`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `$champ5`=?");
 $requete->execute(array($Transaction,$champ1,$champ2,$champ3,$champ4,$champ5));
 while($reponse=$requete->fetch()){
@@ -390,7 +390,7 @@ echo "
 ?>
 <?php
 function Recherche7Champ($champ,$Valeurchamp,$champ1,$champ2,$champ3,$champ4,$champ5,$champ6){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare("SELECT * FROM annonces WHERE `Transaction`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `$champ5`=?,AND `$champ6`=?");
 $requete->execute(array($Transaction,$champ1,$champ2,$champ3,$champ4,$champ5,$champ6));
 $reponse=$requete->fetch();
@@ -429,7 +429,7 @@ echo "
 <?php
 function AnnonceRecente($Id,$jour){
 	if(isset($Id)){
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT DAY(DatePublication),DAY(NOW()),MONTH(DatePublication),MONTH(NOW()),YEAR(DatePublication),YEAR(NOW()) FROM annonces WHERE `idAnnonces`=?');
 	$requete->execute(array($Id));
 	$reponse=$requete->fetch();
@@ -454,7 +454,7 @@ function AnnonceRecente($Id,$jour){
 <?php
 function JourPublication($jour,$Effectuee){
 	
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$requeteID=$bdd->prepare('SELECT `idAnnonces` FROM `annonces` WHERE `Effectuee`= ? ORDER BY RAND() LIMIT 1');
 	$requeteID->execute(array($Effectuee));
 	$ID=$requeteID->fetch();
@@ -500,7 +500,7 @@ $tab2=$tab[2];
 <?php
 function TrueId($id)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 $requete=$bdd->prepare('SELECT `id` FROM users WHERE `id`= ?');    
 $requete->execute(array($id));
 	if($reponse=$requete->fetch())

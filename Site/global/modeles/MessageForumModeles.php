@@ -1,7 +1,7 @@
 <?php
 	if(isset($_POST['ContenuMsgForum']) AND isset($_SESSION['ID']))
 	{
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$idMembre=$_SESSION['ID'];
 	$ContenuMsgForum=$_POST['ContenuMsgForum'];
 
@@ -19,7 +19,7 @@
 
 	function SelectIdMessage($idTopic,$titreTopic)
 	{
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
 	$requete = $bdd->prepare("SELECT `ContenuMsgForum`,`datePost`FROM MessageForum WHERE `urlForum`=? ORDER BY `datePost` ASC");
 	$requete->execute(array($idTopic));
 	
