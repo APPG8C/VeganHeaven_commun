@@ -17,32 +17,19 @@ if(isset($_GET['titreTopic']))
 		SelectIdMessage($idTopic,$titreTopic);
 
 	}
-	?>
+?>
 	<?php 
-	if(isset($_SESSION['member']))
-	{
-		if(isset($_GET['idTopic']) AND isset($_GET['titreTopic']))
-		{	
-		$idTopic=$_GET['idTopic'];
-		$titreTopic=$_GET['titreTopic'];
-			echo"<form class='FormMessageForum' action='globalControleur.php?page=MessageForum&amp;idTopic=".$idTopic."&amp;titreTopic=".$titreTopic."'method='POST'>
-					<label id='titreMsgForum'> Ecrivez un message: </br>
-						</br>
-						<textarea id='textareaForum' type='longtext' name='ContenuMsgForum'></textarea>
-					</label>
-					<p><input type='submit'class='submit-button'value='Valider'/></p>
-				</form>";
-		}
-		else
-		{
-		echo"<form class='FormMessageForum' action='MessageForum.php' method='POST'>
-					<label id='titreMsgForum'> Ecrivez un message: </br>
-						</br>
-						<textarea id='textareaForum' type='longtext' name='ContenuMsgForum'></textarea>
-					</label>
-					<p><input type='submit'class='submit-button'value='Valider'/></p>
-				</form>";	
-		}
+	if(isset($_GET['idTopic']) AND isset($_GET['titreTopic']) AND isset($_SESSION['ID']))
+	{	
+	$idTopic=$_GET['idTopic'];
+	$titreTopic=$_GET['titreTopic'];
+		echo"<form class='FormMessageForum' action='globalControleur.php?page=MessageForum&amp;idTopic=".$idTopic."&amp;titreTopic=".$titreTopic."'method='POST'>
+				<label id='titreMsgForum'> Ecrivez un message: </br>
+					</br>
+					<textarea id='textareaForum' type='longtext' name='ContenuMsgForum'></textarea>
+				</label>
+				<p><input type='submit'class='submit-button'value='Valider'/></p>
+			</form>";
 	}
 
 	?>

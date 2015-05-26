@@ -24,13 +24,13 @@
 				<legend><h2>Rejoingnez nous !!</h2></legend>
 				<p>	Pourquoi s'inscrire sur Vegan Heaven ? Voyons ne vous posez plus cette question.
 					Rejoindre la communauté la plus fruitée et vitaminée du web proche de chez vous change à tout jamais vôtre alimentation. Si, si croyez nous, vos repas seront meilleurs,
-					et vous resplendirez de santez.<br/>Vous allez pouvoir comparez les annonces que nos membres publient quotidienement, et concoctez vos dessert et vos plat de la plus belle manière qui soit:
-					avec le sourire ! Finit les produits pas frais, les membres s'engagent à échanger(ou à payer si necessaire) votre produit contre un de qualité provenant du jardin ou de l'argent venant de leur poches.
+					et vous resplendirez de santé.<br/>Vous allez pouvoir comparez les annonces que nos membres publient quotidienement, et concoctez vos dessert et vos plats de la plus belle manière qui soit:
+					avec le sourire ! Finit les produits pas frais, les membres s'engagent à échanger (ou acheter si necessaire) votre produit avec des légumes ou fruits provenant de leur jardin.
 				</p>
 				<p>					
-					Vous avez compris ? Non, je ne crois pas, vous lisez encore ce texte au lieu de vous inscrire gratuitement...Allez, soyer des nôtres!On vous attend impatiement et on espére vite vous retrouvez sur la communauté de VeganHeaven.
+					Vous avez compris ? Non, je ne crois pas, vous lisez encore ce texte au lieu de vous inscrire gratuitement... Allez, soyer des nôtres! On vous attend impatiement et on espère vite vous retrouver sur la communauté de VeganHeaven.
 				</p>
-				<p><img class='imageCerise' src='vues/images/Inscription.jpg' width="570px" height="300px"/></p>				
+				<p><img class='imageCerise' src='vues/images/Inscription.jpg' width="530px" height="260px"/></p>				
 				</article>
 				
 			</td>

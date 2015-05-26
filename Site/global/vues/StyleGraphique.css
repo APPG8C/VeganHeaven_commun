@@ -1,6 +1,11 @@
 
 /***********************EN-TETE********************/
-
+.fondEcran 
+{
+background-image:url("images/FondCerise.jpg");
+background-repeat: no-repeat;
+background-size:100%; 
+}
 .header 
 {
   
@@ -8,9 +13,49 @@
 	background-repeat: no-repeat;
 	background-size:100%;
 	border-radius:1.0em;
+  margin-top: -1.75em;
+  
 }
-	
+.rechercheMenu
+{
+margin-left: 3.8em;
+margin-top: -2.5em;
 
+}
+.formSearch
+{
+padding:0.35em;
+padding-right:8em; 
+}
+.inputSearch
+{
+  width:325px;
+}
+.buttonSearch
+{
+margin-left:-13.5em ;
+border: 1px solid #447314;
+background: #6aa436;
+background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
+background: -webkit-linear-gradient(top, #8dc059, #6aa436);
+background: -moz-linear-gradient(top, #8dc059, #6aa436);
+background: -ms-linear-gradient(top, #8dc059, #6aa436);
+background: -o-linear-gradient(top, #8dc059, #6aa436);
+background-image: -ms-linear-gradient(top, #8dc059 0%, #6aa436 100%);
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+-moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+text-shadow: #addc7e 0 1px 0;
+color: #31540c;
+font-family: helvetica, serif;
+padding: 8.5px ;
+font-size: 14px;
+text-decoration: none;
+vertical-align: middle;
+}
 .adresse
 {
     font-size:2em;
@@ -43,10 +88,13 @@ font-style: italic;
  color: #1f3b08;
  
 }
-
+#inscript:hover
+{
+ color: red;
+ 
+}
 /************************FIN EN-TETE************************/
 /************************MENU************************/
-
 .sectionPanier
 {
   float: right;
@@ -74,8 +122,11 @@ font-style: italic;
   position:relative;
   
 }
-
-
+#titreParadis
+{
+  margin-left: 1em;
+  color: red;
+}
 
 nav li
 {
@@ -102,8 +153,15 @@ border: solid 1px;
 border-radius: 0.5em;
 padding: 0.5em 0.75em 0.5em 0.75em
 }
-
 .fondLogo, .LogoPanier
+{
+background-color:#B6D85A;
+border-radius:15px;
+padding-right:10px;
+padding-left:10px;
+}
+
+.fondLogo
 {
 background-color:#B6D85A;
 border-radius:15px;
@@ -160,6 +218,10 @@ article
     text-align: justify;
 }
 
+aside
+{
+    text-align: center;
+}
 .imageflottante
 {
     float: left;
@@ -169,8 +231,7 @@ body
 {
   color: black;
 	max-width:100%;
-  font-family: Arial;
-	/*background-color: white;*/
+	background-color: white;
 }
 .annonce
 {
@@ -185,11 +246,7 @@ text-align:center;
     width: 100px;
     margin: auto;
 }
-aside
-{
-/*float:right;
-position:relative;*/
-}
+
 .tabAccueil
 {
 margin-top:4em;
@@ -246,10 +303,7 @@ margin-top: -3em;
   margin-left: 1em;
   color: red;
 }
- /*body
- {
-  background-image: url("vues/images/jardinfond.jpg");
- }*/
+
 
 
 /************************FIN CORP************************/
@@ -282,8 +336,6 @@ margin-top:2em ;
 -webkit-border-radius:5px;
 border-radius:0.5em;
 border: 5px groove #1f3b08; 
-width: 80%;
-margin-left: 8em;
 }
 .annonce
 {
@@ -510,6 +562,7 @@ border-radius:28px;
 background-image:url("images/footers.JPG");
 background-repeat: no-repeat;
 background-size:100%;
+margin-bottom: -3em;
 }
 .pied
 {
@@ -645,10 +698,6 @@ margin-bottom:3em;
 }
 /************************ Barre de recherche/ les offres ******************/
 /************************ Barre de recherche/ les offres ******************/
-.divGlobalSite
-{
-  width: 80%;
-}
 
 #divGlobal #MenuCentre
 {
@@ -658,10 +707,9 @@ margin-bottom: 5%;
 border: 2px;
 font-family: Arial;
 }
-
 #divOffre
 {
-  width:80%;
+  width:95%;
   padding-left: 3em;
   border-radius: 10px;
   border: 1px white solid;
@@ -678,25 +726,16 @@ font-family: Arial;
 {
   width:70%;
   font-family: Arial;
-  margin-left: 15em;
 }
-
-
 
 #divGlobal #rechercheOffre
 {
-  margin-left: 8em;
 display: inline-block;
 width: 50% ; 
 float: left;
 font-family: Arial;
 }
 
-#titreAnnonceRecherche
-{
-  color:red;
-  text-align: center
-}
 .liste-categorie
 {
   color:red;
@@ -709,10 +748,7 @@ font-family: Arial;
   margin-left: 4em ;
 }
 
-#recherche_avancee
-{
-  margin-left: 4em;
-}
+
 #submit-button-search
 {
   float:left;
@@ -736,56 +772,15 @@ font-family: Arial;
   margin-bottom: 2em;
   box-shadow: 6px 6px 0px #CCE3DB;
 }
-.champs_annonce
-{
-  /*font-weight: bold;*/
-}
-/*#divGlobal
-{
- 
-}
-#divGlobal #MenuCentre
-{
-display: inline-block;
-  
-width: 40%;
-margin-bottom: 5%;
-border: 2px;
-font-family: Arial;
-}
 
-#divGlobal #rechercheOffre
+#rechercheOffre
 {
 display: inline-block;
 width: 60% ; 
-float: left;
 font-family: Arial;
+margin-left:8em;
 }
 
-.liste-categorie
-{
-  color:red;
-}
-.formulaire-recherche
-{
-  background-color: #F4EAE2; 
-}
-#submit-button-search
-{
-  float:left;
-}
-#recherche-titre
-{
-  color: #DF3F3F;
-}
-
-#divGlobal
-{ 
-  margin: 5px;
-  border: 1px black solid;
-  padding-bottom:5em;
- 
-}*/
 /************************formulaire-de-connexion************************/
 .form-container {
    border: 1px solid #000000;
@@ -817,8 +812,9 @@ font-family: Arial;
 .section
 {
 	float:right;
-	margin-top:-25px;
-  position:auto;	
+	margin-top:-3.5em;
+  margin-right:-30em;
+
 }
 
 .form-field {
@@ -1020,8 +1016,6 @@ margin-left:-3em;
 
 /*Fin de CSS page de profil*/
 
-/********************** FORUM *************************/
-
 #divForum
 {
   width: 100%;
@@ -1050,7 +1044,6 @@ margin-left:-3em;
 }
 .Topic
 {
-  margin-left: 2em;
   width:60%;
   float: left;
   padding-top: 1em;
@@ -1110,20 +1103,16 @@ margin-left:-3em;
   margin-top: 3em;
   padding-bottom: 1em;
 }
-#MsgForumBas
-{
-  text-align: center;
-}
-/*#divGlobalPost
+#divGlobalPost
 {
   width:100%;
-  border:1px red solid;
   height: 200px;
-}*/
+}
 #textareaForum
 {
   width: 50%;
-  height: 150px;
+  height:150px;
+  margin-left:25em;
 }
 .divFormulaireMessage
 {
@@ -1132,11 +1121,10 @@ margin-left:-3em;
 
 }
 
-.formMessageForum,#titreMsgForum
+.formMessageForum,#titreMessageForum
 {
   text-align: center;
   color:red;
-  margin-left: 7em;
 }
 .formMessageForum
 {
@@ -1144,6 +1132,6 @@ margin-left:-3em;
 }
 .submit-button
 {
-  margin-left: 2em;
+  position: left;
 }
 

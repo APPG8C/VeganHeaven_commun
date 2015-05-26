@@ -1,4 +1,3 @@
-
 <style>
 a.fond
 {
@@ -34,7 +33,7 @@ $("#imageslider").bjqs({
 	<table class="tabAccueil">
         <tr>
 			<td>
-				<h1 id='titreCaroussel'> Les annonces du moments</h1>
+				<h1 id='titreCaroussel'> Les annonces du moment</h1>
 				<div id="imageslider">
 				<ul class="bjqs">
 				<li class="slide-1">

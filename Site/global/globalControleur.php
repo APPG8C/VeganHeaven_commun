@@ -29,7 +29,7 @@
 		}
 		if($page=="Recherche")
 		{
-		include('controleurs/RechercheControleurs.php');
+		include('controleurs/RechercheControleurs.php');	
 		}
 		if($page=="PageDeProfil")
 		{

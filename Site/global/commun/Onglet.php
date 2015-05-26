@@ -16,8 +16,8 @@
 						echo"<li ><a class='men'>Mon espace</a>
 							<ul>
 								<p>
-								<li><a class='MenuDeroulant' href='globalControleur.php?page=PageDeProfil'>Page de profil</a></li>
-								<li><a class='MenuDeroulant' href='globalControleur.php?page=MonCompte'>Mes Offres</a></li>
+								<li><a class='MenuDeroulant' href='globalControleur.php?page=PageDeProfil'>Profil</a></li>
+								<li><a class='MenuDeroulant' href='globalControleur.php?page=MonCompte'> Panier</a></li>
 								</p>
 							</ul>
 						</li>";
@@ -25,14 +25,15 @@
 						?>
 				</ul>
                 <ul id="menu-deroulant"class="menu">
-                <li ><a class="men" href="globalControleur.php?page=Recherche">Voir les offres</a>
+                <li ><a class="men" >Annonces</a>
                 		<ul>
                 			<p>
 								<?php
 								if(isset($_SESSION['member'])){
-								echo"<li><a class='MenuDeroulant' href='globalControleur.php?page=CreationOffre'>Créer son offre</a></li>";
+								echo"<li><a class='MenuDeroulant' href='globalControleur.php?page=CreationOffre'>Créer</a></li>";
 								}
 								?>
+								<li><a class="MenuDeroulant" href="Recherche.php">Rechercher</a></li>
 							</p>
                 		</ul>
                 </li>
@@ -40,10 +41,12 @@
 				
                 <li ><a class="men" href="globalControleur.php?page=Forum">Forum</a></li>
 				<ul id="menu-deroulant"class="menu">
-					<li ><a class="men" href="globalControleur.php?page=FAQ">A propos</a>
+					<li ><a class="men">Aide</a>
 						<ul>
 							<p>
-							<li><a class="MenuDeroulant" href="globalControleur.php?page=Contacts">Contacts</a></li></p>
+							<li><a class="MenuDeroulant" href="globalControleur.php?page=FAQ">A propos</a></li>
+							<li><a class="MenuDeroulant" href="globalControleur.php?page=Contacts">Contacts</a></li>
+							</p>
 						</ul>
 					</li>
 				</ul>
@@ -78,20 +81,23 @@
 					</li>
 				</ul>
 				</div>
-
-				<?php
-				if(isset($_SESSION['member']))
-				{
-					echo"<div class='sectionPanier'>
-						<ul>
-							<p><li class='LogoPanier'><a href='globalControleur.php?page=MonCompte'> <img src='vues/images/panier.gif' width='45px' height='45px'/> </a>
-						</ul>
-					</div>";
-				}
-				?>
             </ul>
         </nav>
-		</div>
+        <div class="rechercheMenu">
+        	<form action='globalControleur.php?page=Recherche' class='formSearch' method='POST'>
+					<input class='inputSearch' type="text" name="rechercheMenu" placeholder="Un mot clé, exemple: orange ou échange "  />
+					<input class='buttonSearch'  type='submit' value='Rechercher' />
+					<?php
+					if(isset($_SESSION['member']))
+					{
+					echo"
+						<span class='bouttonPanier'><a class='LogoPanier' href='globalControleur.php?page=MonCompte'> <img src='vues/images/panier.gif' width='30px' height='30px'/></a></span>
+						";
+					}
+					?>
+			</form>
+        </div>
+	</div>
 <?php
 
 if($membreConnecte)

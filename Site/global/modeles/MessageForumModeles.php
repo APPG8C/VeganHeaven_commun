@@ -1,17 +1,19 @@
 <?php
 	if(isset($_POST['ContenuMsgForum']) AND isset($_SESSION['ID']))
 	{
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$idMembre=$_SESSION['ID'];
+	$membre=$_SESSION['member'];
 	$ContenuMsgForum=$_POST['ContenuMsgForum'];
 
 	if(isset($_GET['idTopic']) AND $ContenuMsgForum!=NULL)
 	{
 		$idTopic=$_GET['idTopic'];
-		$request =$bdd->query("INSERT INTO `membre`.`MessageForum` (`idMessage`,`urlForum`,`idUsers`,`ContenuMsgForum`,`datePost`) VALUES (
+		$request =$bdd->query("INSERT INTO `membre`.`MessageForum` (`idMessage`,`urlForum`,`idUsers`,`userMessage`,`ContenuMsgForum`,`datePost`) VALUES (
 			NULL,
 			'$idTopic',
 			'$idMembre',
+			'$membre',
 			'$ContenuMsgForum',
 			NOW());");
 	}
@@ -19,13 +21,13 @@
 
 	function SelectIdMessage($idTopic,$titreTopic)
 	{
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
-	$requete = $bdd->prepare("SELECT `ContenuMsgForum`,`datePost`FROM MessageForum WHERE `urlForum`=? ORDER BY `datePost` ASC");
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$requete = $bdd->prepare("SELECT `ContenuMsgForum`,`datePost`,`userMessage` FROM MessageForum WHERE `urlForum`=? ORDER BY `datePost` ASC");
 	$requete->execute(array($idTopic));
 	
 	while($reponse=$requete->fetch())
 	{
-		$username=$_SESSION['member'];
+		$username=$reponse['userMessage'];
 		$ContenuMsgForum=$reponse['ContenuMsgForum'];
 		$datePost=$reponse['datePost'];
 		

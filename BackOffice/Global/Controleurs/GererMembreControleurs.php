@@ -11,9 +11,9 @@ include('Vues/GererMembreVues.php');
 			include('Modeles/GererMembreModeles.php');
 		}
 	}
-	if(isset ($_POST["Recherche"]) AND $_POST["Recherche"]!=NULL)
+	if(isset ($_POST["Rechercheusername"]) AND $_POST["Rechercheusername"]!=NULL)
 	{
-		$user=$_POST["Recherche"];
+		$user=$_POST["Rechercheusername"];
 		$userVerif=trueMember('username',$user);
 		if($userVerif)
 		{

@@ -10,7 +10,6 @@
 		<?php
 		Defil('username','users','Admin',0);
 		?>
-		
 	</div>
 </form>	
 </body>

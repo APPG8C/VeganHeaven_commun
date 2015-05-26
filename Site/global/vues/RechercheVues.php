@@ -1,7 +1,7 @@
 <div id='divGlobal'>
 	<div id="rechercheOffre">
 		<legend id='recherche_avancee'><h2> Recherche avancée </h2></legend> 
-		<form id='formRecherche'action="globalControleur.php?page=Recherche&amp;Transaction='.$Transaction.'&amp;Categorie='.$Categorie.'&amp;Produit='.$Produit.'&amp;Date='.$Date.'&amp;prix_offre='.$prix_offre.'
+		<form action="Recherche.php?Transaction='.$Transaction.'&amp;Categorie='.$Categorie.'&amp;Produit='.$Produit.'&amp;Date='.$Date.'&amp;prix_offre='.$prix_offre.'
 			&amp;code_postal='.$code_postal.'&amp;Annonceur='.$Annonceur.'&amp;Quantite='.$Quantite.'">
 			<label class='form-title'> Type de transaction:
 				<p>
@@ -58,5 +58,6 @@ RechercheTotale();
 else
 {	
 AnnonceRecherche();
+Menurecherche();
 }
 ?>

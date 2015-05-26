@@ -1,11 +1,53 @@
 <?php
+function Menurecherche(){
+if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
+{
+	$donnee=htmlspecialchars($_POST["rechercheMenu"]);
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `Effectuee`= ? AND `Produit` LIKE ? OR `Transaction` LIKE ? OR `prix_offre` LIKE ? OR `Categorie` LIKE ? OR `Quantite`LIKE ?');	
+	$requete->execute(array('%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%',0));
+	while($reponse=$requete->fetch()){
+	$Produit=$reponse['Produit'];
+	$Categorie=$reponse['Categorie'];
+	$Transaction=$reponse['Transaction'];
+	$prix_offre=$reponse['prix_offre'];
+	$code_postal=$reponse['code_postal'];
+	$Description=$reponse['Description'];
+	$Categorie=$reponse['Categorie'];
+	$Quantite=$reponse['Quantite'];
+	$Url_Image=$reponse['Url_Image'];
+	$DatePublication=$reponse['DatePublication'];
+
+	echo "
+			<div id='divOffre'>
+		<div class='image_offre' >
+		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+		</div>
+			<div class='description_offre'>	
+			<h3 class='titre_offre'> $Produit </h3>
+			Catégorie du produit: $Categorie </br>
+			<p class='paragraphe_offre'> Description:<br/>
+				$Description
+				Quantite: $Quantite</br>
+				prix : $prix_offre € </br>
+				date de péremption : $DatePublication </br>
+			</p>
+		</div>
+
+	</div>
+	";
+	}
+}
+}
+?>
+<?php
 	$compteur=0;
 	function AnnonceAleatoire()
 	{
 	global $compteur;	
 	for($i=0; $i<4; $i++)
 	{
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete = $bdd->query('SELECT `idAnnonces` FROM annonces ORDER BY RAND() LIMIT 1');
 	while($reponse=$requete->fetch()) 
 	{
@@ -19,11 +61,12 @@
 	function AnnonceRecherche()
 	//$Produit = 'Oranges';
 	{
-	echo"<h1 id='titreAnnonceRecherche'>Des annonces selectionnées par nos soins:</h1>";
+	if(!isset($_POST["rechercheMenu"])){
+	echo"<h1>Des annonces selectionnées par nos soins:</h1>";
 	for($i=0; $i<4; $i++)
 	{	
 	$idAnnonces = AnnonceAleatoire();
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT `Produit`,`Transaction`,`prix_offre`,`code_postal`,`Description`, `Categorie`,`Url_Image`,`DatePublication`,`Quantite` 
 		FROM annonces WHERE `idAnnonces`= ?');	
 	$requete->execute(array($idAnnonces));
@@ -60,6 +103,8 @@
 	}
 	}
 	}
+}
+
 	
 	function AnnonceUnique()
 	{

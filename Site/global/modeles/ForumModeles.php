@@ -2,7 +2,7 @@
 	
 	if(isset($_POST['titreTopic']) AND isset($_SESSION['ID']))
 	{
-	$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$idMembre=$_SESSION['ID'];
 	$titreTopic=$_POST['titreTopic'];
 
@@ -17,7 +17,7 @@
 
 	function CreationUrlTopic($actif)
 	{
-		$bdd=new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','root');
+		$bdd=new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 		$requete=$bdd->prepare('SELECT `idTopic`,`titreTopic` FROM Topic WHERE `actif`=?');
 		$requete->execute(array($actif));
 		while($reponse=$requete->fetch())

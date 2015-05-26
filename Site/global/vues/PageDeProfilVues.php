@@ -34,7 +34,7 @@
                             if(!isset ($IdUrl)){
 
                             echo"
-                            <form action='PageDeProfil.php' method='POST'enctype='multipart/form-data'>
+                            <form action='globalControleur.php?page=PageDeProfil' method='POST'enctype='multipart/form-data'>
                             <p class='infor'><span class='marger'>Changer ma photo de profil :</span></p>
                             <p><input type='file' name='fichier'/>
                             <input type='submit'class='submit-button'value='Valider'/>
