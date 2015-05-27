@@ -4,85 +4,84 @@
 	{
 	session_start();
 	}
-	include('commun/Menu.php');
 	if (isset ($_GET['page'])) {
 		
-		$donnee=$_GET['page'];
-		$page=htmlspecialchars($donnee);
-
-		if($page=="Accueil")
-		{
-		include('controleurs/MenuControleurs.php');	
-		}
-
-		if($page=="Contacts")
-		{
-		include('controleurs/ContactsControleurs.php');
-		}
-		if($page=="Deconnexion")
-		{
-			
-			$_SESSION = array();
-			session_destroy();
-			header('Location:globalControleur.php?page=Accueil');
-			
-		}
-		if($page=="Recherche")
-		{
-		include('controleurs/RechercheControleurs.php');	
-		}
-		if($page=="PageDeProfil")
-		{
-		include('controleurs/PageDeProfilControleurs.php');	
-		}
-		if($page=="MonCompte")
-		{
-		include('controleurs/MonCompteControleurs.php');
-		}
-		if($page=="Annonces")
-		{
-		include('controleurs/AnnoncesControleurs.php');
-		}
-		if($page=="ConnexionInscription")
-		{
-		include('controleurs/ConnexionInscriptionControleurs.php');
-		}
-		if($page=="CreationOffre")
-		{
-		include('controleurs/CreationOffreControleurs.php');
-		}
-		if($page=="FAQ")
-		{
-		include('controleurs/FAQControleurs.php');
-		}
-		if($page=="Forum")
-		{
-		include('controleurs/ForumControleurs.php');
-		}
-		if($page=="InformationMembres")
-		{
-		include('controleurs/InformationMembresControleurs.php');
-		}
-		if($page=="InformationMembres")
-		{
-		include('controleurs/InformationMembresControleurs.php');
-		}
-		if($page=="MentionsLegales")
-		{
-		include('controleurs/MentionsLegalesControleurs.php');
-		}
-		if($page=="MessageForum")
-		{
-		include('controleurs/MessageForumControleurs.php');
-		}
-		if($page=="ModificationProfil")
-		{
-		include('controleurs/ModificationProfilControleurs.php');
-		}
-		if($page=="Produits")
-		{
-		include('controleurs/ProduitsControleurs.php');
-		}
-	include('commun/PiedDePage.php');
+	$donnee=$_GET['page'];
+	$page=htmlspecialchars($donnee);
+	if($page!='Deconnexion')
+	{
+	include('commun/Menu.php');	
 	}
+	if($page=="Accueil")
+	{
+	include('controleurs/MenuControleurs.php');	
+	}
+
+	if($page=="Contacts")
+	{
+	include('controleurs/ContactsControleurs.php');
+	}
+	if($page=="Deconnexion")
+	{
+		
+		$_SESSION = array();
+		session_destroy();
+		include('commun/Menu.php');	
+		include('controleurs/MenuControleurs.php');
+		
+	}
+	if($page=="Recherche")
+	{
+	include('controleurs/RechercheControleurs.php');	
+	}
+	if($page=="PageDeProfil")
+	{
+	include('controleurs/PageDeProfilControleurs.php');	
+	}
+	if($page=="MonCompte")
+	{
+	include('controleurs/MonCompteControleurs.php');
+	}
+	if($page=="Annonces")
+	{
+	include('controleurs/AnnoncesControleurs.php');
+	}
+	if($page=="ConnexionInscription")
+	{
+	include('controleurs/ConnexionInscriptionControleurs.php');
+	}
+	if($page=="CreationOffre")
+	{
+	include('controleurs/CreationOffreControleurs.php');
+	}
+	if($page=="FAQ")
+	{
+	include('controleurs/FAQControleurs.php');
+	}
+	if($page=="Forum")
+	{
+	include('controleurs/ForumControleurs.php');
+	}
+	if($page=="InformationMembres")
+	{
+	include('controleurs/InformationMembresControleurs.php');
+	}
+	if($page=="MentionsLegales")
+	{
+	include('controleurs/MentionsLegalesControleurs.php');
+	}
+	if($page=="MessageForum")
+	{
+	include('controleurs/MessageForumControleurs.php');
+	}
+	if($page=="ModificationProfil")
+	{
+	include('controleurs/ModificationProfilControleurs.php');
+	}
+	if($page=="Produits")
+	{
+	include('controleurs/ProduitsControleurs.php');
+	}
+include('commun/PiedDePage.php');
+}
 ?>

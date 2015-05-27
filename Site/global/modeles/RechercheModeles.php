@@ -5,7 +5,7 @@ if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 	$donnee=htmlspecialchars($_POST["rechercheMenu"]);
 	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `Effectuee`= ? AND `Produit` LIKE ? OR `Transaction` LIKE ? OR `prix_offre` LIKE ? OR `Categorie` LIKE ? OR `Quantite`LIKE ?');	
-	$requete->execute(array('%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%',0));
+	$requete->execute(array(0,'%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%'));
 	while($reponse=$requete->fetch()){
 	$Produit=$reponse['Produit'];
 	$Categorie=$reponse['Categorie'];
@@ -61,7 +61,7 @@ if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 	function AnnonceRecherche()
 	//$Produit = 'Oranges';
 	{
-	if(!isset($_POST["rechercheMenu"])){
+	
 	echo"<h1>Des annonces selectionnées par nos soins:</h1>";
 	for($i=0; $i<4; $i++)
 	{	
@@ -102,7 +102,7 @@ if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 	";
 	}
 	}
-	}
+
 }
 
 	

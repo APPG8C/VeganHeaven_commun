@@ -11,9 +11,9 @@ if(isset ($_GET["SupprProduit"]) AND isset ($_GET["SupprId"]))
 		include('Modeles/GererTransactionModeles.php');
 	}
 }
-if(isset ($_POST["RechercheTransaction"]) AND $_POST["RechercheTransaction"]!=NULL)
+if(isset ($_POST["RechercheProduit"]) AND $_POST["RechercheProduit"]!=NULL)
 	{
-		$donnee=$_POST["RechercheTransaction"];
+		$donnee=$_POST["RechercheProduit"];
 		$annonce=htmlspecialchars($donnee);
 		$annonVerif=trueAnnonce('Produit',$annonce);
 		if($annonVerif==$annonce)

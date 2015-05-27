@@ -33,7 +33,7 @@
 								echo"<li><a class='MenuDeroulant' href='globalControleur.php?page=CreationOffre'>Créer</a></li>";
 								}
 								?>
-								<li><a class="MenuDeroulant" href="Recherche.php">Rechercher</a></li>
+								<li><a class="MenuDeroulant" href="globalControleur.php?page=Recherche">Rechercher</a></li>
 							</p>
                 		</ul>
                 </li>

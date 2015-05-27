@@ -101,7 +101,7 @@
 
                     <tr>
                         <td>
-                        <div > 
+                        <div> 
                         <h1>Ma localisation</h1>
                         <?php
                         include("geocalisation.php");

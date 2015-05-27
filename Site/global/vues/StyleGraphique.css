@@ -310,11 +310,12 @@ margin-top: -3em;
 /************************ Formulaire creation d'offre*****************/
 .formOffre 
 {
- background-color:#FAFAFA;
- padding-bottom:6em;
- width:350px;
- height:400px;
- margin-left:15em;
+background-color:#FAFAFA;
+padding-bottom:6em;
+width:350px;
+height:400px;
+margin-left:10em;
+
  }
 #titreCreationOffre
 {
@@ -324,7 +325,14 @@ margin-top: -3em;
 
 .creationOffre
 {
-  font-family: arial;
+font-family: arial;
+width:80%;
+border: 3px gray solid;
+border-radius: 10px;
+background color: gray;
+font-family: arial;
+margin-top: 3em;
+padding-bottom: 4em;
 }
 
 /************************ Fin Formulaire creation d'offre*****************/
@@ -336,6 +344,8 @@ margin-top:2em ;
 -webkit-border-radius:5px;
 border-radius:0.5em;
 border: 5px groove #1f3b08; 
+width:80%;
+margin-left: 8em;
 }
 .annonce
 {
@@ -709,11 +719,12 @@ font-family: Arial;
 }
 #divOffre
 {
-  width:95%;
+  width:80%;
   padding-left: 3em;
   border-radius: 10px;
   border: 1px white solid;
   box-shadow: 6px 6px 0px #CCE3DB;
+
 }
 .image_offre
 {
@@ -726,6 +737,7 @@ font-family: Arial;
 {
   width:70%;
   font-family: Arial;
+  margin-left: 15em;
 }
 
 #divGlobal #rechercheOffre
@@ -1055,7 +1067,6 @@ margin-left:-3em;
 #divForumGlobal
 {
   width:80%;
-  
   border: 3px black solid;
   background color: gray;
   font-family: arial;

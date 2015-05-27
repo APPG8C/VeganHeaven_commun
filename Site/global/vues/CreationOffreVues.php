@@ -1,10 +1,6 @@
-<head>
-<link rel="stylesheet" href="StyleGraphique.css" />
-<h1 id="titreCreationOffre">Création d'une offre ou demande</h1>
-</head>
-
 <body>
 <div class="creationOffre">
+	<h1 id="titreCreationOffre">Création d'une annonce</h1>
 	<form class="formOffre" action="globalControleur.php?page=Annonces" method="POST"enctype="multipart/form-data">
 		<table>
 			<tr>

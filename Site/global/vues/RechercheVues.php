@@ -1,8 +1,10 @@
+
 <div id='divGlobal'>
 	<div id="rechercheOffre">
 		<legend id='recherche_avancee'><h2> Recherche avancée </h2></legend> 
-		<form action="Recherche.php?Transaction='.$Transaction.'&amp;Categorie='.$Categorie.'&amp;Produit='.$Produit.'&amp;Date='.$Date.'&amp;prix_offre='.$prix_offre.'
+			<form action="globalControleur.php?Transaction='.$Transaction.'&amp;Categorie='.$Categorie.'&amp;Produit='.$Produit.'&amp;Date='.$Date.'&amp;prix_offre='.$prix_offre.'
 			&amp;code_postal='.$code_postal.'&amp;Annonceur='.$Annonceur.'&amp;Quantite='.$Quantite.'">
+			
 			<label class='form-title'> Type de transaction:
 				<p>
 					<select name="Transaction">
@@ -45,7 +47,8 @@
 			Recherche(0,"Date");
 			?>
 			<div class='submit-container'>
-			<input class='submit-button' id='submit-button-search' type='submit' value='rechercher' />				
+			<input class="submit-button" id="submit-button-search" type="submit" value="Recherche">
+			<input type="hidden" id="token" name="page" value="Recherche" method="get">				
 			</div>
 		</form>
 	</div>
