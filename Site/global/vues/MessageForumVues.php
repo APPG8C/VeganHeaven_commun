@@ -32,7 +32,10 @@ if(isset($_GET['titreTopic']))
 			</form>";
 	}
 
+	if(!isset($_SESSION['ID']))
+	{
+	echo"<p id='MsgForumBas'>*Pour pouvoir contribuer au forum inscrivez vous et devenez membre de VeganHeaven</p>";
+	}
 	?>
-	<p id='MsgForumBas'>*Pour pouvoir contribuer au forum inscrivez vous et devenez membre de VeganHeaven</p>
 </div>
 	

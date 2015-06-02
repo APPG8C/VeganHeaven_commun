@@ -1,18 +1,18 @@
-<section class="corp">
+<div class="corp">
 	<h1 class="annonce">Aspect de votre Annonce</h1>
 	
 	<?php
 	$Detail=stripslashes($Description);
 	$produit=stripslashes($Produit);
 		echo"
-			<p class='info'><span class='marge'> Catégorie: $TypeProduit </span><span class='marge'>$Transaction: $produit</span> <span class='marge'> Lieu: $lieu_transaction</span> 
-			<span class='marge'>Département: $departement</span></p>
+			<div class='info'><div class='marge'> Catégorie: $TypeProduit </div><div class='marge'>$Transaction: $produit</div> <div class='marge'> Lieu: $lieu_transaction</div> 
+			<div class='marge'>Département: $departement</div></div>
 		
 		<table>
 			<tr>
 				<td>
 				<img class='image' src='vues/PhotoDeProduit/$PhotoDeProduit' width=400px height=300px/><br/>
-				<p><span class='marger'><a class='modif' href='globalControleur.php?page=PageDeProfil'> Ma page de profil</a></span></p>
+				<p><div class='marger'><a class='modif' href='globalControleur.php?page=PageDeProfil'> Ma page de profil</a></div></p>
 				</td>
 				<td >
 					<div class='detail'>
@@ -28,4 +28,4 @@
 				
 		</table>";
 	?>	
-</section>
+</div>

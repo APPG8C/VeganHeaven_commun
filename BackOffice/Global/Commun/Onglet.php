@@ -9,12 +9,24 @@ include('Commun/fonction.php');
 </head>
 
     <body>
-    	<nav>
+    	<title>Administration</title>
+        <h1 class="site">VeganHeaven</h1><h2 class="title">Administration</h2>
+    	<nav class="onglets">
 			<ul>
-			<li><a href="GererMembre.php">Gérer les Membres</a></li>
-			<li><a href= "GererAnnonces.php">Gérer les Annonces</a></li>
-			<li><a href= "GererForum.php">Gérer le Forum</a></li>
-			<li><a href= "GererTransaction.php">Transaction en cour</a></li>
+			<li><a href='Administration.php?page=GererMembre'><img class='logo' src='Vues/Images/VeganHeavenCherry_thumb.png'/></a></li>	
+			<li class="men"><a href="Administration.php?page=GererMembre">Gérer les Membres</a></li>
+			<li class="men" ><a href="Administration.php?page=GererAnnonces">Gérer les annonces</a></li>
+			<li class="men"><a href="Administration.php?page=GererForum">Gérer le forum</a></li>
+			<li class="men"><a href="Administration.php?page=GererTransaction">Transactions effectuées</a></li>
+			<?php
+				if(isset($_SESSION['ID'])){
+				echo"
+						<li class='men'><a href= 'Administration.php?page=Deconnexion'>Deconnexion</a></li>
+					";
+
+				}
+				?>
+				
 			</ul>	
 		</nav>
     </body>

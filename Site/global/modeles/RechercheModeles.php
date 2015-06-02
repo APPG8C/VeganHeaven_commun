@@ -3,11 +3,12 @@ function Menurecherche(){
 if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 {
 	$donnee=htmlspecialchars($_POST["rechercheMenu"]);
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `Effectuee`= ? AND `Produit` LIKE ? OR `Transaction` LIKE ? OR `prix_offre` LIKE ? OR `Categorie` LIKE ? OR `Quantite`LIKE ?');	
-	$requete->execute(array(0,'%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%'));
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `Produit` LIKE ? OR `Transaction` LIKE ? OR `prix_offre` LIKE ? OR `Categorie` LIKE ? OR `Quantite`LIKE ?');	
+	$requete->execute(array('%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%','%'.$donnee.'%'));
 	while($reponse=$requete->fetch()){
 	$Produit=$reponse['Produit'];
+	$idAnnonces=$reponse['idAnnonces'];
 	$Categorie=$reponse['Categorie'];
 	$Transaction=$reponse['Transaction'];
 	$prix_offre=$reponse['prix_offre'];
@@ -17,25 +18,34 @@ if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 	$Quantite=$reponse['Quantite'];
 	$Url_Image=$reponse['Url_Image'];
 	$DatePublication=$reponse['DatePublication'];
-
-	echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+	$Effectuee=$reponse['Effectuee'];
+		if($Effectuee!=1){
+			echo "
+		<div id='divOffre'>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
 		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Quantite: $Quantite</br>
-				prix : $prix_offre € </br>
-				date de péremption : $DatePublication </br>
-			</p>
-		</div>
-
-	</div>
-	";
+		";
+		}
 	}
 }
 }
@@ -47,7 +57,7 @@ if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 	global $compteur;	
 	for($i=0; $i<4; $i++)
 	{
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 	$requete = $bdd->query('SELECT `idAnnonces` FROM annonces ORDER BY RAND() LIMIT 1');
 	while($reponse=$requete->fetch()) 
 	{
@@ -61,15 +71,14 @@ if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 	function AnnonceRecherche()
 	//$Produit = 'Oranges';
 	{
-	
+	if(!isset($_POST["rechercheMenu"])){
 	echo"<h1>Des annonces selectionnées par nos soins:</h1>";
 	for($i=0; $i<4; $i++)
 	{	
 	$idAnnonces = AnnonceAleatoire();
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-	$requete=$bdd->prepare('SELECT `Produit`,`Transaction`,`prix_offre`,`code_postal`,`Description`, `Categorie`,`Url_Image`,`DatePublication`,`Quantite` 
-		FROM annonces WHERE `idAnnonces`= ?');	
-	$requete->execute(array($idAnnonces));
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `idAnnonces`= ? AND `Effectuee`= ?');	
+	$requete->execute(array($idAnnonces,0));
 	while($reponse=$requete->fetch()){
 	$Produit=$reponse['Produit'];
 	$Categorie=$reponse['Categorie'];
@@ -80,301 +89,313 @@ if(isset($_POST["rechercheMenu"]) AND $_POST["rechercheMenu"]!=NULL)
 	$Categorie=$reponse['Categorie'];
 	$Quantite=$reponse['Quantite'];
 	$Url_Image=$reponse['Url_Image'];
+	$idAnnonces=$reponse['idAnnonces'];
 	$DatePublication=$reponse['DatePublication'];
+	$Date=$reponse['Date'];
 
 	echo "
 			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
 		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Quantite: $Quantite</br>
-				prix : $prix_offre € </br>
-				date de péremption : $DatePublication </br>
-			</p>
-		</div>
-
-	</div>
 	";
 	}
 	}
 
 }
-
-	
-	function AnnonceUnique()
-	{
-		echo "$compteur";
-	}
-?>
-<?php
-function RechercheTotale()
-{
-	echo"<h1>Les annonces correspondant à votre recherche :</h1>";
-	$Categorie='Categorie';
-	$Produit='Produit';
-	$Date='Date';
-	$Annonceur='Annonceur';
-	$transaction='Transaction';
-	$quantite='Quantite';
-
-	$transac=$_GET["Transaction"];
-	$Categ=$_GET["Categorie"];	
-	$Prod=$_GET["Produit"];
-	$Dat=$_GET["Date"];	
-	$Annon=$_GET["Annonceur"];
-	$Quan=$_GET["Quantite"];
-
-/*------------Pour 1 champs-----------*/	
-	if(isset($transac)){
-		if($transac!=NULL AND $Categ==NULL AND $Dat==NULL AND $Annon==NULL AND $Prod==NULL AND $Quan==NULL){
-			Recherche1Champ($transaction,$transac);
-		}
-	}
-	if(isset($Categ)){
-		
-		if($Categ!=NULL AND $Prod==NULL AND $Dat==NULL  AND $Annon==NULL AND $transac==NULL AND $Quan==NULL){
-			Recherche1Champ($Categorie,$Categ);
-		}
-	}
-	if(isset($Prod)){
-		
-		if($Prod!=NULL AND $Categ==NULL AND $Dat==NULL  AND $Annon==NULL AND $transac==NULL AND $Quan==NULL ){
-			Recherche1Champ($Produit,$Prod);
-		}
-	}
-	if(isset($Dat)){
-		
-		if($Dat!=NULL AND $Prod==NULL AND $transac==NULL  AND $Annon==NULL AND $Categ ==NULL AND $Quan==NULL){
-			Recherche1Champ($Date,$Dat);
-		}
-	}
-	if(isset($Annon)){
-		
-		if($Annon!=NULL AND $Prod==NULL AND $transac==NULL AND $Dat==NULL AND $Categ ==NULL AND $Quan==NULL ){
-			Recherche1Champ($Annonceur,$Annon);
-		}
-	}
-	if(isset($Quan)){
-		
-		if($Quan!=NULL AND $Prod==NULL AND $transac==NULL AND $Dat==NULL AND $Categ ==NULL AND $Annon==NULL){
-			Recherche1Champ($quantite,$Quan);
-		}
-	}
-/*------------Pour 2 champs-----------*/
-/*------------Pour transac-----------*/
-	if(isset($Categ) AND isset($transac)){
-		
-		if($Categ!=NULL AND $transac!= NULL AND $Dat==NULL  AND $Annon==NULL AND $Prod==NULL AND  $Quan== NULL  ){
-			Recherche2Champ($transaction,$transac,$Categorie,$Categ);
-		}
-	}
-	if(isset($transac) AND isset($Prod)){
-		
-		if($transac!=NULL AND $Prod!= NULL AND $Dat==NULL  AND $Annon==NULL AND $Categ==NULL AND  $Quan== NULL ){
-			Recherche2Champ($transaction,$transac,$Produit,$Prod);
-		}
-	}
-	if(isset($transac) AND isset($Dat)){
-		
-		if($transac!=NULL AND $Dat!= NULL AND $Prod==NULL  AND $Annon==NULL AND $Categ==NULL AND  $Quan== NULL  ){
-			Recherche2Champ($transaction,$transac,$Date,$Dat);
-		}
-	}
-	if(isset($transac) AND isset($Annon)){
-		
-		if($transac!=NULL AND $Annon!= NULL AND $Prod==NULL  AND $Dat==NULL AND $Categ==NULL AND  $Quan== NULL ){
-			Recherche2Champ($transaction,$transac,$Annonceur,$Annon);
-		}
-	}
-	if(isset($transac) AND isset($Quan)){
-		
-		if($transac!=NULL AND $Quan!= NULL AND $Prod==NULL  AND $Dat==NULL AND $Categ==NULL AND $Annon==NULL){
-			Recherche2Champ($transaction,$transac,$quantite,$Quan);
-		}
-	}
-/*------------Pour Categ-----------*/
-	if(isset($Categ) AND isset($Prod)){
-		
-		if($Categ!=NULL AND $Prod!= NULL AND $Dat==NULL  AND $Annon==NULL AND $transac==NULL AND  $Quan== NULL  ){
-			Recherche2Champ($Categorie,$Categ,$Produit,$Prod);
-		}
-	}
-	if(isset($Categ) AND isset($Dat)){
-		
-		if($Categ!=NULL AND $Dat!= NULL AND $Prod==NULL  AND $Annon==NULL AND $transac==NULL AND  $Quan== NULL  ){
-			Recherche2Champ($Categorie,$Categ,$Date,$Dat);
-		}
-	}
-	if(isset($Categ) AND isset($Annon)){
-		
-		if($Categ!=NULL AND $Annon!= NULL AND $Prod==NULL AND $Dat==NULL AND $transac==NULL AND  $Quan== NULL ){
-			Recherche2Champ($Categorie,$Categ,$Annonceur,$Annon);
-		}
-	}
-	if(isset($Categ) AND isset($Quan)){
-		
-		if($Categ!=NULL AND  $Quan!= NULL AND $Prod==NULL AND $Dat==NULL AND $transac==NULL AND $Annon==NULL ){
-			Recherche2Champ($Categorie,$Categ,$quantite,$Quan);
-		}
-	}
-	/*------------Pour Prod-----------*/
-	if(isset($Prod) AND isset($Dat)){
-		
-		if($Prod!=NULL AND $Dat!= NULL AND $Categ==NULL  AND $Annon==NULL AND $transac==NULL AND  $Quan== NULL ){
-			Recherche2Champ($Produit,$Prod,$Date,$Dat);
-		}
-	}
-	
-	if(isset($Prod) AND isset($Annon)){
-		
-		if($Prod!=NULL AND $Annon!= NULL AND $Categ==NULL AND $Dat==NULL AND $transac==NULL AND  $Quan== NULL ){
-			Recherche2Champ($Produit,$Prod,$Annonceur,$Annon);
-		}
-	}
-	if(isset($Prod) AND isset($Quan)){
-		
-		if($Prod!=NULL AND $Quan!= NULL AND $Categ==NULL AND $Dat==NULL AND $transac==NULL AND $Annon==NULL ){
-			Recherche2Champ($Produit,$Prod,$quantite,$Quan);
-		}
-	}
-	/*------------Pour Dat-----------*/
-	if(isset($Dat) AND isset($Annon))
-		{
-		
-		if($Annon!=NULL AND $Dat!= NULL AND $Categ==NULL  AND $Prod==NULL AND $transac==NULL AND  $Quan== NULL ){
-			Recherche2Champ($Annonceur,$Annon,$Date,$Dat);
-		}
-	}
-	if(isset($Dat) AND isset($Quan))
-		{
-		
-		if($Quan!=NULL AND $Dat!= NULL AND $Categ==NULL  AND $Prod==NULL AND $transac==NULL AND $Annon==NULL ){
-			Recherche2Champ($quantite,$Quan,$Date,$Dat);
-		}
-	}
-	/*------------Pour Quan-----------*/
-	if(isset($Quan) AND isset($Annon))
-		{
-		if($Annon!=NULL AND $Quan!= NULL AND $Categ==NULL  AND $Prod==NULL AND $transac==NULL AND  $Dat== NULL ){
-			Recherche2Champ($Annonceur,$Annon,$quantite,$Quan);
-		}
-	}
-	/*----------------------------Pour 3 champs-------------------*/
-	/*-------------pour categ et transac---------------*/
-	if(isset($Categ) AND isset($transac) AND isset($Prod)){
-		
-		if($Categ!=NULL AND $transac!= NULL AND $Dat==NULL  AND $Annon==NULL AND $Prod!= NULL AND $Quan== NULL ){
-			Recherche3Champ($transaction,$transac,$Categorie,$Categ,$Produit,$Prod);
-		}
-	}
-	if(isset($Categ) AND isset($transac) AND isset($Dat)){
-		
-		if($transac!=NULL AND $Prod== NULL AND $Dat!=NULL  AND $Annon==NULL AND $Categ!=NULL AND $Quan== NULL ){
-			Recherche3Champ($transaction,$transac,$Date,$Dat,$Categorie,$Categ);
-		}
-	}
-	if(isset($Categ) AND isset($transac) AND isset($Annon)){
-		
-		if($transac!=NULL AND $Annon!= NULL AND $Prod==NULL  AND $Dat==NULL AND $Categ!=NULL AND $Quan== NULL  ){
-			Recherche3Champ($transaction,$transac,$Annonceur,$Annon,$Categorie,$Categ);
-		}
-	}
-	if(isset($Categ) AND isset($transac) AND isset($Quan)){
-		
-		if($transac!=NULL AND  $Quan!= NULL  AND $Prod==NULL  AND $Dat==NULL AND $Categ!=NULL AND $Annon==NULL ){
-			Recherche3Champ($transaction,$transac,$quantite,$Quan,$Categorie,$Categ);
-		}
-	}
-	/*-------------pour categ et prod---------------*/
-	if(isset($Categ) AND isset($Prod) AND isset($Dat)){
-		
-		if($Categ!=NULL AND $transac== NULL AND $Dat!=NULL  AND $Annon==NULL AND $Prod!= NULL AND $Quan== NULL){
-			Recherche3Champ($Produit,$Prod,$Categorie,$Categ,$Date,$Dat);
-		}
-	}
-	if(isset($Categ) AND isset($Prod) AND isset($Annon)){
-		
-		if($transac==NULL AND $Prod!= NULL AND $Dat==NULL  AND $Annon!=NULL AND $Categ!=NULL AND $Quan== NULL){
-			Recherche3Champ($transaction,$transac,$Annonceur,$Annon,$Produit,$Prod);
-		}
-	}
-	if(isset($Categ) AND isset($Prod) AND isset($Quan)){
-		
-		if($transac==NULL AND $Prod!= NULL AND $Dat==NULL  AND $Quan!=NULL AND $Categ!=NULL AND $Annon==NULL ){
-			Recherche3Champ($transaction,$transac,$quantite,$Quan,$Produit,$Prod);
-		}
-	}
-	/*-------------pour prod et date---------------*/
-	if( isset($Prod) AND isset($Dat) AND isset($Annon)){
-		
-		if($Categ==NULL AND $transac== NULL AND $Dat!=NULL  AND $Annon!=NULL AND $Prod!= NULL AND $Quan== NULL){
-			Recherche3Champ($Produit,$Prod,$Annonceur,$Annon,$Date,$Dat);
-		}
-	}
-	if( isset($Prod) AND isset($Dat) AND isset($Quan)){
-		
-		if($Categ==NULL AND $transac== NULL AND $Dat!=NULL  AND $Quan!=NULL AND $Prod!= NULL AND $Annon==NULL){
-			Recherche3Champ($Produit,$Prod,$quantite,$Quan,$Date,$Dat);
-		}
-	}
-	/*-------------pour Annon et Dat---------------*/
-	if( isset($Annon) AND isset($Quan) AND isset($Dat)){
-		
-		if($Categ==NULL AND $transac== NULL AND $Quan!=NULL  AND $Annon!=NULL AND $Dat!= NULL AND $Prod== NULL){
-			Recherche3Champ($quantite,$Quan,$Annonceur,$Annon,$Date, $Dat);
-		}
-	}
-	/*-------------pour Annon et Quan---------------*/
-	if( isset($Annon) AND isset($Quan) AND isset($transac)){
-		
-		if($Categ==NULL AND $Dat== NULL AND $Quan!=NULL  AND $Annon!=NULL AND $transac!= NULL AND $Prod== NULL){
-			Recherche3Champ($quantite,$Quan,$Annonceur,$Annon,$transaction,$transac);
-		}
-	}
-	/*----------------------------Pour 4 champs-------------------*/
-	if(isset($Categ) AND isset($transac) AND isset($Prod) AND isset($Dat)){
-		
-		if($Categ!=NULL AND $transac!= NULL AND $Dat!=NULL  AND $Annon==NULL AND $Prod!= NULL  AND $Quan==NULL){
-			Recherche3Champ($transaction,$transac,$Categorie,$Categ,$Produit,$Prod,$Date,$Dat);
-		}
-	}
-	if(isset($Categ) AND isset($transac) AND isset($Prod) AND isset($Annon)){
-		
-		if($transac!=NULL AND $Prod!= NULL AND $Dat==NULL  AND $Annon!=NULL AND $Categ!=NULL AND $Quand==NULL){
-			Recherche3Champ($transaction,$transac,$Produit,$Prod,$Categorie,$Categ,$Annonceur,$Annon);
-		}
-	}
-	if(isset($Categ) AND isset($Prod) AND isset($Dat) AND isset($Annon)){
-		
-		if($transac==NULL AND $Prod!= NULL AND $Dat!=NULL  AND $Annon!=NULL AND $Categ!=NULL AND $Quand==NULL ){
-			Recherche3Champ($Categorie,$Categ,$Date,$Dat,$Produit,$Prod,$Annonceur,$Annon);
-		}
-	}
-	if(isset($Categ) AND isset($Prod) AND isset($Dat) AND isset($Quan)){
-		
-		if($transac==NULL AND $Prod!= NULL AND $Dat!=NULL  AND $Quan!=NULL AND $Categ!=NULL AND $Annon==NULL){
-			Recherche3Champ($Categorie,$Categ,$Date,$Dat,$Produit,$Prod,$quantite,$Quan);
-		}
-	}
-	if(isset($Categ) AND isset($transac) AND isset($Prod) AND isset($Quan)){
-		
-		if($Categ!=NULL AND $transac!= NULL AND $Dat==NULL  AND $Annon==NULL AND $Prod!= NULL  AND $Quand!=NULL){
-			Recherche3Champ($transaction,$transac,$Categorie,$Categ,$Produit,$Prod,$quantite,$Quand);
-		}
-	}
-	if(isset($Categ) AND isset($Prod) AND isset($Dat) AND isset($Annon) AND isset($transac)){
-		
-		if($transac!=NULL AND $Prod!= NULL AND $Dat!=NULL  AND $Annon!=NULL AND $Categ!=NULL){
-			Recherche3Champ($transaction,$transac,$Categorie,$Categ,$Date,$Dat,$Produit,$Prod,$Annonceur,$Annon);
-		}
-	}	
 }
 
+function AnnonceUnique()
+{
+echo "$compteur";
+}
+?>
+<?php
+function Recherche1Champ($champ,$Valeurchamp){
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `Effectuee`= ?");
+$requete->execute(array($Valeurchamp,0));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$Quantite=$reponse['Quantite'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+$idAnnonces=$reponse['idAnnonces'];
+
+echo "
+		<div id='divOffre'>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	";
+	}
+}	
+?>
+<?php
+function Recherche2Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1){
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `Effectuee`= ?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1,0));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$Quantite=$reponse['Quantite'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+$idAnnonces=$reponse['idAnnonces'];
+
+echo "
+		<div id='divOffre'>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	";
+}	
+}
 ?>
 
+<?php
+function Recherche3Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2){
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `Effectuee`= ?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,0));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$Quantite=$reponse['Quantite'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+$idAnnonces=$reponse['idAnnonces'];
+echo "
+		<div id='divOffre'>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	";
+}
+}	
+?>
+<?php
+function Recherche4Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3){
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `Effectuee`= ?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3,0));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$Quantite=$reponse['Quantite'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+$idAnnonces=$reponse['idAnnonces'];
 
+echo "
+		<div id='divOffre'>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	";
+}	
+}
+?>
+<?php
+function Recherche5Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3,$champ4,$Valeurchamp4){
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `Effectuee`= ?");
+$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3,$Valeurchamp4,0));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$Quantite=$reponse['Quantite'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+$idAnnonces=$reponse['idAnnonces'];
+
+echo "
+		<div id='divOffre'>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	";
+}	
+}
+?>
+<?php
+function Recherche6Champ($champ,$Valeurchamp,$champ1,$champ2,$champ3,$champ4,$champ5){
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete=$bdd->prepare("SELECT * FROM annonces WHERE `Transaction`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `$champ5`=? AND `Effectuee`= ?");
+$requete->execute(array($Transaction,$champ1,$champ2,$champ3,$champ4,$champ5,0));
+while($reponse=$requete->fetch()){
+$Produit=$reponse['Produit'];
+$Categorie=$reponse['Categorie'];
+$Transaction=$reponse['Transaction'];
+$prix_offre=$reponse['prix_offre'];
+$Quantite=$reponse['Quantite'];
+$Description=$reponse['Description'];
+$Categorie=$reponse['Categorie'];
+$Url_Image=$reponse['Url_Image'];
+$DatePeremption=$reponse['Date'];
+$idAnnonces=$reponse['idAnnonces'];
+
+echo "
+	<div id='divOffre'>
+			<table>
+				<tr>
+					<td>
+					<div class='image_offre'>
+					<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
+					</div>
+					</td>
+					<td>
+						<div class='description_offre'>	
+						<h3 class='titre_offre'> $Produit </h3>
+						Catégorie du produit: $Categorie </br>
+						<p class='paragraphe_offre'> Description:<br/>
+							$Description
+							Code postal : $Quantite </br>
+							Prix : $prix_offre € </br>
+							Date de péremption : $Date </br>
+						</p>
+					</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	";
+}	
+}
+?>

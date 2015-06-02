@@ -9,7 +9,7 @@ if(isset($_POST['user'])AND isset($_POST['pass'])){
 
 	if($user!=NULL AND $pass!=NULL)
 	{
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 	$requete=$bdd->prepare('SELECT`id`,`password`,`AdresseEmail` FROM users WHERE`username`=?');
 	$requete->execute(array($user));
 	$reponse=$requete->fetch();
@@ -35,16 +35,4 @@ if(isset($_POST['user'])AND isset($_POST['pass'])){
 }
 
 ?>
-<?php
-/*$ID=$_SESSION['ID'];
-$bdd = new PDO('mysql:host=localhost;dbname=membre;charset=utf8', 'root','cedbos456');
-$requete=$bdd->prepare('SELECT `Produit`,`idAnnonces` FROM annonces WHERE `Members_idMembers`= ?');  
-$requete->execute(array($ID));
 
-while ($donnees = $requete->fetch())
-{
-	$Produit=$donnees['Produit'];
-	$Annonce=$donnees['idAnnonces'];
-   	echo"<a href='Produits.php?variable=".$Produit."'>$Produit</a><br />";
-}*/
-?>

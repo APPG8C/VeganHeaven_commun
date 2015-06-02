@@ -1,5 +1,3 @@
-
-
 <div>
 	<h1><strong>Charte</strong></h1>
 </div>

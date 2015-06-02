@@ -3,7 +3,7 @@
 </script>
 
 <span id="text_latlng"></span>
-<div id="map-canvas"  style="height:220px;width:80%;float:left;"></div>
+<div id="map-canvas"  style="height:130px;width:100%;"></div>
 <script type="text/javascript">
 var geocoder;
 var map;

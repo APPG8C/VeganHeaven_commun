@@ -9,7 +9,7 @@ echo"<form class='FormMessageForum'action='globalControleur.php?page=Forum' meth
 			</br>
 				<textarea id='textareaForum' type='text' name='titreTopic'></textarea>
 			</label>
-			<p><input type='submit'class='submit-button'value='Valider'/></p>
+			<p><input type='submit'class='submit-button2'value='Valider'/></p>
 </form>
 <h2 id='titre_topic'> Topic </h1>";
 }

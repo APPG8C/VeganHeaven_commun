@@ -22,20 +22,23 @@
                             if(isset($_FILES['fichier']['name'])){
                             $NouvellePhoto=$_FILES['fichier']['name'];
                             changerPhoto($id,$NouvellePhoto); 
-                            echo"<img class='photoMembre' src='vues/PhotoDeProfil/$NouvellePhoto' height=330px width=260px/>";   
+                            echo"<img class='photoMembre' src='vues/PhotoDeProfil/$NouvellePhoto' height=250px width=205px/>";   
                             }
                             if(isset($photo) AND !isset($_FILES['fichier']['name'])){
-                            echo"<img class='photoMembre' src='vues/PhotoDeProfil/$photo' height=330px width=280px/>";
+                            echo"<img class='photoMembre' src='vues/PhotoDeProfil/$photo' height=250px width=205px/>";
                             }
                             if(!isset($photo) AND !isset($_FILES['fichier']['name'])){
-                            echo"<img class='image' src='vues/PhotoDeProfil/contact.gif' height=330px width=260px/>"; 
+                            echo"<img class='image' src='vues/PhotoDeProfil/contact.gif' height=250px width=205px/>"; 
                             echo"<p> Cet identifiant ne correspond à aucun utilisateur</p>";   
                             }
                             if(!isset ($IdUrl)){
 
                             echo"
                             <form action='globalControleur.php?page=PageDeProfil' method='POST'enctype='multipart/form-data'>
-                            <p class='infor'><span class='marger'>Changer ma photo de profil :</span></p>
+                            <p class='infor'>
+                            <span class='marger'>Changer ma photo de profil :</span>
+                            <span class='marger'><a class='modif' href='globalControleur.php?page=ModificationProfil'>Modifier mon profil</a></span>
+                            </p>
                             <p><input type='file' name='fichier'/>
                             <input type='submit'class='submit-button'value='Valider'/>
                             </p>
@@ -48,7 +51,6 @@
                         </td>
                         <td>
                         <div class="information"> 
-                        <h1>Mes informations personnelles</h1>
                                      <?php
                                         if(isset($_SESSION['member'])||isset($MembreInscrit)){
                                         echo"
@@ -69,17 +71,34 @@
                                         
                                      ?>
                         </div>
+                        <div class="geocalisation"> 
                         <?php
-                        
-                       
-                        if(!isset ($IdUrl))
-                        {
-                        echo"<span class='marger'><a class='modif' href='globalControleur.php?page=ModificationProfil'>Modifier mon profil</a></span>";
-                        }
+                        include("geocalisation.php");
                         ?>
+                        <form>
+                            <input type="button"  value="Localiser" onclick="TrouverAdresse();"/>
+                           <?php
+                           if(isset($Adresse) AND isset($Ville)){
+                            echo"<input type='text' value='$Adresse $Ville' id='adresse'class='geotext'/>";
+                            }
+                            else
+                            {
+                            echo"<input type='text' id='adresse' class='geotext'/>";     
+                            }
+                            ?>
+                        </form>
+                        </div>
                         </td>
+                        
+                    </tr>
+
+        </table>
+        <table class="table">
+
+                    <tr>
                         <td>
-                        <?php
+                            <div class="Avis">
+                            <?php
                             if((isset($idmembre)||isset($MembreInscrit)) AND !isset($IdUrl)){
                             GetAvis_Note($idmembre,$username);
                             }
@@ -93,33 +112,7 @@
                                 }        
                             }
                             ?>
-                        </td>
-                    </tr>
-
-        </table>
-        <table class="table">
-
-                    <tr>
-                        <td>
-                        <div> 
-                        <h1>Ma localisation</h1>
-                        <?php
-                        include("geocalisation.php");
-                        ?>
-                       
-                        <form>
-                            <input type="button"  value="Localiser l'adresse du membre " onclick="TrouverAdresse();"/>
-                           <?php
-                           if(isset($Adresse) AND isset($Ville)){
-                            echo"<input style='margin-left:-12em;' type='text' value='$Adresse $Ville' id='adresse'/>";
-                            }
-                            else
-                            {
-                            echo"<input type='text' id='adresse'/>";     
-                            }
-                            ?>
-                        </form>
-                         </div>
+                            </div>
                         </td>
                         <td>
                         <?php
@@ -146,6 +139,7 @@
                                 }
                             }
                         }
+                        echo"<div class='offres'>";
                         if(!isset ($IdUrl))
                         {   
                             if(isset($_GET["Realisee"]))
@@ -173,13 +167,14 @@
                             echo" 
                             </div>
                                 <p class='infor'><span class='marger'><a class='modif' href='globalControleur.php?page=MonCompte'>Mes offres</a></span>
-                                <span class='marger'><a class='modif' href='globalControleur.php?page=creationOffre'>Ajouter une offre</a></span></p>
+                                <span class='marger'><a class='modif' href='globalControleur.php?page=CreationOffre'>Ajouter une offre</a></span></p>
                             ";
                             }
                         }
+                         echo"</div>";
                          ?>
                         </td>
-                    </tr>
+                    </tr> 
     </table>
 </section>
     

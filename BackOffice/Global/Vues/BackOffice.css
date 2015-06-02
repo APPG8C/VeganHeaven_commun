@@ -1,23 +1,76 @@
-/*------------Onglet------------*/
+.form
+{
+  position:absolute;
+   top:50%;
+   left:50%;
+   width:300px; /* A toi de donner la bonne largeur */
+   height:200px; /* A toi de donner la bonne hauteur */
+   margin-left:-150px; /* -largeur/2 */
+   margin-top:-100px; /* -hauteur/2 */	
+}
+.site
+{
+font-style: italic;	
+}
+.title
+{
+text-align: center;
+}
 nav
 {
 margin-left:5em ;
 margin-bottom:3em;
 margin-top:3em;
+border: 3px solid gray;
+border-radius: 10px;
+background-color: #DAE5E8;
+width:90%;
+
 }
 nav ul li
 {
 display: inline-block;
-margin-left: 5em;
+margin-left: 2em;
+background-color: #DAE5E8;
 }
 nav ul li a
 {
 	text-decoration:none; 
 	font-size:1.2em;
+
+}
+li.men
+{
+	padding: 1em;
+	border-right: 2px solid gray ;
+	border-left:  2px solid gray;
+	background-color: white;
+	width: 10%;
+
 }
 /*------------Fin Onglet-----------*/
 
 /*--------Gerer Annonce--------*/
+body
+{
+	font-family: Arial;
+	/*background-image: url("images/fond4.jpg");*/
+	
+}
+table
+{
+	width:90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.titreBackOffice
+{
+	text-align: center;
+}
+.tableDescription
+{
+	width: 80%;
+}
 .description
 {
 text-align:justify;
@@ -26,6 +79,120 @@ text-align:justify;
 {
 margin-right:3.9em; 
  
+}
+.inforDate
+{
+margin-top:5em; 
+margin-bottom:1em; 
+ 
+}
+.plusloin1
+{
+margin-left:auto; 
+margin-right: auto;
+margin-bottom: 1em;
+
+}
+.plusloin2
+{
+margin-left:auto;
+margin-right: auto; 
+margin-left: 4em;
+}
+.button
+{
+float:right;	
+margin-right: 5em;
+}
+.title
+{
+	text-align: center;
+
+}
+
+.right
+{
+	float:left;
+}
+.pack
+{
+margin-top:-4em; 
+margin-bottom:3em;
+}
+.separation
+{
+margin-left: auto;
+margin-right: auto;
+width: 100%;
+/*border-left: 0.1em solid black; 
+border-top: 0.1em solid black;
+border-bottom: 0.1em solid black;  
+border-right:  0.1em solid black; */
+  border: 3px gray solid;
+  border-radius: 10px;
+  background-color: white;
+}
+.recherche
+{
+margin-left:4em;	
+}
+
+
+
+
+/*------------Onglet------------*/
+/*nav
+{
+margin-left:5em ;
+margin-bottom:3em;
+margin-top:3em;
+}
+nav ul li
+{
+display: inline-block;
+margin-left: 3em;
+}
+nav ul li a
+{
+	text-decoration:none; 
+	font-size:1.2em;
+}
+.onglets
+{
+ display: inline-block;
+ text-align: center;
+ font-family: arial;
+}
+.divlogo
+{
+float:left;
+
+}*/
+
+/*------------Fin Onglet-----------*/
+
+/*--------Gerer Annonce--------*/
+/*body
+{
+font-family: arial;
+}
+.description
+{
+text-align:justify;
+}
+.infor
+{
+margin-right:3.9em; 
+ 
+}
+.inforMessage
+{
+margin-right:3em; 
+width:15em;
+}
+.message
+{
+text-align: justify;
 }
 .inforDate
 {
@@ -51,12 +218,12 @@ margin-right: 5em;
 }
 .title
 {
-	text-align: center;
+text-align: center;
 }
 
 .right
 {
-	float:left;
+float:left;
 }
 .pack
 {
@@ -66,9 +233,12 @@ margin-bottom:3em;
 .separation
 {
 
-border-left: 0.1em solid black; 
-border-top: 0.1em solid black;
-border-bottom: 0.1em solid black;  
+border: 3px solid gray; 
+border-radius: 10px;
+width:80%;
+margin-left: auto;
+margin-right:auto;
+
 }
 .recherche
 {

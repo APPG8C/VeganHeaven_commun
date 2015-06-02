@@ -2,7 +2,7 @@
 if(isset($_SESSION['member'])){
    if(isset ($_GET["idMember"])){
       $IDmember=$_GET["idMember"];
-      $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+      $bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
       $requete=$bdd->prepare('SELECT * FROM users WHERE`id`=?');
       $requete->execute(array($IDmember));
       $reponse=$requete->fetch();
@@ -19,7 +19,7 @@ if(isset($_SESSION['member'])){
    else{
    
    $id=$_SESSION['ID'];
-   $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+   $bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
    $requete=$bdd->prepare('SELECT * FROM users WHERE`id`=?');
    $requete->execute(array( $id));
    $reponse=$requete->fetch();

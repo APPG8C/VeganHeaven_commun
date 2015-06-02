@@ -4,6 +4,7 @@
 	{
 	session_start();
 	}
+	
 	if (isset ($_GET['page'])) {
 		
 	$donnee=$_GET['page'];
@@ -81,6 +82,10 @@
 	if($page=="Produits")
 	{
 	include('controleurs/ProduitsControleurs.php');
+	}
+	if($page=="ModifierAnnonces")
+	{
+	include('controleurs/ModifierAnnoncesControleurs.php');
 	}
 include('commun/PiedDePage.php');
 }

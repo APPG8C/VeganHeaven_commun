@@ -5,7 +5,7 @@
         <h2 class='title'>Gérer les annonces</h2>
     </head>
     <body>
-	<form action="GererAnnonces.php"method='POST'>
+	<form action="Administration.php?page=GererAnnonces"method='POST'>
 	<table>
 		<tr>
 			<td>

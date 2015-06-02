@@ -1,29 +1,24 @@
 <?php
 include('Vues/GererTransactionVues.php');
-if(isset ($_GET["SupprProduit"]) AND isset ($_GET["SupprId"]))
-	{
-	
-	$Produit=htmlspecialchars($_GET["SupprProduit"]);
-	$id=$_GET["SupprId"];
-	$AnnonceVerif=trueAnnonce($Produit);
-	if($AnnonceVerif==$id)
-	{
-		include('Modeles/GererTransactionModeles.php');
-	}
+if(isset($_GET["SupprId"]))
+{
+$id=htmlspecialchars($_GET["SupprId"]);
+include('Modeles/GererTransactionModeles.php');
 }
-if(isset ($_POST["RechercheProduit"]) AND $_POST["RechercheProduit"]!=NULL)
+
+if((isset ($_POST["RechercheProduit"]) AND $_POST["RechercheProduit"]!=NULL )||(isset ($_POST["RechercheAnnonceur"]) AND $_POST["RechercheAnnonceur"]!=NULL) || (isset ($_POST["RechercheTransaction"]) AND $_POST["RechercheTransaction"]!=NULL))
 	{
-		$donnee=$_POST["RechercheProduit"];
-		$annonce=htmlspecialchars($donnee);
-		$annonVerif=trueAnnonce('Produit',$annonce);
-		if($annonVerif==$annonce)
-		{	
-		Annonces('Produit',$annonce,1);
-		}
+		$donnee1=$_POST["RechercheProduit"];
+		$donnee2=$_POST["RechercheAnnonceur"];
+		$donnee3=$_POST["RechercheTransaction"];
+		Annonces('Produit',$donnee1,1);	
+		Annonces('Annonceur',$donnee2,1);	
+		Annonces('Transaction',$donnee3,1);	
+		
 	}
 	else
 	{
-	echo"<h3 class='title'>Transactions effectuées</h3>";
+	echo"<h3 class='title'>Transactions récement effectuées</h3>";
 	Annonces('Effectuee',1,1);
 	}
 

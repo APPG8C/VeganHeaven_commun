@@ -2,48 +2,70 @@
 	<h1 class="annonce">Annonce</h1>
 	
 	<?php
-		echo"
-			<p class='info'><span class='marge'> Catégorie: $Categorie </span><span class='marge'>$Transaction: $Produit</span> <span class='marge'> Lieu: $lieu_transaction</span> 
-			<span class='marge'>Département: $departement</span></p>
+		echo"<div class='infoAnnonce'>
+			<span class='marger'>Catégorie: $Categorie</span>
+			<span class='marger'>$Transaction: $Titre</span> 
+			<span class='marger'> Lieu: $lieu_transaction</span> 
+			<span class='marger'>Département: $departement</span> 
+			</div>
 		
 		<table>
 			<tr>
 				<td>
-				<img class='image' src='vues/PhotoDeProduit/$Url_Image' width=400px height=300px />
+				<div class='infoAnnonce'>
+					<img class='image' src='vues/PhotoDeProduit/$Url_Image' width=350px height=250px />
+				</div>
 				</td>
 				<td >
-					<div class='detail'>
+				<div class='detail'>
 						<p class='titreDetail'>Détails</p>
 					<p class='description'>
 						$Description 
 					</p>
-					<p class='prix'><span class='date_peremption'>Quantité: $Quantite</span></p>
-					<p class='prix'><span class='date_peremption'>Prix (si non echange): $prix_offre euros</span></p>
-					<p class='date'><span class='date_peremption'>Date de peremption: $Date </span></p>
+					<p class='prix'><div class='date_peremption'>Quantité: $Quantite grammes</div></p>
+					<p class='prix'><div class='date_peremption'>Prix (si non echange): $prix_offre euros</div></p>
+					<p class='date'><div class='date_peremption'>Date de peremption: $Date </div></p>
+					<p class='date'><div class='date_peremption'>Date de publication: $DatePublication</div></p>
 					<div>
 				</td>
-		</table>
-		<table>
-		<tr>
+			<tr>
 			<td>
-		<p class='info' ><span class='marge'>Date de publication: $DatePublication</span></p>
-		<p>*En ajoutant cette offre au panier, un mail automatique</br>est envoyé à l'annonceur qui mentionne votre interêt pour l'offre.</p>
+			<table>
+				<tr>
+					<td>";
+					if(isset($_SESSION['ID'])){
+						if($_SESSION['ID']!=$idMember)
+						{
+						echo"
+						<div class='repondre'>
+							<a href='globalControleur.php?page=MonCompte&amp;idMember=".$idMember."&amp;Titre=".$Titre."&amp;Transaction=".$Transaction."&amp;Peremtion=".$Date."&amp;prix_offre=".$prix_offre."&amp;lieu_transaction=".$lieu_transaction."&amp;DatePublication=".$DatePublication."
+							&amp;TelephoneMobile=".$TelephoneMobile."&amp;TelephoneFixe=".$TelephoneFixe."&amp;AdresseEmail=".$AdresseEmail."&amp;idAnnonces=".$idAnnonces."&amp;UrlImage=".$UrlImage."'><button class='submit-button'>
+							Ajouter au panier</button></a><br/><strong>*Email automatique</strong>
+						</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							<p>*En ajoutant cette offre au panier, un mail automatique est envoyé à l'annonceur qui mentionne votre interêt pour l'offre.</p>
+							</td>";
+						}
+					}
+				echo"</tr>
+			</table>
 			</td>
 			
 		";
 		if(isset($_SESSION['ID'])){
 			if($_SESSION['ID']!=$idMember){
-				echo"<div class='repondre'><a href='globalControleur.php?page=MonCompte&amp;idMember=".$idMember."&amp;Titre=".$Titre."&amp;Transaction=".$Transaction."&amp;Peremtion=".$Date."&amp;prix_offre=".$prix_offre."&amp;lieu_transaction=".$lieu_transaction."&amp;DatePublication=".$DatePublication."
-					&amp;TelephoneMobile=".$TelephoneMobile."&amp;TelephoneFixe=".$TelephoneFixe."&amp;AdresseEmail=".$AdresseEmail."&amp;idAnnonces=".$idAnnonces."&amp;UrlImage=".$UrlImage."'><button class='submit-button'>
-					Ajouter au panier</button></a><br/><strong>*Email automatique</strong></div>
+				echo"
 					<td>
 				<div class='coordonees'>
-					<p class='contact'>Contact</p>
-					<p class='coordoneesTTA'><span class=''>TelephoneMobile: $TelephoneMobile</span></p>
-					<p class='coordoneesTTA'coordoneesTTA''><span class=''>TelephoneFixe: $TelephoneFixe </span></p>
-					<p class='coordoneesTTA''><span class=''>AdresseEmail: $AdresseEmail </span></p>
-					<span class='marger'><a class='modif' href='globalControleur.php?page=PageDeProfil&amp;idMember=".$idMember."''>Profil du Membre</a></span></p>
+					<p class='titreDetail'>Contact</p>
 
+					<p class='coordoneesTTA'>TelephoneMobile: $TelephoneMobile</p>
+					<p class='coordoneesTTA'>TelephoneFixe: $TelephoneFixe</p>
+					<p class='coordoneesTTA'>AdresseEmail: $AdresseEmail <span class='marger'><a class='modif' href='globalControleur.php?page=PageDeProfil&amp;idMember=".$idMember."''>Profil du Membre</a></span><br/></p>
+					
 				</div>
 				</td>
 			</tr>";

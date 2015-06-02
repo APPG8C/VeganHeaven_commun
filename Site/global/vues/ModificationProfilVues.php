@@ -1,13 +1,20 @@
 <section>
-		<form class="formLog" action='globalControleur.php?page=ModificationProfil' method="POST"enctype="multipart/form-data">
+		<form id="myForm" class="formLog" action='globalControleur.php?page=ModificationProfil' method="POST"enctype="multipart/form-data">
 			<legend><h2>Modifications</h2></legend>
-			<label>Pseudo: <input type="text" name="username"/></label>				
-			<label>Adresse: <input type="text" name="Adresse"/></label>
-			<label>Age: <input type="int" name="Age"/></label>
-			<label>Téléphone mobile: <input type="int" name="TelephoneMobile"/></label>
-			<label>Téléphone fixe: <input type="int" name="TelephoneFixe"/></label>
-			<label>Adresse email: <input type="string" name="AdresseEmail"/></label>
-			<p><input type="submit"class="submit-button"value="Valider"/></p>
+			<label>Pseudo:</label>
+			<input type="text" name="username"/>				
+			<label>Adresse:</label>
+			<input type="text" name="Adresse"/>
+			<label>Age:</label>
+			<input type="int" name="Age"/>
+			<label>Téléphone mobile:</label>
+			<input type="int" name="TelephoneMobile"/>
+			<label>Téléphone fixe:</label>
+			<input type="int" name="TelephoneFixe"/>
+			<label>Adresse email:</label>
+			<input type="string" name="AdresseEmail"/>
+			<div><input type="submit"class="submit-button"value="Valider"/></div>
+			<a href="globalControleur.php?page=PageDeProfil">Retour à votre Profil</a>
 		</form>
-		<a href="globalControleur.php?page=PageDeProfil">Retour à votre Profil</a>
+		
 </section>

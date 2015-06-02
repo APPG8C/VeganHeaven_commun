@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<link rel='stylesheet' href='vues/StyleGraphique.css'>
+<link rel='stylesheet' href='vues/StyleGraphique2.css'>
 <body>
 		<head>
 			<meta charset='utf-8'/><title>VeganHeaven !</title>
@@ -50,8 +50,27 @@
 						</ul>
 					</li>
 				</ul>
-				<div class="section" >
-				<ul id="Connex">
+            </ul>
+        </nav>
+        <div class="rechercheMenu">
+        	<form action='globalControleur.php?page=Recherche' class='formSearch' method='POST'>
+					<div><input class='inputSearch' type="text" name="rechercheMenu" placeholder="Un mot clé, exemple: orange ou échange "  />
+					<input class='buttonSearch'  type='submit' value='Rechercher' />
+					<?php
+					if(isset($_SESSION['member']))
+					{
+					echo"
+						<div class='LogoPanier'>
+						<span><a href='globalControleur.php?page=MonCompte'><img src='vues/images/panier.gif' width='30px' height='30px'/></a></span>
+						</div> ";
+					}
+					?>
+					</div>
+			</form>
+        </div>
+    <nav>
+    <div class="section">
+    <ul id="Connex">
 					<p><li class="fondLogo"><a href="globalControleur.php?page=Accueil"><img src="vues/images/VeganHeavenCherry_thumb.png" /></a>
 						<?php
 						include('Fonction.php');
@@ -79,25 +98,13 @@
 						}
 						?>
 					</li>
-				</ul>
-				</div>
-            </ul>
-        </nav>
-        <div class="rechercheMenu">
-        	<form action='globalControleur.php?page=Recherche' class='formSearch' method='POST'>
-					<input class='inputSearch' type="text" name="rechercheMenu" placeholder="Un mot clé, exemple: orange ou échange "  />
-					<input class='buttonSearch'  type='submit' value='Rechercher' />
-					<?php
-					if(isset($_SESSION['member']))
-					{
-					echo"
-						<span class='bouttonPanier'><a class='LogoPanier' href='globalControleur.php?page=MonCompte'> <img src='vues/images/panier.gif' width='30px' height='30px'/></a></span>
-						";
-					}
-					?>
-			</form>
-        </div>
+			</ul>
+		</div>
+	</nav>
 	</div>
+</body>
+</html>
+
 <?php
 
 if($membreConnecte)
@@ -126,4 +133,5 @@ echo"
 	</script>
 	";   
 }
-?>		
+?>	
+	

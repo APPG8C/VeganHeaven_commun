@@ -63,16 +63,22 @@ if($resultat != null) { //Si le formulaire a bien été posté.
 				include('./modeles/ConnexionInscriptionModeles.php');
 				$MembreInscrit=true;
 				LoadPictures($file,$PhotoDeProfil,$directory);
-    			echo"Félicitation, vous voila maintenant inscrit comme membre de VeganHeaven,veuillez vous connecter pour commencer vos échanges.";
+    			echo"<script>
+                alert('Félicitation, vous voila maintenant inscrit comme membre de VeganHeaven,veuillez vous connecter pour commencer vos échanges.');
+                </script>";
     			}	
     		else
     		{
-            echo"Echec de validation du mot de passe";
+            echo"<script>
+            alert('Echec de validation du mot de passe');
+            </script>";
     		} 
         }
         else
         {
-        echo"Cet identifiant est déja utilisé, veuillez en choisir un autre en retournant sur la page précédente";
+        echo"<script>
+        alert('Cet identifiant est déja utilisé, veuillez en choisir un autre en retournant sur la page précédente');
+        </script>";
         } 
     }
 }

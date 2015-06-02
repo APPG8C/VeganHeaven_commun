@@ -1,10 +1,10 @@
 
 <?php
 if (isset ($_GET["variable"])) {
-	$Produit = $_GET["variable"];
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `Produit`= ?');	
-	$requete->execute(array($Produit));
+	$idAnnonces = $_GET["variable"];
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+	$requete=$bdd->prepare('SELECT * FROM annonces WHERE `idAnnonces`= ?');	
+	$requete->execute(array($idAnnonces));
 	$reponse=$requete->fetch();
 	$Titre=$reponse['Produit'];
 	$Transaction=$reponse['Transaction'];
@@ -30,7 +30,7 @@ if (isset ($_GET["variable"])) {
 <?php
 	if(isset($_SESSION['member']))
 	{
-		$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+		$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 		$requete=$bdd->prepare('SELECT `TelephoneMobile`, `TelephoneFixe`, `AdresseEmail` FROM users WHERE `id`= ?');
 		$requete->execute(array($idMember));
 		$reponse=$requete->fetch();

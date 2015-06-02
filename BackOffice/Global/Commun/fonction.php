@@ -66,9 +66,15 @@ while($reponse=$requete->fetch())
 						</td>
 						<td>
 							<div class='infor'>
-								<p class='suppr'>
-									<a href='GererAnnonces.php?SupprProduit=".$Produit."&amp;SupprId=".$idAnnonces."'><button class='submit-button'>Supprimer</button>
-									</a>
+								<p class='suppr'>";
+								if(isset($_GET['page']))
+								{
+									$page=$_GET['page'];
+									echo"<a href='Administration.php?page=".$page."&amp;SupprId=".$idAnnonces."'>
+									<input type='button'value='Supprimer'/></a>
+									";
+								}
+									echo"
 								</p>
 							<div>
 						</td>
@@ -207,7 +213,7 @@ while($reponse=$requete->fetch())
 							</tr>
 						</table>
 						<div class='plusloin2'>
-							<a href='GererMembre.php?SupprUser=".$username."&amp;SupprId=".$id."'><button class='submit-button'>Bannir</button></a>
+							<a href='Administration.php?page=GererMembre&amp;SupprUser=".$username."&amp;SupprId=".$id."'><input type='button'value='Supprimer'/></a>
 						</div>
 					</div>
 					</td>
@@ -218,12 +224,124 @@ while($reponse=$requete->fetch())
 }
 ?>
 <?php
+	function trueForum($champ,$donnee)
+	{
+		$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+		$requete = $bdd->prepare("SELECT `titreTopic` FROM topic WHERE `$champ`=?");
+		$requete->execute(array($donnee));
+		$reponse=$requete->fetch();
+		$titreTopic=$reponse['titreTopic'];
+		if($champ=='idTopic')
+		{
+		return $titreTopic;
+		}
+	}
+?>
+<?php
+	function trueTopic($actif)
+	{
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$requete = $bdd->query("SELECT `idTopic`,`titreTopic` FROM topic WHERE `actif`=1 ");
+	//$requete->execute(array($donnee));
+	$reponse=$requete->fetch();
+	$idTopic=$reponse['idTopic'];
+	$titreTopic=$reponse['titreTopic'];
+	return $idTopic;
+	return $titreTopic;
+	}
+?>
+<?php
+function Username($idUsers)
+{
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$requete = $bdd->prepare("SELECT `username` FROM users WHERE `id`=?");
+	$requete->execute(array($idUsers));
+	$reponse=$requete->fetch();
+	$username=$reponse['username'];
+	return $username;
+}
+?>
+<?php
+	function Topic($actif){
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$requete = $bdd->prepare("SELECT * FROM topic WHERE `actif`=1 ORDER BY `DatePost`");
+$requete->execute(array());
+while($reponse=$requete->fetch()) 
+{
+	$idTopic=$reponse['idTopic'];
+	$titreTopic=$reponse['titreTopic'];
+	$datePost=$reponse['datePost'];
+	$idUsers=$reponse['idUsers'];
+	$actif=$reponse['actif'];
+	$username=Username($idUsers);
+	echo"<div class='separation'>
+			<table>
+				<tr>
+					<td>
+						<div class='plusloin1'>
+						<h3> Titre du Topic: $titreTopic</h3>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<div>
+						<table>
+							<tr>
+
+								<td>
+									<div class='plusloin1'>
+										<div class='infor'>
+										<h4>Statut du topic</h4>
+										actif: $actif
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class='infor'>
+									<h4 >Date de création du topic:</h4>
+									$datePost
+									<div>
+								</td>
+								<td>
+									<div class='infor'>
+									<h4> Nom du créateur du topic:</h4>
+									 $username
+									</div>
+								</td>
+								<td>
+									<div class='infor'>
+									<h4 >id du topic:</h4>
+									$idTopic
+									<div>
+								</td>
+							</tr>
+						</table>
+						<div class='plusloin2'>
+							<a href='Administration.php?page=GererMessageForum&amp;IdTopic=".$idTopic."&amp;titreTopic=".$titreTopic."'><button class='submit-button'>Voir les messages</button></a>
+						</div>
+						<div class='plusloin2'>
+							<a href='Administration.php?page=GererForum&amp;SupprTopic=".$titreTopic."&amp;SupprIdTopic=".$idTopic."'><button class='submit-button'>Supprimer</button></a>
+						</div>
+						
+					</div>
+					</td>
+				</tr>
+			</table>
+			</div>";
+		}
+		
+}
+?>
+
+<?php
 function Defil($champ,$table,$condition,$donnee){
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
 $requete = $bdd->prepare("SELECT `$champ` FROM $table WHERE `$condition`= ? GROUP BY `$champ`");
 $requete->execute(array($donnee));
 
-echo"<p><select name=Recherche$champ>
+echo"<p>
+	<select name=Recherche$champ>
 	<option value=''>$champ :</option>";
 while($reponse=$requete->fetch())
 {
@@ -231,7 +349,17 @@ $resultat=$reponse[$champ];
 echo"<option value='$resultat'>$resultat</option>";
 }
 echo"</select></p>
-<input  type='submit' value='Chercher un(e) $champ'/>";
+<input  type='submit' value='Chercher un(e) $champ'/>
+</form>";
+}
+
+?>
+<?php
+function effacerMessage($id)
+{
+	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$req=$bdd->prepare('DELETE FROM `messageforum` WHERE `idMessage`=?');
+	$req->execute(array($id));
 }
 ?>
 

@@ -15,7 +15,7 @@ function LoadPictures($file,$name,$directory){
 <?php
 function nomIdentique($utilisateur)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 $requete=$bdd->prepare('SELECT`username`FROM users WHERE`username`= ?');
 $requete->execute(array($utilisateur));	
 $reponse=$requete->fetch();
@@ -32,7 +32,7 @@ $USER=$reponse['username'];
 <?php
 function memeAnnonce($Annonce,$idMember)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 $requete=$bdd->prepare('SELECT`idAnnonces`,`idMember`FROM panier WHERE`idAnnonces`= ? AND`idMember`=?');
 $requete->execute(array($Annonce,$idMember));	
 $reponse=$requete->fetch();
@@ -50,15 +50,15 @@ $idMember=$reponse['idMember'];
 <?php
 function ModifierStatutAnnonces($Effectuee,$idAnnonces)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete = $bdd->prepare("UPDATE `membre`.`annonces` SET `Effectuee`= ? WHERE `idAnnonces`= ?");  
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete = $bdd->prepare("UPDATE `db578515750`.`annonces` SET `Effectuee`= ? WHERE `idAnnonces`= ?");  
 $requete->execute(array($Effectuee,$idAnnonces));
 }
 ?>
 <?php
 function Statut_Annonces($idAnnonces)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 $requete=$bdd->prepare('SELECT `Effectuee` FROM annonces WHERE `idAnnonces`= ?');    
 $requete->execute(array($idAnnonces));
 $reponse=$requete->fetch();
@@ -67,20 +67,34 @@ return $Effectuee;
 }
 ?>
 <?php
-function Annonces($idMembre,$effectue)
+function Annonces($membre,$effectue)
 {
 
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 $requete=$bdd->prepare('SELECT `Produit`,`idAnnonces`,`Url_Image` FROM annonces WHERE `Members_idMembers`= ? AND `Effectuee`= ?  GROUP BY `DatePublication`');  
-$requete->execute(array($idMembre,$effectue));
+$requete->execute(array($membre,$effectue));
 
 while ($donnees = $requete->fetch())
 {
 	$Produit=$donnees['Produit'];
 	$Annonce=$donnees['idAnnonces'];
-	$Image=$donnees['Url_Image'];
-	echo"<p class='infor'><span class='marger-produit'><a class='modif' href='globalControleur.php?page=Produits&amp;variable=".$Produit."'>$Produit:</a></span>";
-   	echo"<span class='marg'><img class='mini' src='vues/PhotoDeProduit/$Image' width=50px height=35px /></span><span class='marg'><a href='globalControleur.php?page=PageDeProfil&amp;Realisee=".$Annonce."'><button class='submit-button'>Réalisée</button></a></span></p>";    
+	$Image=$donnees['Url_Image']; 
+   	echo"<table>
+   			<tr>
+   				<td>
+   				<p><span class='marger-produit'><a class='modif' href='globalControleur.php?page=Produits&amp;variable=".$Annonce."'>$Produit:</a>
+   				</td>
+   				<td>
+   				<img class='mini' src='vues/PhotoDeProduit/$Image' width=50px height=35px />
+   				</td>
+   				<td>
+   				<a href='globalControleur.php?page=ModifierAnnonces&amp;idAnnonces=".$Annonce."&amp;Produit=".$Produit."'><button class='submit-button'>Modifier</button></a>
+   				</td>
+   				<td>
+   				<a href='globalControleur.php?page=PageDeProfil&amp;Realisee=".$Annonce."'><button class='submit-button'>Réalisée</button></a>
+   				</td>
+   			</tr>
+   		</table>";   
 }
 }
 ?>
@@ -88,17 +102,17 @@ while ($donnees = $requete->fetch())
 <?php
 function Suppr_AnnoncesPanier($idMembre_Annonce)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 $requete=$bdd->prepare('DELETE FROM panier WHERE `idAnnonces`= ?');  
 $requete->execute(array($idMembre_Annonce));
 }
 ?>
 <?php
-function changerPhoto($idMembre,$PhotoDeProfil)
+function changerPhoto($membre,$PhotoDeProfil)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("UPDATE`membre`.`users` SET `PhotoDeProfil`=? WHERE `id`=?");  
-$requete->execute(array($PhotoDeProfil,$idMembre));
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+$requete=$bdd->prepare("UPDATE`db578515750`.`users` SET `PhotoDeProfil`=? WHERE `id`=?");  
+$requete->execute(array($PhotoDeProfil,$membre));
 $PhotoDeProfil=$_FILES['fichier']['name'];
 $file=$_FILES["fichier"]["tmp_name"];
 $directory= 'vues/PhotoDeProfil/';
@@ -106,330 +120,69 @@ LoadPictures($file,$PhotoDeProfil,$directory);
 }
 ?>
 <?php
-function ModifierChampProfil($champ,$donnee,$idmembre)
+function ModifierChamp($base,$champ,$donnee,$condition,$idMembre)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root'); 
-$request = $bdd->prepare("UPDATE `users` SET `$champ` = ? WHERE `id`= ?");
-$request->execute(array($donnee,$idmembre));
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456'); 
+$request = $bdd->prepare("UPDATE `$base` SET `$champ` = ? WHERE `$condition`= ?");
+$request->execute(array($donnee,$membre));
 $reponse=$request->fetch();
 }
 ?>
 <?php
-function Moyenne_Note($idmembre)
+function Moyenne_Note($membre)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root'); 
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456'); 
 $requete = $bdd->prepare("SELECT AVG(note) FROM avis  WHERE `idMembre_note`= ?");
-$requete->execute(array($idmembre));
+$requete->execute(array($membre));
 $reponse = $requete->fetch();
 $Moyenne = $reponse['AVG(note)'];
 return $Moyenne;
 }
 ?>
 <?php
-function GetAvis_Note($idmembre,$username)
+function GetAvis_Note($membre,$username)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root'); 
-$requete = $bdd->prepare("SELECT `contenu`,`note`FROM avis  WHERE `idMembre_note`= ? GROUP BY `DatePublicationAvis` LIMIT 2 ");
-$requete->execute(array($idmembre));
-$Moyenne=Moyenne_Note($idmembre);
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456'); 
+$requete = $bdd->prepare("SELECT `contenu`,`note`FROM avis  WHERE `idMembre_note`= ? GROUP BY `DatePublicationAvis` ASC LIMIT 20 ");
+$requete->execute(array($membre));
+$Moyenne=Moyenne_Note($membre);
 echo"
-    <legend> Avis des utilisateurs</legend>";
-	while($reponse = $requete->fetch()){
+    <div><legend>Avis des utilisateurs:</legend></div>
+    <div class='MoyenneAvis'>Moyenne: $Moyenne/5</div>
+    ";
+	while($reponse = $requete->fetch())
+{
 	$note=$reponse['note'];
 	$contenu=$reponse['contenu'];
 	echo"
-        
        <p>
-       	Note attribuée: $note/5<br/>
-       <span style ='text-align: justify;'>Avis associé sur $username :<br/>
-       $contenu
-       </span>
+       <h4>Avis associé sur $username : $note/5</h4>
+       <p style ='text-align: justify;'>$contenu</p>
        </p>
       ";
     }
- echo" Moyenne des notes: <br/>$Moyenne/5"; 
 }
 ?>
 <?php
 function Recherche($effectuee,$champ){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 $requete = $bdd->prepare("SELECT `$champ` FROM annonces WHERE `Effectuee`= ? GROUP BY `$champ`");
 $requete->execute(array($effectuee));
 
-echo"<p><select name= $champ>
+echo"<select name= $champ>
 	<option value=''>$champ :</option>";
 while($reponse=$requete->fetch())
 {
 $donneeProduit=$reponse[$champ];
 echo"<option value='$donneeProduit'>$donneeProduit</option>";
 }
-echo"</select></p>";
+echo"</select>";
 }
-?>
-<?php
-function Recherche1Champ($champ,$Valeurchamp){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ?");
-$requete->execute(array($Valeurchamp));
-while($reponse=$requete->fetch()){
-$Produit=$reponse['Produit'];
-$Categorie=$reponse['Categorie'];
-$Transaction=$reponse['Transaction'];
-$prix_offre=$reponse['prix_offre'];
-$Quantite=$reponse['Quantite'];
-$Description=$reponse['Description'];
-$Categorie=$reponse['Categorie'];
-$Url_Image=$reponse['Url_Image'];
-$DatePeremption=$reponse['Date'];
-
-echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
-		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Code postal : $Quantite </br>
-				Prix : $prix_offre € </br>
-				Date de péremption : $DatePeremption </br>
-			</p>
-		</div>
-
-	</div>
-	";
-	}
-}	
-?>
-<?php
-function Recherche2Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=?");
-$requete->execute(array($Valeurchamp,$Valeurchamp1));
-while($reponse=$requete->fetch()){
-$Produit=$reponse['Produit'];
-$Categorie=$reponse['Categorie'];
-$Transaction=$reponse['Transaction'];
-$prix_offre=$reponse['prix_offre'];
-$Quantite=$reponse['Quantite'];
-$Description=$reponse['Description'];
-$Categorie=$reponse['Categorie'];
-$Url_Image=$reponse['Url_Image'];
-$DatePeremption=$reponse['Date'];
-
-echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
-		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Quantité: $Quantite </br>
-				Prix : $prix_offre € </br>
-				Date de péremption : $DatePeremption </br>
-			</p>
-		</div>
-
-	</div>
-	";
-}	
-}
-?>
-
-<?php
-function Recherche3Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=?");
-$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2));
-while($reponse=$requete->fetch()){
-$Produit=$reponse['Produit'];
-$Categorie=$reponse['Categorie'];
-$Transaction=$reponse['Transaction'];
-$prix_offre=$reponse['prix_offre'];
-$Quantite=$reponse['Quantite'];
-$Description=$reponse['Description'];
-$Categorie=$reponse['Categorie'];
-$Url_Image=$reponse['Url_Image'];
-$DatePeremption=$reponse['Date'];
-echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
-		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Code postal : $Quantite </br>
-				Prix : $prix_offre € </br>
-				Date de péremption : $DatePeremption </br>
-			</p>
-		</div>
-
-	</div>
-	";
-}
-}	
-?>
-<?php
-function Recherche4Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=?");
-$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3));
-while($reponse=$requete->fetch()){
-$Produit=$reponse['Produit'];
-$Categorie=$reponse['Categorie'];
-$Transaction=$reponse['Transaction'];
-$prix_offre=$reponse['prix_offre'];
-$Quantite=$reponse['Quantite'];
-$Description=$reponse['Description'];
-$Categorie=$reponse['Categorie'];
-$Url_Image=$reponse['Url_Image'];
-$DatePeremption=$reponse['Date'];
-
-echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
-		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Code postal : $Quantite </br>
-				Prix : $prix_offre € </br>
-				Date de péremption : $DatePeremption </br>
-			</p>
-		</div>
-
-	</div>
-	";
-}	
-}
-?>
-<?php
-function Recherche5Champ($champ,$Valeurchamp,$champ1,$Valeurchamp1,$champ2,$Valeurchamp2,$champ3,$Valeurchamp3,$champ4,$Valeurchamp4){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("SELECT * FROM annonces WHERE `$champ`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=?");
-$requete->execute(array($Valeurchamp,$Valeurchamp1,$Valeurchamp2,$Valeurchamp3,$Valeurchamp4));
-while($reponse=$requete->fetch()){
-$Produit=$reponse['Produit'];
-$Categorie=$reponse['Categorie'];
-$Transaction=$reponse['Transaction'];
-$prix_offre=$reponse['prix_offre'];
-$Quantite=$reponse['Quantite'];
-$Description=$reponse['Description'];
-$Categorie=$reponse['Categorie'];
-$Url_Image=$reponse['Url_Image'];
-$DatePeremption=$reponse['Date'];
-
-echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
-		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Code postal : $Quantite </br>
-				Prix : $prix_offre € </br>
-				Date de péremption : $DatePeremption</br>
-			</p>
-		</div>
-
-	</div>
-	";
-}	
-}
-?>
-<?php
-function Recherche6Champ($champ,$Valeurchamp,$champ1,$champ2,$champ3,$champ4,$champ5){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("SELECT * FROM annonces WHERE `Transaction`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `$champ5`=?");
-$requete->execute(array($Transaction,$champ1,$champ2,$champ3,$champ4,$champ5));
-while($reponse=$requete->fetch()){
-$Produit=$reponse['Produit'];
-$Categorie=$reponse['Categorie'];
-$Transaction=$reponse['Transaction'];
-$prix_offre=$reponse['prix_offre'];
-$Quantite=$reponse['Quantite'];
-$Description=$reponse['Description'];
-$Categorie=$reponse['Categorie'];
-$Url_Image=$reponse['Url_Image'];
-$DatePeremption=$reponse['Date'];
-
-echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
-		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Code postal : $Quantite </br>
-				Prix : $prix_offre € </br>
-				Date de péremption : $DatePeremption </br>
-			</p>
-		</div>
-
-	</div>
-	";
-}	
-}
-?>
-<?php
-function Recherche7Champ($champ,$Valeurchamp,$champ1,$champ2,$champ3,$champ4,$champ5,$champ6){
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-$requete=$bdd->prepare("SELECT * FROM annonces WHERE `Transaction`= ? AND `$champ1`=? AND `$champ2`=? AND `$champ3`=? AND `$champ4`=? AND `$champ5`=?,AND `$champ6`=?");
-$requete->execute(array($Transaction,$champ1,$champ2,$champ3,$champ4,$champ5,$champ6));
-$reponse=$requete->fetch();
-while($reponse=$requete->fetch()){
-$Produit=$reponse['Produit'];
-$Categorie=$reponse['Categorie'];
-$Transaction=$reponse['Transaction'];
-$prix_offre=$reponse['prix_offre'];
-$Quantite=$reponse['Quantite'];
-$Description=$reponse['Description'];
-$Categorie=$reponse['Categorie'];
-$Url_Image=$reponse['Url_Image'];
-$DatePeremption=$reponse['Date'];
-
-echo "
-			<div id='divOffre'>
-		<div class='image_offre' >
-		<a href='globalControleur.php?page=Produits&amp;variable=".$Produit."'><img  src='vues/photoDeProduit/$Url_Image' alt='photo offre' width=170px height=170px/></a>
-		</div>
-			<div class='description_offre'>	
-			<h3 class='titre_offre'> $Produit </h3>
-			Catégorie du produit: $Categorie </br>
-			<p class='paragraphe_offre'> Description:<br/>
-				$Description
-				Code postal : $Quantite </br>
-				Prix : $prix_offre € </br>
-				Date de péremption : $DatePeremption </br>
-			</p>
-		</div>
-
-	</div>
-	";
-}
-}	
 ?>
 <?php
 function AnnonceRecente($Id,$jour){
 	if(isset($Id)){
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 	$requete=$bdd->prepare('SELECT DAY(DatePublication),DAY(NOW()),MONTH(DatePublication),MONTH(NOW()),YEAR(DatePublication),YEAR(NOW()) FROM annonces WHERE `idAnnonces`=?');
 	$requete->execute(array($Id));
 	$reponse=$requete->fetch();
@@ -454,19 +207,20 @@ function AnnonceRecente($Id,$jour){
 <?php
 function JourPublication($jour,$Effectuee){
 	
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 	$requeteID=$bdd->prepare('SELECT `idAnnonces` FROM `annonces` WHERE `Effectuee`= ? ORDER BY RAND() LIMIT 1');
 	$requeteID->execute(array($Effectuee));
 	$ID=$requeteID->fetch();
 	$idAnnonces=$ID['idAnnonces'];
 		if(AnnonceRecente($idAnnonces,$jour)==true){
-		$requete=$bdd->prepare('SELECT `Produit`,`Url_Image`,`Transaction` FROM `annonces` WHERE `idAnnonces`= ?');
+		$requete=$bdd->prepare('SELECT `Produit`,`Url_Image`,`Transaction`,`idAnnonces` FROM `annonces` WHERE `idAnnonces`= ?');
 		$requete->execute(array($idAnnonces));
 		$reponse=$requete->fetch();
 		$Produit=$reponse['Produit'];
 		$Url_Image=$reponse['Url_Image'];
 		$Transaction=$reponse['Transaction'];
-		$table=array($Produit, $Url_Image,$Transaction);
+		$idAnnonces=$reponse['idAnnonces'];
+		$table=array($Produit, $Url_Image,$Transaction,$idAnnonces);
 	}
 	if(isset($table))
 	{
@@ -474,13 +228,14 @@ function JourPublication($jour,$Effectuee){
 	}
 	else
 		{
-		$requete=$bdd->prepare('SELECT `Produit`,`Url_Image`,`Transaction` FROM `annonces` WHERE `idAnnonces`= ?');
+		$requete=$bdd->prepare('SELECT `Produit`,`Url_Image`,`Transaction`,`idAnnonces` FROM `annonces` WHERE `idAnnonces`= ?');
 		$requete->execute(array($idAnnonces));
 		$reponse=$requete->fetch();
 		$Produit=$reponse['Produit'];
 		$Url_Image=$reponse['Url_Image'];
 		$Transaction=$reponse['Transaction'];
-		$table=array($Produit, $Url_Image,$Transaction);
+		$idAnnonces=$reponse['idAnnonces'];
+		$table=array($Produit, $Url_Image,$Transaction,$idAnnonces);
 		return  $table;
 		}
 }
@@ -491,16 +246,17 @@ $tab=JourPublication(10,0);
 $tab0=$tab[0];
 $tab1=$tab[1];
 $tab2=$tab[2];
+$tab3=$tab[3];
 	 if(isset($tab0)){
 		 echo"<div class='caption'>$tab2: $tab0</div>
-		<a href='globalControleur.php?page=Produits&amp;variable=".$tab0."'><img src='vues/PhotoDeProduit/$tab1' width=765px height=400px/></a>";
+		<a href='globalControleur.php?page=Produits&amp;variable=".$tab3."'><img src='vues/PhotoDeProduit/$tab1' width=765px height=400px/></a>";
 	}
 }
 ?>
 <?php
 function TrueId($id)
 {
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 $requete=$bdd->prepare('SELECT `id` FROM users WHERE `id`= ?');    
 $requete->execute(array($id));
 	if($reponse=$requete->fetch())

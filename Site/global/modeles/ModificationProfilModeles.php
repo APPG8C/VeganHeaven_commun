@@ -7,7 +7,7 @@ if(isset($_SESSION['member']))
       $username=$_POST['username'];
       if($username!=NULL)
       {
-         ModifierChampProfil('username',$username,$id);
+         ModifierChamp('users','username',$username,'id',$id);
          echo"<p>Nouveau Prénom : $username</p>"; 
       }  
    }
@@ -16,7 +16,7 @@ if(isset($_SESSION['member']))
       $Age=$_POST['Age'];
       if($Age!=NULL)
       {
-         ModifierChampProfil('Age',$Age,$id); 
+         ModifierChamp('users','Age',$Age,'id',$id); 
          echo"<p>Nouvelle date de Naissance : $Age ans (Il est étrange de changer d'age, mais puisque vous insistez....)</p>" ;  
       }
    }
@@ -25,7 +25,7 @@ if(isset($_SESSION['member']))
       $TelephoneMobile=$_POST['TelephoneMobile'];
       if($TelephoneMobile!=NULL)
       {
-         ModifierChampProfil('TelephoneMobile',$TelephoneMobile,$id);
+         ModifierChamp('users','TelephoneMobile',$TelephoneMobile,'id',$id);
          echo"<p>Nouveau téléphone mobile : $TelephoneMobile</p>";  
       } 
    }
@@ -33,7 +33,7 @@ if(isset($_SESSION['member']))
       $TelephoneFixe=$_POST['TelephoneFixe'];
       if($TelephoneFixe!=NULL)
       {
-         ModifierChampProfil('TelephoneFixe',$TelephoneFixe,$id);
+         ModifierChamp('users','TelephoneFixe',$TelephoneFixe,'id',$id);
          echo"<p>Nouveau téléphone fixe : $TelephoneFixe</p>"; 
       }  
    }
@@ -42,7 +42,7 @@ if(isset($_SESSION['member']))
       $AdresseEmail=$_POST['AdresseEmail'];
       if($AdresseEmail!=NULL)
       {
-         ModifierChampProfil('AdresseEmail',$AdresseEmail,$id);
+         ModifierChamp('users','AdresseEmail',$AdresseEmail,'id',$id);
          echo"<p>Nouvel email : $AdresseEmail</p> ";   
       }
    }

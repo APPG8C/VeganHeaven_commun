@@ -1,6 +1,3 @@
-
-/***********************EN-TETE********************/
-
 .fondEcran 
 {
 background-image:url("images/FondCerise.jpg");
@@ -13,28 +10,35 @@ background-size:100%;
 	background-image:url("images/Cerise.jpg");
 	background-repeat: no-repeat;
 	background-size:100%;
-	border-radius:1.0em;
-  margin-top: -1.75em;
+	border-radius:1.0em; 
+  width: 100%;
+  height:100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 2.5%;
+
   
 }
 .rechercheMenu
 {
-margin-left: 3.8em;
-margin-top: -1.5em;
+margin-left: auto;
+margin-top: auto;
 
 }
 .formSearch
 {
 padding:0.35em;
-padding-right:8em; 
+padding-right:8em;
+margin-left: 2em;
+
 }
 .inputSearch
 {
-  width:325px;
+  width:30%;
 }
 .buttonSearch
 {
-margin-left:2em;
+margin-left:auto;
 margin-right:14em;
 border: 1px solid #447314;
 background: #6aa436;
@@ -62,11 +66,10 @@ vertical-align: middle;
 {
     font-size:2em;
     padding-top:0.2em;
-    margin-left:1.8em;
     color: white;
     font-family: arial;
-    text-align:left;
     text-transform: uppercase;
+    margin-left: 2.4%;
 }
 
 .slogan
@@ -104,7 +107,11 @@ font-style: italic;
  text-align: center;
  font-family: arial;
 }
-
+.paragraphe
+{
+  width:80%;
+  text-align:justify;
+}
 .MenuDeroulant
 {
   margin:auto;
@@ -123,15 +130,17 @@ font-style: italic;
 }
 #titreParadis
 {
-  margin-left: 1em;
+  margin-left: auto;
+  margin-right: auto;
   color: red;
+  
 }
 
 nav li
 {
   display: inline-block;
-  margin-left:1.5em;
-	margin-right:1.5em;
+  margin-left: auto;
+  margin-right: auto;
 	
 }
 
@@ -152,12 +161,16 @@ border: solid 1px;
 border-radius: 0.5em;
 padding: 0.5em 0.75em 0.5em 0.75em
 }
-.fondLogo, .LogoPanier
+.LogoPanier
 {
 background-color:#B6D85A;
-border-radius:15px;
+border-radius:10px;
 padding-right:10px;
 padding-left:10px;
+width:2.7%;
+margin-right:58%;
+margin-left:39.3%;
+margin-top:-3%;
 }
 
 .fondLogo
@@ -170,12 +183,12 @@ padding-left:10px;
 
 .couverture
 {
-  width: 100%;
+    width: 100%;
 }
 
 h1
 {
-  color: #1f3b08;
+    color: #1f3b08;
 }
 ul li a
 {
@@ -191,12 +204,12 @@ ul li a.MenuDeroulant
 }
 div
 {
-  margin:auto;
+    margin:auto;
 }
 
 em
 {
-  font-style: normal;
+    font-style: normal;
 }
 h2
 {
@@ -217,22 +230,15 @@ article
     text-align: justify;
 }
 
-aside
-{
-    text-align: center;
-}
-.imageflottante
-{
-    float: left;
-}
 
 body
 {
-  color: black;
-	
-	background-color: white;
-  
+color: black;
+font-family: arial;
+background-color: white;
+height: 100%;
 }
+
 .annonce
 {
 padding-bottom:1em;
@@ -240,51 +246,50 @@ padding-top:1em;
 text-align:center;
 }
 
-
-.bloc_page
-{
-    width: 100px;
-    margin: auto;
-}
-
 .tabAccueil
 {
-margin-top:4em;
-margin-left: 11em;
+
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 0.1%;
+margin-top: 0.1%;
 }
 .texte,.texte2
 {
-margin-left:1em;
-margin-right: 1em;
-margin-bottom: 2em;
-margin-top: -3em;
+margin-left: auto;
+margin-right: auto;
+width:80%;
 
 }
 
 .tabAccueil2
 {
-  margin-left: 6em;
-  margin-right: 6em;  
+  margin-left: auto;
+  margin-right: auto;  
   margin-bottom: 2em;
   margin-top: 2em;
+  width:80%;
+}
+.caseMenu
+{
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.photoAccueil
-{
-  margin-left: 2em;
-}
 
 
 .sectionAccueil
 {
   width:80%;
+  height:80%;
+  margin-bottom: 5%;
+  margin-top: 5%;
   border: 3px gray solid;
   border-radius: 10px;
   background color: gray;
   font-family: arial;
-  margin-left: 8em;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 6px 6px 0px #CCE3DB;
 
 }
@@ -292,15 +297,20 @@ margin-top: -3em;
 {
   text-align: center;
   color: red;
+  margin-bottom: 5%;
+  margin-bottom: 5%;
 }
 #titreParadis
 {
-  margin-left: 1em;
+  margin-left: auto;
+  margin-right: auto;
   color: red;
+
 }
 #titreDescription
 {
-  margin-left: 1em;
+  margin-left: auto;
+  margin-right: auto;
   color: red;
 }
 
@@ -312,9 +322,10 @@ margin-top: -3em;
 {
 background-color:#FAFAFA;
 padding-bottom:6em;
-width:350px;
-height:400px;
-margin-left:10em;
+width:80%;
+height:90%;
+margin-left:auto;
+margin-right: auto;
 
  }
 #titreCreationOffre
@@ -331,21 +342,32 @@ border: 3px gray solid;
 border-radius: 10px;
 background color: gray;
 font-family: arial;
-margin-top: 3em;
-padding-bottom: 4em;
+margin-top: 5%;
+padding-bottom: 3%;
+margin-bottom: 5%;
+
 }
 
 /************************ Fin Formulaire creation d'offre*****************/
 /************************ offre*****************/
 .corp
 {
-margin-top:2em ;
+margin-top: 5% ;
+margin-bottom: 5%;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
 border-radius:0.5em;
 border: 5px groove #1f3b08; 
 width:80%;
-
+margin-right: auto;
+margin-left: auto;
+}
+.infoAnnonce
+{
+margin-right: auto;
+margin-left: auto;
+width:100%;
+text-align: center;
 }
 .annonce
 {
@@ -360,13 +382,15 @@ position:right;
 .info
 {
 font-size:1.2em;
-margin-left:5em;
+margin-left: auto;
+margin-right: auto;
 margin-bottom:3em ; 
 color:white;
 }
 .marge
 {
-margin-right: 2em;
+margin-right:auto;
+margin-left:auto;
 padding: 0.5em;
 border-radius: 0.5em;
 background-color:#1f3b08 ;
@@ -384,7 +408,7 @@ border: 5px inset #B6D85A;
 }
 .date_pulication
 {
-  margin-left:5em;
+  margin-left:auto;
 }
 .image
 {
@@ -408,18 +432,21 @@ border: 5px inset #B6D85A;
 .prix
 {
 font-size:1.2em;
-margin-left:1em;  
+margin-left:auto; 
+margin-right:auto; 
 }
 .date
 {
 font-size:1.2em;
-margin-left:1em; 
-margin-bottom:3em;
+margin-left:auto; 
+margin-right:auto; 
+margin-bottom:auto;
 }
 
 .date_peremption
 {
-margin-right: 3em;
+margin-left:auto; 
+margin-right:auto; 
 padding: 0.5em;
 border-radius: 0.5em;
 
@@ -432,8 +459,9 @@ border-radius: 0.5em;
 }
 .detail
 {
-margin-left: 3em;
-margin-right: 3em;
+margin-left:auto; 
+margin-right:auto;
+margin-top:2em;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
 border-radius:10px;
@@ -452,15 +480,15 @@ border: 10px inset #B6D85A;
 {
   margin-top: 3em;
   margin-bottom:3em;
-  margin-left: 3em;
-  margin-right:3em;
+  margin-left:1em; 
+  margin-right:1em;
   text-align: justify;
 }
 .coordonees
 {
 margin-left: auto;
 margin-right:auto;
-text-align:right;
+text-align: justify;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
 border-radius:10px;
@@ -496,6 +524,7 @@ border-radius:5em;
 -webkit-border-radius:2.5px;
 border-radius:5em;
 border: 5px inset white;
+
 }
 .imageCerise:hover
 { 
@@ -507,8 +536,8 @@ border: 5px inset #B6D85A;
 .formLog 
 {
  background-color:#FAFAFA;
- height:35em;
- margin-left:5em;
+ height:100%;
+ 
  }
 
  .formulaire
@@ -518,7 +547,6 @@ border: 5px inset #B6D85A;
    -webkit-border-radius: 19px;
    -moz-border-radius: 19px;
    border-radius: 19px;
-
 }
  legend 
  {
@@ -530,15 +558,16 @@ border: 5px inset #B6D85A;
 {
 background-color:#FAFAFA;
 padding:100px;
-width:300px;
+width:100%;
 display:block;
-margin-left:100px;
-margin-bottom:340px;
+margin-left:auto;
+margin-right:auto;
+
 border: 3px solid #ffffff;
-   background: #fafafa;
-   -webkit-border-radius: 19px;
-   -moz-border-radius: 19px;
-   border-radius: 19px;
+background: #fafafa;
+-webkit-border-radius: 19px;
+-moz-border-radius: 19px;
+border-radius: 19px;
 }
 
 label
@@ -547,32 +576,39 @@ margin-top:10px;
 display:block;
 
 }
-
 .texteI
 {
-margin-right:5em;
-margin-left:7em;
-width: 23em;
-margin-top:4em; 
+margin-right:auto;
+margin-left:auto;
+width: 50%;
+ 
+}
+#myForm
+{
+  
+  margin-left: 8em;
+  width: 120%;
+
 }
 .formInscription
 {
-width: 55em;  
+width: 100%;  
 }
 .repondre
 {
-margin-left: 10em;
+margin-right:auto;
+margin-left:auto;
+text-align: center;
 }
 .tabInscription
 {
-margin-left:3em;
-width: 80%;
+margin-right:auto;
+margin-left:auto;
 }
 .form_col {
 display: inline-block;
-
 padding: 3px 0px;
-width: 150px;
+width:100%;
 min-height: 1px;
 
 }
@@ -628,48 +664,42 @@ color:#1f3b08;
 /************************Pied-de-page************************/
 .footers
 {
+
+
 border-radius:28px;
 background-image:url("images/footers.JPG");
 background-repeat: no-repeat;
 background-size:100%;
+padding-bottom: 0.75%;
+width: 100%;
+height: 100%;
 
-margin-bottom: -3em;
+
 }
-.pied
+.PiedDePage
 {
-	
+width: 100%;
 color: white;
-text-align:center;
-margin-left:40px;
+
      
 }
-.pied:hover
+
+.paragraphePied
 {
-color:#3B2C2B
-}
-.paragraphe
-{
-  width:22em;
-  text-align:justify;
-  color:white;
+width:60%;
+color:white;
 }
 .tablefooter
 {
-  padding-left: 2em;
+
+
 }
-.Copyright
-{
-color:white;
-text-align: center;
-}
+
 .case
 {
-height:6em;
-padding-left: 1em;
-padding-right: 2em;
-padding-top: 1em;
-padding-bottom: 1em;
-border-left: 0.1em solid white;
+width:80%;
+text-align: left;
+
 }
 /************************Essai1************************/
 #menu-deroulant, #menu-deroulant ul {
@@ -769,14 +799,25 @@ margin-bottom:3em;
 }
 /************************ Barre de recherche/ les offres ******************/
 /************************ Barre de recherche/ les offres ******************/
-
-#divGlobal #MenuCentre
+.tableRecherche
 {
-display: inline-block;
-width: 40%;
-margin-bottom: 5%;
+margin-right:auto; 
+margin-left:1%; 
+
+}
+#divGlobal
+{
+
+width:100%;
+margin-bottom: 10%;
+margin-top: 5%;
 border: 2px;
 font-family: Arial;
+}
+#MenuCentre
+{
+width:100%;
+margin-right: 50%;
 }
 #divOffre
 {
@@ -790,42 +831,57 @@ font-family: Arial;
 .image_offre
 {
   padding-top: 10px;
-  float:left;
+  
+  margin-left: auto;
+  margin-right: auto;
   width: 10%;
 }
 
 .description_offre
 {
-  width:70%;
+  width:60%;
   font-family: Arial;
-  margin-left: 15em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  text-align: justify;
+
 }
 
-#divGlobal #rechercheOffre
+#divGlobal 
 {
-display: inline-block;
+
 width: 50% ; 
-float: left;
+
 font-family: Arial;
+}
+#rechercheOffre
+{
+margin-left: 0.2%; 
+width: 100% ; 
+
 }
 
 .liste-categorie
 {
   color:red;
 }
+#formSearch
+{
+  width: 100%;
+}
 .formulaire-recherche
 {
   background-color: white;
   padding: 0.75em;
   margin: auto;
-  margin-left: 4em ;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
-#submit-button-search
-{
-  float:left;
-}
+
+
 #recherche-titre
 {
   color: #DF3F3F;
@@ -844,6 +900,8 @@ font-family: Arial;
   padding-bottom:1em;
   margin-bottom: 2em;
   box-shadow: 6px 6px 0px #CCE3DB;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 #rechercheOffre
@@ -851,7 +909,9 @@ font-family: Arial;
 display: inline-block;
 width: 60% ; 
 font-family: Arial;
-margin-left:8em;
+margin-left:auto;
+margin-right: auto;
+
 }
 
 /************************formulaire-de-connexion************************/
@@ -864,15 +924,24 @@ margin-left:8em;
    -moz-box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
    box-shadow: rgba(000,000,000,0.9) 0 1px 2px, inset rgba(255,255,255,0.4) 0 0px 0;
    font-family: 'arial',Helvetica,sans-serif;
-   padding:0.5em;
-   width:120px;
+   padding:0.3em;
+   width:100%;
    text-align:left;
-   margin-left:-4em;
    background-color:#FAFAFA;
    }
+#Connex
+{
+text-align: center;
+
+margin-top: -8.5%;
+width: 28%;
+margin-left: auto;
+margin-right: auto; 
+}
 
 #Connex ul
 {
+
 	position: absolute;
 	left: -999em;
 	
@@ -884,11 +953,10 @@ margin-left:8em;
 }
 .section
 {
-	float:right;
-	margin-top:-3.5em;
-  margin-left: auto;
-  margin-right:auto;
-
+	margin-left: auto;
+  margin-right: auto;
+  margin-left:65%; 
+  margin-top: -8%;
 }
 
 .form-field {
@@ -908,13 +976,19 @@ margin-left:8em;
 .form-title
 {
 	color:red;
+
+}
+.submit-button2{
+  
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .submit-container {
    margin:8px 0;
-   text-align:right;
+   
    }
-.submit-button {
+.submit-button, .submit-button2 {
    border: 1px solid #447314;
    background: #6aa436;
    background: -webkit-gradient(linear, left top, left bottom, from(#8dc059), to(#6aa436));
@@ -967,7 +1041,8 @@ margin-left:8em;
  /*CSS pour la page de profil*/
 .table 
 {
-margin-left:7em;
+margin-left:auto;
+margin-right:auto;
 }
 
 .titles 
@@ -977,7 +1052,8 @@ text-align: center;
 .photoMembre
 {
 margin-bottom:3em;
-margin-left: 2em; 
+margin-left:auto;
+margin-right:auto;
 border-radius:5em;
 -moz-border-radius:2.5px;
 -webkit-border-radius:2.5px;
@@ -991,23 +1067,48 @@ border: 5px inset white;
 border-radius:5em;
 border: 5px inset #B6D85A;
 }
+.localisation
+{
+margin-left:auto;
+margin-right:auto;
+margin-bottom:3em;  
+border-radius:5em;
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset white;
+}
+.localisation:hover
+{
+-moz-border-radius:2.5px;
+-webkit-border-radius:2.5px;
+border-radius:5em;
+border: 5px inset #B6D85A;
+}
 
 .modif
 {
-    text-decoration: none;
-    color:white;
+  text-decoration: none;
+  color:white;
+  width: 10%;
 }
 .infor
 {
 font-size:1.2em;
 margin-bottom:3em ; 
 color:white;
+width: 100%;
+height: 50%.
 
 }
-
+.marg
+{
+margin-right: 3em;
+}
 .marger
 {
-margin-right: 1em;
+margin-left:auto;
+margin-right:auto;
 padding: 0.5em;
 border-radius: 0.5em;
 background-color:#1f3b08 ;
@@ -1015,10 +1116,12 @@ background-color:#1f3b08 ;
 -webkit-border-radius:2.5px;
 border-radius:3em;
 border: 5px inset white;
+color:white;
 }
 .marger-produit
 {
-margin-right: 3em;
+margin-right: auto;
+margin-left: auto;
 padding: 0.5em;
 border-radius: 0.5em;
 background-color:#663300 ;
@@ -1026,6 +1129,7 @@ background-color:#663300 ;
 -webkit-border-radius:2.5px;
 border-radius:3em;
 border: 5px inset white;
+
 }
 .marger-produit:hover
 {
@@ -1043,34 +1147,41 @@ border: 5px inset #B6D85A;
 }
 .mini
 {
+
+margin-left:auto;
+margin-right:auto;
 border-radius:2em;
-margin-right:1em;
+
 }
 
 .information
 {
-margin-top: -8em;
+margin-left:auto;
+margin-right:auto; 
 }
 .Avis
 {
-margin-left:-3em; 
-width: 33em; 
-margin-right:3em; 
+margin-left:auto;
+margin-right:auto;; 
+width: 100%; 
+ 
 }
 .MoyenneAvis
 {
-margin-top:-1.1em;  
-float:left;
-margin-left:15em;
+margin-left:auto;
+margin-right:auto;
+margin-top:auto;
+margin-bottom:auto; 
+text-align:right;
 }
 .nom
 {
 background-image:url("images/pommeVerte.jpg");
 background-repeat: no-repeat;
-width: 37em;
+width:100%;
 background-size:100%;
 border-radius: 3em;
-margin-left:-3em;
+
 }
 .logoPagedeprofil
 {
@@ -1080,21 +1191,28 @@ margin-left:-3em;
 }
 #adresse 
 {
-float:right;
+margin-right:auto;
+margin-left:auto;
+text-align: left;
 }
 .geotext
 {
-
- width: 90%;
- margin-bottom: 1em;
+width: 100%;
+margin-bottom: 1em;
+margin-left:auto;
+margin-right:auto;
 }
+
 
 /*Fin de CSS page de profil*/
 
 #divForum
 {
-  width: 100%;
-  margin: 5px;
+  width: 80%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px #CCE3DB solid;
   border-radius: 10px;
   padding-bottom:1em;
@@ -1111,10 +1229,22 @@ float:right;
   font-family: Arial;
   color:red;
 }
+#topicForum
+{
+  padding-left: 2em;
+  font-family: Arial;
+  text-align: left;
+  color: red;
+}
 #titre_topic
 {
   font-family: Arial;
   text-align: left;
+  color: red;
+}
+#titreMsgForum
+{
+  text-align: center;
   color: red;
 }
 .Topic
@@ -1186,8 +1316,8 @@ float:right;
 {
   width: 50%;
   height:150px;
-  margin-left:25em;
-  
+  margin-left:auto;
+  margin-right: auto;
 }
 .divFormulaireMessage
 {
@@ -1209,15 +1339,10 @@ float:right;
 {
   position: left;
 }
-.offres
-{
-margin-top:5em;
-}
 /*-----------------Contact--------------*/
 
 section h1{
   font-family:arial;
-  font-weight: 700;
   text-transform: uppercase;
   color : #1f3b08;
   font-size : 1.5em;
@@ -1237,7 +1362,7 @@ section p{
     display: inline-block;
     vertical-align: top;
     text-align: justify;
-    height:300px;
+    height:100%;
     text-align: center;
     margin-left:1.75%;
     margin-top: 1.2%;
@@ -1255,7 +1380,7 @@ section p{
     display: inline-block;
     vertical-align: top;
     text-align: justify;
-    height:300px;
+    height:90%;
     text-align: center;
     margin-top: 1.2%;
     border-bottom-left-radius: 20px;
@@ -1274,7 +1399,7 @@ section p{
     display: inline-block;
     vertical-align: top;
     text-align: justify;
-    height:300px;
+    height:100%;
     text-align: center;
     margin-top: 1.2%;
     border-bottom-left-radius: 20px;
@@ -1299,10 +1424,21 @@ section p{
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
-  height:100px;
-  width:500px;
+  height:100%;
+  width:50%;
   margin-top:1.2%;
   border-radius:10px;
   border:1px white solid;
   box-shadow:6px 6px 0px #CCE3DB ;
+}
+/*----------FAQ---------*/
+.question
+{
+margin-left:20%;
+margin-right: auto; 
+}
+.masuer_afficher
+{
+  text-decoration: none;
+  color:white;
 }

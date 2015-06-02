@@ -1,7 +1,7 @@
 <?php
 function AutomaticMail($user,$EmailBy,$EmailGive,$text,$transaction,$produit)
 {
-			ini_set("SMTP","SMTP.WIFIRST.NET");
+			
 			$mail ="$EmailGive";	
 			if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.
 			{
@@ -61,7 +61,7 @@ if (isset ($_GET["idAnnonces"]))
 	$Member=$_SESSION['ID'];
 	if(memeAnnonce($idAnnonces,$Member)==0)
 	{
-		if ( isset ($_GET["idMember"]) AND isset ($_GET["Titre"]) AND isset ($_GET["Transaction"]) AND isset ($_GET["Peremtion"])
+		if (isset ($_GET["idMember"]) AND isset ($_GET["Titre"]) AND isset ($_GET["Transaction"]) AND isset ($_GET["Peremtion"])
 			AND isset ($_GET["prix_offre"]) AND isset ($_GET["lieu_transaction"]) AND isset ($_GET["DatePublication"]) AND isset ($_GET["TelephoneMobile"]) 
 			AND isset ($_GET["TelephoneFixe"]) AND isset ($_GET["AdresseEmail"]) AND isset ($_GET["UrlImage"])){
 		
@@ -76,8 +76,8 @@ if (isset ($_GET["idAnnonces"]))
 			$TelephoneFixe=$_GET["TelephoneFixe"];
 			$AdresseEmail=$_GET["AdresseEmail"];
 			$UrlImage=$_GET["UrlImage"];
-			$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-			$request = $bdd->query("INSERT INTO `membre`.`panier` (`idPanier`, `idAnnonces`, `idMember`,`Titre`,`Transaction`,`prix_offre`,`Peremtion`,`DatePublication`,`lieu_transaction`,`TelephoneMobile`,`TelephoneFixe`,`AdresseEmail`,`UrlImage`) VALUES (
+			$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+			$request = $bdd->query("INSERT INTO `db578515750`.`panier` (`idPanier`, `idAnnonces`, `idMember`,`Titre`,`Transaction`,`prix_offre`,`Peremtion`,`DatePublication`,`lieu_transaction`,`TelephoneMobile`,`TelephoneFixe`,`AdresseEmail`,`UrlImage`) VALUES (
 			NULL,
 			'$idAnnonces',
 			'$idMember',
@@ -95,7 +95,7 @@ if (isset ($_GET["idAnnonces"]))
 			$EmailBy=$_SESSION['Email'];
 			$user=$_SESSION['member'];
 			$text="Bonjour";
-		    //AutomaticMail($user,$EmailBy,$AdresseEmail,$text,$Transaction,$Titre);
+		    AutomaticMail($user,$EmailBy,$AdresseEmail,$text,$Transaction,$Titre);
 		}
 	}
 }
@@ -108,7 +108,7 @@ if (isset ($_GET["idAnnonces"]))
 	$id=$_GET['suppr'];
     Suppr_AnnoncesPanier($id);
 	}
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 	$requete=$bdd->prepare('SELECT * FROM panier WHERE `idMember`= ? GROUP BY `idPanier`');
 	$requete->execute(array($Member));	
 	echo"<h1 class='title'>Mon Panier</h1>";
@@ -187,7 +187,7 @@ if (isset ($_GET["idAnnonces"]))
 							</tr>
 						</table>
 						<div class='plusloin2'>
-								<a href='globalControleur.php?page=Produits&amp;variable=".$Titre."'><img class='image' src='vues/PhotoDeProduit/$UrlImage' width=350px height=250px /></a>	
+								<a href='globalControleur.php?page=Produits&amp;variable=".$idAnnonces."'><img class='image' src='vues/PhotoDeProduit/$UrlImage' width=350px height=250px /></a>	
 						</div>
 						<div>
 						<table>

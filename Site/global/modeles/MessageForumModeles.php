@@ -1,34 +1,37 @@
 <?php
 	if(isset($_POST['ContenuMsgForum']) AND isset($_SESSION['ID']))
 	{
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
 	$idMembre=$_SESSION['ID'];
 	$membre=$_SESSION['member'];
-	$ContenuMsgForum=$_POST['ContenuMsgForum'];
+	$ContenuMsg=htmlspecialchars($_POST['ContenuMsgForum']);
+	$ContenuMsgForum=addslashes($ContenuMsg);
 
-	if(isset($_GET['idTopic']) AND $ContenuMsgForum!=NULL)
-	{
+
+		if(isset($_GET['idTopic']) AND $ContenuMsgForum!=NULL)
+		{
 		$idTopic=$_GET['idTopic'];
-		$request =$bdd->query("INSERT INTO `membre`.`MessageForum` (`idMessage`,`urlForum`,`idUsers`,`userMessage`,`ContenuMsgForum`,`datePost`) VALUES (
+		$request =$bdd->query("INSERT INTO `db578515750`.`messageforum` (`idMessage`,`urlForum`,`idUsers`,`userMessage`,`ContenuMsgForum`,`datePost`) VALUES (
 			NULL,
 			'$idTopic',
 			'$idMembre',
 			'$membre',
 			'$ContenuMsgForum',
 			NOW());");
-	}
+		}
 	}
 
 	function SelectIdMessage($idTopic,$titreTopic)
 	{
-	$bdd = new PDO('mysql:host=127.0.0.1;dbname=membre;charset=utf8', 'root','root');
-	$requete = $bdd->prepare("SELECT `ContenuMsgForum`,`datePost`,`userMessage` FROM MessageForum WHERE `urlForum`=? ORDER BY `datePost` ASC");
+	$bdd = new PDO('mysql:host=db578515750.db.1and1.com;dbname=db578515750;charset=utf8', 'dbo578515750','$Cedbos456');
+	$requete = $bdd->prepare("SELECT `ContenuMsgForum`,`datePost`,`userMessage` FROM messageforum WHERE `urlForum`=? ORDER BY `datePost` ASC");
 	$requete->execute(array($idTopic));
 	
 	while($reponse=$requete->fetch())
 	{
 		$username=$reponse['userMessage'];
-		$ContenuMsgForum=$reponse['ContenuMsgForum'];
+		$ContenuMsg=$reponse['ContenuMsgForum'];
+		$ContenuMsgForum=stripslashes($ContenuMsg);
 		$datePost=$reponse['datePost'];
 		
 		echo"<div id='divGlobalPost'>
